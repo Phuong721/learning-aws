@@ -1,5 +1,5 @@
----
-date: 2018-11-29T08:41:44+01:00
+﻿---
+date: 2025-09-10
 title: Tags
 weight: 40
 tags: ["documentation", "tutorial"]
@@ -13,7 +13,7 @@ Il suffit d'ajouter un tableau de tags sur la page :
 
 ```markdown
 ---
-date: 2018-11-29T08:41:44+01:00
+date: 2025-09-10
 title: Tutoriel pour le thème
 weight: 15
 tags: ["tutoriel", "theme"]
@@ -36,3 +36,4 @@ name = "<i class='fas fa-tags'></i> Tags"
 url = "/tags"
 weight = 30
 ```
+

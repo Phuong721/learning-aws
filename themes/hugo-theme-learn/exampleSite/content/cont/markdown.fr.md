@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Syntaxe Markdown
 weight: 15
 ---
@@ -710,3 +710,4 @@ Add a HTTP `classes` parameter to the link image to add CSS classes. `shadow`and
 ```
 
 ![stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg?width=40pc&classes=border,shadow)
+

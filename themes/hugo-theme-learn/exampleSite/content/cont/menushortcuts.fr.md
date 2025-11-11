@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Raccourcis du menu
 weight: 25
 ---
@@ -106,3 +106,4 @@ Par exemple, avec ce site :
     weight = 30
 
 Plus d'infos sur [les menus Hugo](https://gohugo.io/extras/menus/) et les [menus multi-langue Hugo](https://gohugo.io/content-management/multilingual/#menus)
+

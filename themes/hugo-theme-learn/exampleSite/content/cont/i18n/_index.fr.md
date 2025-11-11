@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Multi-langue et i18n
 weight: 30
 ---
@@ -76,3 +76,4 @@ Pour ce faire, ajouter le paramètre `disableLanguageSwitchingButton=true` dans 
 ```
 
 ![I18n menu](/en/cont/i18n/images/i18n-menu.gif)
+

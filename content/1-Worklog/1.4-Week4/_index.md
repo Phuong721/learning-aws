@@ -1,57 +1,53 @@
----
-title: "Week 4 Worklog"
-date: "`r Sys.Date()`"
+﻿---
+title: "Worklog Week 4"
+date: 2025-09-22
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Gain knowledge of **Amazon S3** and cloud data management.  
+* Understand **IAM (Identity and Access Management)** for user and permission management.  
+* Get familiar with **AWS Billing & Cost Management** for monitoring service costs.  
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks for this week:
+| Day | Task | Start Date | Completion Date | Reference |
+| --- | ---- | ---------- | ---------------- | --------- |
+| 2 | - Introduction to Amazon S3 <br>&emsp; + Concept of Bucket & Object <br>&emsp; + Storage Classes (Standard, IA, Glacier...) <br>&emsp; + Versioning and Lifecycle rules | 22/09/2025 | 22/09/2025 | <https://000005.awsstudygroup.com/> |
+| 3 | - **Hands-on 1:** <br>&emsp; + Create S3 Bucket <br>&emsp; + Upload / Download files <br>&emsp; + Enable Versioning and verify | 23/09/2025 | 23/09/2025 | <https://000005.awsstudygroup.com/> |
+| 4 | - Basics of IAM: <br>&emsp; + User, Group, Role, Policy <br>&emsp; + Root user vs IAM user <br>&emsp; + Best Practices in account management | 24/09/2025 | 24/09/2025 | <https://000045.awsstudygroup.com/> |
+| 5 | - **Hands-on 2:** <br>&emsp; + Create IAM user <br>&emsp; + Assign permissions (Policy) <br>&emsp; + Log in with IAM user to test privileges | 25/09/2025 | 25/09/2025 | <https://000045.awsstudygroup.com/> |
+| 6 | - AWS Cost Management: <br>&emsp; + Introduction to Billing Dashboard <br>&emsp; + Basic Cost Explorer <br>&emsp; + Set up Billing Alarm with CloudWatch | 26/09/2025 | 26/09/2025 | <https://000046.awsstudygroup.com/> |
+| 7 | - **Hands-on 3 + Summary:** <br>&emsp; + Review billing in Free Tier <br>&emsp; + Practice with Cost Explorer <br>&emsp; + Consolidate knowledge of S3 + IAM + Billing | 27/09/2025 | 28/09/2025 | <https://000046.awsstudygroup.com/> |
 
 
-### Week 4 Achievements:
+### Week 4 Outcomes:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Gained a solid understanding of **Amazon S3**:  
+  * Bucket, Object, and different Storage Classes.  
+  * How to use Versioning to manage multiple file versions.  
+  * Lifecycle rules to automate data storage and deletion.  
 
-* Successfully created and configured an AWS Free Tier account.
+* Successfully completed **S3 hands-on exercises**:  
+  * Created Buckets, uploaded and downloaded files.  
+  * Enabled Versioning and verified file versions.  
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Learned the basics of **IAM**:  
+  * Difference between Root user and IAM user.  
+  * Created IAM user and assigned proper Policies.  
+  * Logged in as IAM user to test permissions.  
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Understood **AWS Billing & Cost Management**:  
+  * Used Billing Dashboard to track account charges.  
+  * Explored Cost Explorer for cost visualization.  
+  * Configured Billing Alarm to trigger alerts when exceeding thresholds.  
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* End-of-week practical skills:  
+  * Able to implement the workflow from data management (S3) → user management (IAM) → cost monitoring (Billing).  
+  * Understood the relationship between resources, security, and cost in AWS operations.  

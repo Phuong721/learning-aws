@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Shortcodes
 pre: "<b>3. </b>"
 weight: 15
@@ -14,3 +14,4 @@ To avoid this limitations, Hugo created [shortcodes](https://gohugo.io/extras/sh
 **Hugo-theme-learn** provides multiple shortcodes on top of existing ones.
 
 {{%children style="h2" description="true" %}}
+

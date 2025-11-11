@@ -1,6 +1,6 @@
----
+﻿---
 title: "Bản đề xuất"
-date: "`r Sys.Date()`"
+date: 2025-09-10
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -13,6 +13,9 @@ Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà b�
 
 # IoT Weather Platform for Lab Research  
 ## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+
+# Blood Donation Support System
+## Phần mềm hỗ trợ hiến máu
 
 ### 1. Tóm tắt điều hành  
 IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
@@ -106,3 +109,4 @@ Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.p
 ### 8. Kết quả kỳ vọng  
 *Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
 *Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+

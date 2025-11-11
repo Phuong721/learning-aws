@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Pages organization
 weight: 5
 ---
@@ -164,3 +164,4 @@ To configure your home page, you basically have three choices:
 1. Create an `_index.md` document in `content` folder and fill the file with _Markdown content_
 2. Create an `index.html` file in the `static` folder and fill the file with _HTML content_
 3. Configure your server to automatically redirect home page to one your documentation page
+

@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Personnalisation du style
 weight: 25
 ---
@@ -208,3 +208,4 @@ Puis, configurez le paramètre `themeVariant` avec le nom de votre variante. C'e
   # Modifier le schéma de couleur par défaut. Peut être "red", "blue", "green".
   themeVariant = "lemien"
 ```
+

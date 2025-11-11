@@ -1,6 +1,6 @@
----
+﻿---
 title: "Worklog Tuần 12"
-date: "`r Sys.Date()`"
+date: 2025-09-10
 weight: 2
 chapter: false
 pre: " <b> 1.12 </b> "
@@ -54,5 +54,6 @@ pre: " <b> 1.12 </b> "
 
 * Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
 * ...
+
 
 

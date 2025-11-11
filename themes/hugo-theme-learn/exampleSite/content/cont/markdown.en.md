@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Markdown syntax
 weight: 15
 ---
@@ -717,3 +717,4 @@ Add a HTTP `featherlight` parameter to the link image to disable lightbox. By de
 ```markdown
 ![Minion](https://octodex.github.com/images/minion.png?featherlight=false)
 ```
+

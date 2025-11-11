@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Menu extra shortcuts
 weight: 25
 ---
@@ -106,3 +106,4 @@ Example from the current website:
     weight = 30
 
 Read more about [hugo menu](https://gohugo.io/extras/menus/) and [hugo multilingual menus](https://gohugo.io/content-management/multilingual/#menus)
+

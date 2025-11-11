@@ -1,6 +1,6 @@
----
+﻿---
 title: "Worklog Tuần 4"
-date: "`r Sys.Date()`"
+date: 2025-09-22
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
@@ -12,48 +12,42 @@ pre: " <b> 1.4. </b> "
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nắm vững kiến thức về **Amazon S3** và quản lý dữ liệu trên cloud.  
+* Hiểu về **IAM (Identity and Access Management)** để quản lý người dùng và phân quyền.  
+* Làm quen với **AWS Billing & Cost Management** để giám sát chi phí dịch vụ.  
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | ---------------- | -------------- |
+| 2 | - Giới thiệu Amazon S3 <br>&emsp; + Khái niệm Bucket & Object <br>&emsp; + Các loại Storage Class (Standard, IA, Glacier...) <br>&emsp; + Cơ chế Versioning và Lifecycle | 22/09/2025 | 22/09/2025 | <https://000005.awsstudygroup.com/> |
+| 3 | - **Thực hành 1:** <br>&emsp; + Tạo Bucket S3 <br>&emsp; + Upload / Download file <br>&emsp; + Bật Versioning và kiểm tra | 23/09/2025 | 23/09/2025 | <https://000005.awsstudygroup.com/> |
+| 4 | - IAM cơ bản: <br>&emsp; + User, Group, Role, Policy <br>&emsp; + Root user vs IAM user <br>&emsp; + Best Practices trong quản lý tài khoản | 24/09/2025 | 24/09/2025 | <https://000045.awsstudygroup.com/> |
+| 5 | - **Thực hành 2:** <br>&emsp; + Tạo IAM user <br>&emsp; + Gán quyền (Policy) <br>&emsp; + Đăng nhập với IAM user để kiểm tra quyền hạn | 25/09/2025 | 25/09/2025 | <https://000045.awsstudygroup.com/> |
+| 6 | - Quản lý chi phí AWS: <br>&emsp; + Giới thiệu Billing Dashboard <br>&emsp; + Cost Explorer cơ bản <br>&emsp; + Thiết lập Billing Alarm với CloudWatch | 26/09/2025 | 26/09/2025 | <https://000046.awsstudygroup.com/> |
+| 7 | - **Thực hành 3 + Tổng kết:** <br>&emsp; + Kiểm tra hóa đơn (Billing) trong Free Tier <br>&emsp; + Thực hành với Cost Explorer <br>&emsp; + Tổng hợp kiến thức S3 + IAM + Billing | 27/09/2025 | 28/09/2025 | <https://000046.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hiểu rõ kiến thức cơ bản về **Amazon S3**:  
+  * Bucket, Object, và các loại Storage Class.  
+  * Cách sử dụng Versioning để quản lý nhiều phiên bản file.  
+  * Lifecycle rule để tự động hóa việc lưu trữ / xóa dữ liệu.  
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thực hành thành công với **S3 Bucket**:  
+  * Tạo Bucket, upload / download file.  
+  * Bật Versioning và kiểm tra thay đổi phiên bản.  
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Làm quen với **IAM**:  
+  * Phân biệt Root user và IAM user.  
+  * Tạo IAM user, gán Policy phù hợp.  
+  * Đăng nhập và xác minh quyền hạn đã được cấp.  
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Hiểu về **AWS Billing & Cost Management**:  
+  * Sử dụng Billing Dashboard để theo dõi chi phí.  
+  * Trải nghiệm Cost Explorer để xem biểu đồ chi phí dịch vụ.  
+  * Thiết lập Billing Alarm để cảnh báo khi chi phí vượt ngưỡng.  
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Kỹ năng tổng hợp cuối tuần:  
+  * Có thể triển khai quy trình từ quản lý dữ liệu (S3) → quản lý người dùng (IAM) → giám sát chi phí (Billing).  
+  * Hiểu được mối liên hệ giữa tài nguyên, bảo mật và chi phí khi vận hành trên AWS.  

@@ -1,11 +1,10 @@
 ---
 title : "Create a gateway endpoint"
-date :  "`r Sys.Date()`" 
+date: 2025-09-09
 weight : 1
 chapter : false
 pre : " <b> 5.3.1 </b> "
 ---
-
 1. Open the [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
 2. In the navigation pane, choose **Endpoints**, then click **Create Endpoint**:
 
@@ -16,6 +15,7 @@ You will see **6 existing VPC endpoints** that support **AWS Systems Manager (SS
 ![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
 
 3. In the Create endpoint console:
+
 + Specify name of the endpoint: ```s3-gwe```
 + In service category, choose **AWS services**
 

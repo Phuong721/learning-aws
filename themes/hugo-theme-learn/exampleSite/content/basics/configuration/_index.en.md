@@ -1,5 +1,5 @@
----
-date: 2016-04-09T16:50:16+02:00
+﻿---
+date: 2025-09-10
 title: Configuration
 weight: 20
 ---
@@ -58,3 +58,4 @@ Learn theme uses the last improvement available in hugo version 20+ to generate 
 
 > Hugo generate lunrjs index.json at the root of public folder.
 > When you build the site with `hugo server`, hugo generates it internally and of course it doesn’t show up in the filesystem
+
