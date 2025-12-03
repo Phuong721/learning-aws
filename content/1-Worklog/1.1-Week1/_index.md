@@ -1,60 +1,49 @@
 ﻿---
 title: "Worklog Week 1"
-date: 2025-09-10
+date: 2025-09-08
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Note:** The following information is for reference only. Please **do not copy verbatim** into your official report, including this warning.
+⚠️ **Note:** The information below is for reference only. Please **do not copy it verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
-### Goals for Week 1:
+### Week 1 Objectives:
 
-* Connect and get to know members of the First Cloud Journey (FCJ).  
-* Understand basic AWS services and how to use the Console & CLI.  
+* Set up and manage a basic AWS account.  
+* Get familiar with security mechanisms, user management, budgeting, and support on AWS.  
+* Practice operations on AWS Console and AWS CLI.
 
-### Tasks to be completed this week:
-| Day | Task | Start Date | Completion Date | Reference |
-| --- | ---- | ---------- | ---------------- | ---------- |
-| 2   | - Meet with FCJ members <br> - Read and acknowledge the rules and regulations at the internship unit | 08/09/2025 | 08/09/2025 | |
-| 3   | - Learn about AWS and its main service categories: Compute, Storage, Networking, Database, ... | 09/09/2025 | 09/09/2025 | <https://000001.awsstudygroup.com/vi/> |
-| 4   | - Create an AWS Free Tier account <br> - Explore AWS Console & AWS CLI <br> - **Practice:** Create an account, install & configure AWS CLI, use basic commands | 10/09/2025 | 10/09/2025 | <https://000001.awsstudygroup.com/vi/> |
-| 5   | - Basic security configuration: Set up Virtual MFA, create Admin Group & User, enable Account Authentication Support <br> - Create Budget from template | 11/09/2025 | 11/09/2025 | <https://000007.awsstudygroup.com/vi/> |
-| 6   | - **Practice:** Create Cost Budget, Usage Budget, Reservation Budget, Savings Plans Budget | 12/09/2025 | 12/09/2025 | <https://000007.awsstudygroup.com/vi/> |
+### Tasks to implement this week:
+| Day | Task | Start Date | End Date | Reference |
+| --- | ---- | ---------- | -------- | --------- |
+| Mon | - Create AWS Free Tier account (Module 01-Lab01-01) <br> - Set up Virtual MFA (Module 01-Lab01-02) | 08/09/2025 | 08/09/2025 | <https://000001.awsstudygroup.com/> |
+| Tue | - Create Admin Group and Admin User (Module 01-Lab01-03) <br> - Configure Account Authentication Support (Module 01-Lab01-04) | 09/09/2025 | 09/09/2025 | <https://000007.awsstudygroup.com/> |
+| Wed | - Create Budget using template (Module 01-Lab07-01) <br> - Create Cost Budget (Module 01-Lab07-02) | 10/09/2025 | 10/09/2025 | <https://000009.awsstudygroup.com/> |
+| Thu | - Create Usage Budget (Module 01-Lab07-03) <br> - Create Reservation Instance (RI) Budget (Module 01-Lab07-04) | 11/09/2025 | 11/09/2025 | <https://000009.awsstudygroup.com/> |
+| Fri | - Create Savings Plans Budget (Module 01-Lab07-05) <br> - Clean Up Budgets (Module 01-Lab07-06) | 12/09/2025 | 12/09/2025 | <https://000009.awsstudygroup.com/> |
+| Sat | - Explore AWS Support plans (Module 01-Lab09-01) <br> - Types of support requests (Module 01-Lab09-02) <br> - Change support plan (Module 01-Lab09-03) <br> - Manage support requests (Module 01-Lab09-04) | 13/09/2025 | 13/09/2025 | <https://000007.awsstudygroup.com/> |
+| Sun | - Review, consolidate, and finalize configurations; clean up experimental resources | 14/09/2025 | 14/09/2025 | - |
 
+### Week 1 Results:
 
-### Achievements in Week 1:
+* AWS Account Initialization:
+  * Successfully created AWS Free Tier account.  
+  * Set up MFA for root account for security.  
+  * Created Admin Group and Admin User for management instead of using root.  
+  * Completed Account Authentication Support configuration.
 
-* **Getting started at FCJ:**
-  * Successfully connected with FCJ members, building a good communication foundation.  
-  * Understood and followed the unit’s rules and regulations.  
+* Budget Management:
+  * Created Budget using template, Cost Budget, Usage Budget, RI Budget, and Savings Plans Budget.  
+  * Practiced cleaning up created budgets to avoid extra charges.
 
-* **Basic AWS account management:**
-  * Created and activated an AWS Free Tier account.  
-  * Secured the root account by enabling MFA (Multi-Factor Authentication).  
-  * Created an Admin Group and IAM Admin user to replace root usage.  
-  * Verified AWS account information.  
+* Support and Troubleshooting:
+  * Understood and learned to use AWS Support plans.  
+  * Practiced creating, managing, and changing support requests on AWS Console.
 
-* **Familiarization with AWS Management Console:**
-  * Logged in and explored the AWS Console interface.  
-  * Learned how to access and manage basic services via the Console.  
-  * Practiced display customization and navigation in the Console.  
-
-* **Cost management with AWS Budgets:**
-  * Created a Cost Budget to monitor service expenses.  
-  * Created a Usage Budget to track resource usage.  
-  * Learned and configured a Reservation Budget to manage Reserved Instance costs.  
-  * Experimented with Savings Plans Budget for long-term cost optimization.  
-
-* **Support & troubleshooting:**
-  * Learned how to open a Support Case in AWS to contact AWS Support when needed.  
-
-* **Resource cleanup:**
-  * Performed clean-up (delete/stop test resources) to avoid unwanted charges.  
-
-* **Self-assessment:**
-  * Completed basic account setup and security configuration.  
-  * Gained knowledge on creating admin users and groups, as well as monitoring costs with Budgets.  
-  * Ready for Week 2 with more in-depth AWS service learning (e.g., EC2, S3, VPC…).  
+* Self-assessment:
+  * Mastered the process of account setup, security, and user/group management.  
+  * Practiced basic AWS budgeting and support plan management.  
+  * Ready to proceed to the following weeks with more advanced AWS services.

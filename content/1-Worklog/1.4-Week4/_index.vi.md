@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 4"
-date: 2025-09-22
+date: 2025-09-29
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
@@ -9,45 +9,46 @@ pre: " <b> 1.4. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 4:
 
-* Nắm vững kiến thức về **Amazon S3** và quản lý dữ liệu trên cloud.  
-* Hiểu về **IAM (Identity and Access Management)** để quản lý người dùng và phân quyền.  
-* Làm quen với **AWS Billing & Cost Management** để giám sát chi phí dịch vụ.  
+* Thực hành AWS Backup nâng cao và thiết lập thông báo.  
+* Triển khai và quản lý máy ảo từ On-Premises lên AWS bằng AMI.  
+* Thực hành S3, Storage Gateway và File Shares nâng cao.  
+* Triển khai Multi-AZ file system với SSD và HDD, giám sát hiệu suất và quản lý người dùng.  
+* Quản lý website tĩnh S3, CloudFront, versioning, replication và dọn dẹp tài nguyên.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | ---------------- | -------------- |
-| 2 | - Giới thiệu Amazon S3 <br>&emsp; + Khái niệm Bucket & Object <br>&emsp; + Các loại Storage Class (Standard, IA, Glacier...) <br>&emsp; + Cơ chế Versioning và Lifecycle | 22/09/2025 | 22/09/2025 | <https://000005.awsstudygroup.com/> |
-| 3 | - **Thực hành 1:** <br>&emsp; + Tạo Bucket S3 <br>&emsp; + Upload / Download file <br>&emsp; + Bật Versioning và kiểm tra | 23/09/2025 | 23/09/2025 | <https://000005.awsstudygroup.com/> |
-| 4 | - IAM cơ bản: <br>&emsp; + User, Group, Role, Policy <br>&emsp; + Root user vs IAM user <br>&emsp; + Best Practices trong quản lý tài khoản | 24/09/2025 | 24/09/2025 | <https://000045.awsstudygroup.com/> |
-| 5 | - **Thực hành 2:** <br>&emsp; + Tạo IAM user <br>&emsp; + Gán quyền (Policy) <br>&emsp; + Đăng nhập với IAM user để kiểm tra quyền hạn | 25/09/2025 | 25/09/2025 | <https://000045.awsstudygroup.com/> |
-| 6 | - Quản lý chi phí AWS: <br>&emsp; + Giới thiệu Billing Dashboard <br>&emsp; + Cost Explorer cơ bản <br>&emsp; + Thiết lập Billing Alarm với CloudWatch | 26/09/2025 | 26/09/2025 | <https://000046.awsstudygroup.com/> |
-| 7 | - **Thực hành 3 + Tổng kết:** <br>&emsp; + Kiểm tra hóa đơn (Billing) trong Free Tier <br>&emsp; + Thực hành với Cost Explorer <br>&emsp; + Tổng hợp kiến thức S3 + IAM + Billing | 27/09/2025 | 28/09/2025 | <https://000046.awsstudygroup.com/> |
-
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Tạo S3 Bucket (Module 04-Lab13-02.1) <br> - Triển khai hạ tầng Backup (Module 04-Lab13-02.2) <br> - Tạo Backup Plan (Module 04-Lab13-03) <br> - Thiết lập thông báo (Module 04-Lab13-04) | 29/09/2025 | 29/09/2025 | <https://000013.awsstudygroup.com/>, <https://000014.awsstudygroup.com/> |
+| 3   | - Thử nghiệm khôi phục dữ liệu (Module 04-Lab13-05) <br> - Dọn dẹp tài nguyên Backup (Module 04-Lab13-06) | 30/09/2025 | 30/09/2025 | <https://000013.awsstudygroup.com/>, <https://000014.awsstudygroup.com/> |
+| 4   | - Làm việc với VMWare Workstation (Module 04-Lab14-01) <br> - Export VM từ On-Premises (Module 04-Lab14-02.1) <br> - Upload VM lên AWS (Module 04-Lab14-02.2) <br> - Import VM vào AWS (Module 04-Lab14-02.3) <br> - Triển khai Instance từ AMI (Module 04-Lab14-02.4) | 01/10/2025 | 01/10/2025 | <https://000024.awsstudygroup.com/>, <https://000025.awsstudygroup.com/> |
+| 5   | - Quản lý S3 Bucket ACL (Module 04-Lab14-03.1) <br> - Export VM từ Instance (Module 04-Lab14-03.2) <br> - Dọn dẹp tài nguyên VM & AWS (Module 04-Lab14-05) | 02/10/2025 | 02/10/2025 | <https://000024.awsstudygroup.com/>, <https://000025.awsstudygroup.com/> |
+| 6   | - Tạo Storage Gateway (Module 04-Lab24-2.1) <br> - Tạo File Shares (Module 04-Lab24-2.2) <br> - Mount File Shares trên máy On-Premises (Module 04-Lab24-2.3) <br> - Dọn dẹp tài nguyên (Module 04-Lab24-3) | 03/10/2025 | 03/10/2025 | <https://000024.awsstudygroup.com/> |
+| 7   | - Tạo SSD & HDD Multi-AZ File System (Module 04-Lab25-2.2 & 2.3) <br> - Tạo file shares, test & monitor performance (Module 04-Lab25-3, 4, 5) <br> - Enable deduplication, shadow copies, quản lý user & quotas, scale throughput & storage (Module 04-Lab25-6 đến 12) | 04/10/2025 | 04/10/2025 | <https://000024.awsstudygroup.com/> |
+| CN  | - Dọn dẹp môi trường Multi-AZ (Module 04-Lab25-13) <br> - Tạo S3 Bucket, load dữ liệu, website tĩnh, CloudFront, versioning & replication, test & cleanup (Module 04-Lab57-2.1 đến 11) | 05/10/2025 | 05/10/2025 | <https://000057.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu rõ kiến thức cơ bản về **Amazon S3**:  
-  * Bucket, Object, và các loại Storage Class.  
-  * Cách sử dụng Versioning để quản lý nhiều phiên bản file.  
-  * Lifecycle rule để tự động hóa việc lưu trữ / xóa dữ liệu.  
+* AWS Backup nâng cao:
+  * Triển khai Backup Plan, thiết lập thông báo, test restore dữ liệu thành công.  
+  * Dọn dẹp tài nguyên backup.
 
-* Thực hành thành công với **S3 Bucket**:  
-  * Tạo Bucket, upload / download file.  
-  * Bật Versioning và kiểm tra thay đổi phiên bản.  
+* Máy ảo & AMI:
+  * Export VM từ On-Premises, upload & import vào AWS.  
+  * Triển khai Instance từ AMI và quản lý S3 Bucket ACL.  
+  * Dọn dẹp VM & tài nguyên sau thử nghiệm.
 
-* Làm quen với **IAM**:  
-  * Phân biệt Root user và IAM user.  
-  * Tạo IAM user, gán Policy phù hợp.  
-  * Đăng nhập và xác minh quyền hạn đã được cấp.  
+* Storage Gateway & Multi-AZ File System:
+  * Tạo Storage Gateway, File Shares, mount trên máy On-Premises.  
+  * Triển khai SSD & HDD Multi-AZ File System, tạo file shares, test & monitor performance.  
+  * Quản lý user, enable deduplication, shadow copies, quotas, scale throughput & storage.
 
-* Hiểu về **AWS Billing & Cost Management**:  
-  * Sử dụng Billing Dashboard để theo dõi chi phí.  
-  * Trải nghiệm Cost Explorer để xem biểu đồ chi phí dịch vụ.  
-  * Thiết lập Billing Alarm để cảnh báo khi chi phí vượt ngưỡng.  
+* S3 & CloudFront:
+  * Tạo S3 Bucket, load dữ liệu, triển khai website tĩnh, cấu hình CloudFront.  
+  * Sử dụng versioning, replication multi-region, test & dọn dẹp tài nguyên.
 
-* Kỹ năng tổng hợp cuối tuần:  
-  * Có thể triển khai quy trình từ quản lý dữ liệu (S3) → quản lý người dùng (IAM) → giám sát chi phí (Billing).  
-  * Hiểu được mối liên hệ giữa tài nguyên, bảo mật và chi phí khi vận hành trên AWS.  
+* Tự đánh giá:
+  * Nắm vững triển khai Backup nâng cao, Storage Gateway, Multi-AZ File System, quản lý VM & website tĩnh.  
+  * Thực hành dọn dẹp tài nguyên đúng cách, tránh phát sinh chi phí.  
+  * Sẵn sàng cho tuần tiếp theo với các bài học về bảo mật, IAM & tối ưu chi phí.

@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 5"
-date: 2025-09-10
+date: 2025-10-06
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
@@ -9,52 +9,47 @@ pre: " <b> 1.5. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hành AWS Security Hub và đánh giá bảo mật.  
+* Quản lý VPC, EC2 và Lambda với Web-hooks và Tagging.  
+* Quản lý IAM Users, Policies, Roles và Switch Roles nâng cao.  
+* Thực hành kiểm soát quyền hạn người dùng IAM và giới hạn truy cập.  
+* Quản lý CloudTrail, Athena và dữ liệu S3 được mã hóa.  
+* Triển khai và quản lý EC2, S3 và IAM Role/Key.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Bật AWS Security Hub (Module 05-Lab18-02) <br> - Đánh giá score theo tiêu chí (Module 05-Lab18-03) <br> - Dọn dẹp tài nguyên Security Hub (Module 05-Lab18-04) | 06/10/2025 | 06/10/2025 | <https://000018.awsstudygroup.com/> |
+| 3   | - Tạo VPC, Security Group, EC2 (Module 05-Lab22-2.1 đến 2.3) <br> - Cấu hình Incoming Web-hooks Slack (Module 05-Lab22-2.4) <br> - Tạo Tag Instance (Module 05-Lab22-3) <br> - Tạo Role cho Lambda (Module 05-Lab22-4) <br> - Stop/Start function, kiểm tra kết quả (Module 05-Lab22-5.1 đến 6) <br> - Dọn dẹp tài nguyên (Module 05-Lab22-7) | 07/10/2025 | 07/10/2025 | <https://000022.awsstudygroup.com/> |
+| 4   | - Quản lý Tag trên EC2 và AWS Resources (Module 05-Lab27-2.1.1 đến 2.2) <br> - Tạo Resource Group (Module 05-Lab27-3) <br> - Dọn dẹp tài nguyên (Module 05-Lab27-4) | 08/10/2025 | 08/10/2025 | <https://000027.awsstudygroup.com/> |
+| 5   | - Tạo IAM Users, Policies, Roles (Module 05-Lab28-2.1 đến 4) <br> - Switch Roles & kiểm tra truy cập EC2 ở nhiều Region (Module 05-Lab28-5.1 đến 5.2.5) <br> - Dọn dẹp tài nguyên (Module 05-Lab28-6) | 09/10/2025 | 09/10/2025 | <https://000028.awsstudygroup.com/> |
+| 6   | - Tạo IAM Limited User & Restriction Policy, test hạn chế quyền (Module 05-Lab30-3 đến 5) <br> - Dọn dẹp tài nguyên (Module 05-Lab30-6) | 10/10/2025 | 10/10/2025 | <https://000030.awsstudygroup.com/> |
+| 7   | - Tạo Policy, Role, Group, User, KMS, Bucket S3, upload dữ liệu, CloudTrail, Athena, test mã hóa dữ liệu (Module 05-Lab33-2.1 đến 6) <br> - Dọn dẹp tài nguyên (Module 05-Lab33-7) | 11/10/2025 | 11/10/2025 | <https://000033.awsstudygroup.com/> |
+| CN  | - Quản lý IAM Group, User, Admin Role, Switch Role, hạn chế theo IP & thời gian (Module 05-Lab44) <br> - Tạo EC2, S3, IAM Role, Access Key và dọn dẹp tài nguyên (Module 05-Lab48) | 12/10/2025 | 12/10/2025 | <https://000044.awsstudygroup.com/> <br> <https://000048.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* AWS Security Hub:
+  * Bật Security Hub, đánh giá score theo tiêu chí, dọn dẹp tài nguyên.  
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* VPC, EC2 & Lambda:
+  * Tạo VPC, Security Group, EC2, Lambda functions với stop/start, Incoming Web-hooks Slack.  
+  * Sử dụng Tags để quản lý resource, tạo Resource Group, kiểm tra kết quả.  
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* IAM Management:
+  * Tạo Users, Policies, Roles, Switch Roles nâng cao.  
+  * Triển khai IAM Limited User với hạn chế quyền và giới hạn truy cập theo IP/Time.  
+  * Quản lý nhiều Region với EC2 console, kiểm tra Tag & Policy.  
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* CloudTrail, Athena & S3:
+  * Tạo Bucket, upload dữ liệu, bật CloudTrail, truy xuất dữ liệu bằng Athena, test mã hóa dữ liệu.  
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Quản lý tài nguyên:
+  * Dọn dẹp toàn bộ tài nguyên đã triển khai sau khi thực hành để tránh phát sinh chi phí.  
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Tự đánh giá:
+  * Nắm vững thực hành Security Hub, VPC, EC2, Lambda, Tag, IAM, CloudTrail & Athena.  
+  * Hiểu và triển khai các hạn chế truy cập nâng cao cho IAM Users.  
+  * Sẵn sàng cho tuần tiếp theo với các nội dung tối ưu bảo mật và chi phí.

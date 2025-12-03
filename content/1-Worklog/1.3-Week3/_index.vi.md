@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 3"
-date: 2025-09-17
+date: 2025-09-22
 weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
@@ -12,38 +12,39 @@ pre: " <b> 1.3. </b> "
 
 ### Mục tiêu tuần 3:
 
-* Nắm kiến thức cơ bản về **dịch vụ lưu trữ và bảo mật trên AWS**.  
-* Làm quen với **AWS S3**, **IAM (Identity and Access Management)** và **CloudWatch** để quản lý, giám sát hệ thống.  
+* Thực hành triển khai AWS Backup và đảm bảo phục hồi dữ liệu.  
+* Triển khai S3, Storage Gateway, quản lý dữ liệu và file shares.  
+* Thiết lập và quản lý website tĩnh trên S3 cùng với CloudFront.  
+* Tìm hiểu các tính năng nâng cao của S3: versioning, replication, quản lý quyền truy cập.  
+* Dọn dẹp tài nguyên sau khi thử nghiệm để tránh phát sinh chi phí.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | ---------------- | -------------- |
-| 2 | - Giới thiệu về **Amazon S3** <br>&emsp; + Khái niệm và vai trò của S3 <br>&emsp; + Bucket & Object <br>&emsp; + Lớp lưu trữ (Storage Classes) <br>&emsp; + Cơ chế phân quyền cơ bản | 15/09/2025 | 15/09/2025 | <https://000048.awsstudygroup.com/> |
-| 3 | - **Thực hành 1:** <br>&emsp; + Tạo S3 bucket <br>&emsp; + Upload / Download file <br>&emsp; + Thiết lập quyền truy cập (Public / Private) <br>&emsp; + Thử lifecycle policy đơn giản | 16/09/2025 | 16/09/2025 | <https://000048.awsstudygroup.com/> |
-| 4 | - Tìm hiểu về **IAM**: <br>&emsp; + User, Group, Role <br>&emsp; + Chính sách (Policies) và quyền truy cập <br>&emsp; + Thực hành gán quyền cho IAM User để quản lý S3 | 17/09/2025 | 17/09/2025 | <https://000049.awsstudygroup.com/> |
-| 5 | - **Thực hành 2:** <br>&emsp; + Tạo IAM User và Group <br>&emsp; + Gán quyền S3 ReadOnly / FullAccess <br>&emsp; + Kiểm tra đăng nhập bằng IAM User mới | 18/09/2025 | 18/09/2025 | <https://000049.awsstudygroup.com/> |
-| 6 | - Giới thiệu về **CloudWatch**: <br>&emsp; + CloudWatch Metrics <br>&emsp; + CloudWatch Logs <br>&emsp; + CloudWatch Alarms <br>&emsp; + Use case: giám sát EC2 và S3 | 19/09/2025 | 19/09/2025 | <https://000057.awsstudygroup.com/> |
-| 7 | - **Thực hành 3 + Tổng kết:** <br>&emsp; + Cấu hình CloudWatch Alarm cho EC2 CPU usage <br>&emsp; + Gửi thông báo qua SNS <br>&emsp; + Tổng kết toàn bộ quy trình (S3 → IAM → CloudWatch) | 20-21/09/2025 | 21/09/2025 | <https://000057.awsstudygroup.com/> |
-
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Deploy AWS Backup to the system - Introduction (Module 03-Lab13-01) <br> - Triển khai hạ tầng Backup (Module 03-Lab13-02.2) <br> - Tạo Backup Plan (Module 03-Lab13-03) | 22/09/2025 | 22/09/2025 | <https://000013.awsstudygroup.com/> |
+| 3   | - Thử nghiệm khôi phục dữ liệu (Module 03-Lab13-05) <br> - Dọn dẹp tài nguyên Backup (Module 03-Lab13-06) | 23/09/2025 | 23/09/2025 | <https://000013.awsstudygroup.com/> |
+| 4   | - Tạo S3 Bucket & EC2 cho Storage Gateway (Module 03-Lab24-01.1 & 01.2) <br> - Tạo Storage Gateway và File Shares (Module 03-Lab24-02.1 & 02.2) | 24/09/2025 | 24/09/2025 | <https://000024.awsstudygroup.com/> |
+| 5   | - Tạo S3 Bucket, load dữ liệu, enable static website (Module 03-Lab57-02.1, 02.2 & 03) <br> - Cấu hình quyền truy cập công khai và test website (Module 03-Lab57-04, 05, 06) | 25/09/2025 | 25/09/2025 | <https://000057.awsstudygroup.com/> |
+| 6   | - Block all public access, cấu hình CloudFront & test (Module 03-Lab57-07.1 đến 07.3) <br> - Sử dụng bucket versioning, di chuyển đối tượng, replication multi-region (Module 03-Lab57-08, 09, 10) | 26/09/2025 | 26/09/2025 | <https://000057.awsstudygroup.com/> |
+| 7   | - Dọn dẹp tài nguyên S3 & CloudFront (Module 03-Lab57-11) | 27/09/2025 | 27/09/2025 | <https://000057.awsstudygroup.com/> |
+| CN  | - Tổng kết tuần 3, đánh giá kết quả, ghi nhận kinh nghiệm triển khai Backup, Storage Gateway và S3/CloudFront | 28/09/2025 | 28/09/2025 | N/A |
 
 ### Kết quả đạt được tuần 3:
 
-* **Amazon S3**:
-  * Hiểu bucket, object và các lớp lưu trữ (Standard, IA, Glacier).
-  * Thực hành tạo bucket, upload/download file, cài đặt quyền Public/Private.
-  * Biết cách sử dụng lifecycle policy để tự động quản lý file.
+* AWS Backup:
+  * Triển khai Backup Plan và thử nghiệm khôi phục dữ liệu thành công.  
+  * Dọn dẹp tài nguyên backup sau khi kiểm tra.
 
-* **IAM (Identity and Access Management)**:
-  * Phân biệt User, Group, Role.
-  * Biết cách viết và gán policy cho IAM User.
-  * Tạo User mới, gán quyền S3 ReadOnly/FullAccess, đăng nhập kiểm chứng.
+* Storage Gateway & S3:
+  * Tạo S3 Bucket và EC2 cho Storage Gateway.  
+  * Thiết lập Storage Gateway và file shares, load dữ liệu thành công.
 
-* **CloudWatch**:
-  * Hiểu khái niệm Metrics, Logs, Alarms.
-  * Thực hành cấu hình alarm cho CPU EC2.
-  * Kết hợp với SNS để nhận thông báo qua email.
+* Website tĩnh & CloudFront:
+  * Triển khai website tĩnh trên S3, cấu hình public access, và kiểm tra hiển thị.  
+  * Cấu hình CloudFront để phân phối nội dung, kiểm tra hoạt động.  
+  * Sử dụng versioning, di chuyển đối tượng và replication multi-region.
 
-* **Kỹ năng tổng hợp cuối tuần**:
-  * Tích hợp các dịch vụ cơ bản: S3 (lưu trữ) + IAM (quyền truy cập) + CloudWatch (giám sát).
-  * Có thể tự triển khai và kết hợp các dịch vụ này trong môi trường thực hành AWS.  
-  * Bước đầu nắm được cách bảo mật và giám sát hệ thống AWS cơ bản.  
+* Tự đánh giá:
+  * Nắm vững các bước triển khai AWS Backup, Storage Gateway, S3 và CloudFront.  
+  * Thực hành test restore, versioning, replication và dọn dẹp tài nguyên.  
+  * Sẵn sàng cho tuần tiếp theo với các bài tập AWS nâng cao về bảo mật và tối ưu chi phí.

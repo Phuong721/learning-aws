@@ -1,58 +1,55 @@
 ﻿---
-title: "Week 6 Worklog"
-date: 2025-09-10
+title: "Worklog Week 6"
+date: 2025-10-13
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
-
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Practice deploying VPC, EC2, RDS, and security configurations.  
+* Deploy applications and perform backup/restore.  
+* Manage EC2 connections via RDP and Fleet Manager.  
+* Configure SQL Server and Oracle databases.  
+* Perform schema conversion from MSSQL/Oracle to Aurora MySQL.  
+* Practice Serverless Migration, checking logs, and troubleshooting test scenarios.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Tasks to be performed this week:
+| Day | Task | Start Date | End Date | Resources |
+| --- | ---- | ---------- | -------- | --------- |
+| Mon | - Create VPC (Module 06-Lab05-2.1) <br> - Create EC2 Security Group (Module 06-Lab05-2.2) <br> - Create RDS Security Group (Module 06-Lab05-2.3) <br> - Create DB Subnet Group (Module 06-Lab05-2.4) <br> - Deploy EC2 instance (Module 06-Lab05-3) <br> - Deploy RDS database instance (Module 06-Lab05-4) <br> - Application Deployment (Module 06-Lab05-5) <br> - Backup & Restore (Module 06-Lab05-6) <br> - Clean up resources (Module 06-Lab05-7) | 13/10/2025 | 13/10/2025 | <https://000006.awsstudygroup.com/> |
+| Tue | - Connect EC2 via RDP Client (Module 06-Lab43-01) <br> - Connect EC2 via Fleet Manager (Module 06-Lab43-02) <br> - Configure SQL Server Source DB (Module 06-Lab43-03) | 14/10/2025 | 14/10/2025 | <https://000043.awsstudygroup.com/> |
+| Wed | - Connect & configure Oracle Source DB (Module 06-Lab43-04 & 05) <br> - Drop Constraint (Module 06-Lab43-06) <br> - MSSQL → Aurora MySQL target config (Module 06-Lab43-07) <br> - Create migration project (Module 06-Lab43-08) | 15/10/2025 | 15/10/2025 | <https://000043.awsstudygroup.com/> |
+| Thu | - Schema conversion MSSQL/Oracle → Aurora MySQL (Module 06-Lab43-09 & 10) <br> - Create Migration Task & Endpoints (Module 06-Lab43-11) <br> - Inspect S3 data (Module 06-Lab43-12) | 16/10/2025 | 16/10/2025 | <https://000043.awsstudygroup.com/> |
+| Fri | - Create Serverless Migration (Module 06-Lab43-13) <br> - Create Event Notification (Module 06-Lab43-14) <br> - Check logs (Module 06-Lab43-15) <br> - Troubleshoot Mem Pressure & Table Errors (Module 06-Lab43-16 & 17) | 17/10/2025 | 17/10/2025 | <https://000043.awsstudygroup.com/> |
+| Sat | - Consolidate results, review and clean up all resources | 18/10/2025 | 18/10/2025 | N/A |
+| Sun | - Weekly self-assessment and preparation for next week | 19/10/2025 | 19/10/2025 | N/A |
 
+### Week 6 Outcomes:
 
-### Week 6 Achievements:
+* Network & Database Deployment:
+  * Created and configured VPC, EC2 Security Group, RDS Security Group, DB Subnet Group.  
+  * Successfully deployed EC2 & RDS instances, application deployment, and performed backup/restore.  
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* EC2 Connection Management:
+  * Connected EC2 via RDP Client and Fleet Manager, managed SQL Server & Oracle Source DB.  
 
-* Successfully created and configured an AWS Free Tier account.
+* Data Migration & Conversion:
+  * Performed schema conversion from MSSQL/Oracle to Aurora MySQL.  
+  * Created Migration Task, Endpoints, inspected data on S3.  
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Serverless Migration & Troubleshooting:
+  * Created Serverless Migration, configured Event Notification, checked logs.  
+  * Successfully handled Mem Pressure & Table Errors test scenarios.  
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Resource Management:
+  * Cleaned up all deployed resources to avoid unexpected costs.  
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Self-Assessment:
+  * Mastered deploying VPC, EC2, RDS, backup/restore, database connection, and Serverless Migration.  
+  * Understood data conversion process and log monitoring.  
+  * Prepared well for the next week with advanced security and infrastructure optimization topics.

@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 7"
-date: 2025-09-10
+date: 2025-10-20
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
@@ -9,52 +9,45 @@ pre: " <b> 1.7. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai và quản lý dữ liệu trên S3, DynamoDB, Redshift.  
+* Tạo pipeline dữ liệu với Kinesis, Glue, DataBrew, EMR.  
+* Phân tích dữ liệu bằng Athena, Kinesis Data Analytics và trực quan hóa bằng QuickSight.  
+* Xây dựng ứng dụng serverless và dashboard tương tác.  
+* Làm quen với CloudShell, AWS SDK và Cloud9 cho thao tác lập trình và xử lý dữ liệu.  
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Tạo S3 Bucket, Delivery Stream, dữ liệu mẫu, Glue Crawler, kiểm tra dữ liệu, session setup, phân tích với Athena, trực quan hóa QuickSight, dọn dẹp tài nguyên (Module 07-Lab35-3.1 đến 7) | 20/10/2025 | 20/10/2025 | <https://000035.awsstudygroup.com/> |
+| 3   | - Làm quen DynamoDB, khám phá console, backup dữ liệu, dọn dẹp, áp dụng Advanced Design Patterns, triển khai global serverless app, event-driven architecture (Module 07-Lab39-1 đến 8) | 21/10/2025 | 21/10/2025 | <https://000039.awsstudygroup.com/> |
+| 4   | - Chuẩn bị, xây dựng cơ sở dữ liệu, quản lý dữ liệu trong bảng, chi phí, tagging, sử dụng và truy vấn dữ liệu, dọn dẹp tài nguyên (Module 07-Lab40-2.1 đến 4) | 22/10/2025 | 22/10/2025 | <https://000040.awsstudygroup.com/> |
+| 5   | - Làm quen với CloudShell, console, SDK; tạo Cloud9 instance, tải và upload dataset lên S3; setup DataBrew, data profiling, clean & transform data (Module 07-Lab60 & 07-Lab70) | 23/10/2025 | 23/10/2025 | <https://000060.awsstudygroup.com/> |
+| 6   | - Chuẩn bị pipeline, ingest & store dữ liệu, catalog data, transform data với Glue (interactive & GUI), DataBrew, EMR; phân tích dữ liệu với Athena & Kinesis Data Analytics; visualize với QuickSight; serve với Lambda; warehouse trên Redshift (Module 07-Lab72-2 đến 13) | 24/10/2025 | 24/10/2025 | <https://000070.awsstudygroup.com/> |
+| 7   | - Xây dựng dashboard, cải thiện dashboard, tạo interactive dashboard (Module 07-Lab73-3 đến 5) | 25/10/2025 | 25/10/2025 | <https://000072.awsstudygroup.com/> |
+| CN  | - Tổng hợp, kiểm tra kết quả, dọn dẹp tài nguyên, tự đánh giá tuần và chuẩn bị nội dung tuần tiếp theo | 26/10/2025 | 26/10/2025 | <https://000073.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Quản lý và xử lý dữ liệu:
+  * Triển khai dữ liệu trên S3, DynamoDB, Redshift.  
+  * Tạo pipeline dữ liệu với Kinesis, Glue, DataBrew và EMR.  
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Phân tích & trực quan hóa:
+  * Phân tích dữ liệu bằng Athena và Kinesis Data Analytics.  
+  * Trực quan hóa dữ liệu và xây dựng dashboard tương tác với QuickSight.  
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Ứng dụng serverless:
+  * Triển khai ứng dụng serverless trên DynamoDB và Lambda.  
+  * Xây dựng event-driven architecture cho global serverless app.  
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Công cụ lập trình & thao tác dữ liệu:
+  * Sử dụng CloudShell, AWS SDK và Cloud9 để thao tác và xử lý dữ liệu.  
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Quản lý tài nguyên:
+  * Dọn dẹp toàn bộ tài nguyên đã triển khai để tránh chi phí phát sinh.  
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Tự đánh giá:
+  * Nắm vững quản lý dữ liệu, pipeline, phân tích & trực quan hóa, serverless application.  
+  * Chuẩn bị tốt cho tuần tiếp theo với các nội dung nâng cao về bảo mật, tagging và quản lý chi phí.

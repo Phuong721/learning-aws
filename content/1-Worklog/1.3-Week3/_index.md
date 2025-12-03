@@ -1,49 +1,50 @@
 ﻿---
 title: "Worklog Week 3"
-date: 2025-09-17
+date: 2025-09-22
 weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Note:** The following information is for reference only. Please **do not copy verbatim** into your official report, including this warning.
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
-### Goals for Week 3:
+### Week 3 Goals:
 
-* Understand the basics of **AWS storage and security services**.  
-* Get familiar with **Amazon S3**, **IAM (Identity and Access Management)**, and **CloudWatch** for system management and monitoring.  
+* Practice deploying AWS Backup and ensure data restore.  
+* Deploy S3, Storage Gateway, manage data and file shares.  
+* Set up and manage a static website on S3 with CloudFront.  
+* Learn advanced S3 features: versioning, replication, and access management.  
+* Clean up resources after testing to avoid unnecessary costs.
 
-### Tasks to be completed this week:
-| Day | Task | Start Date | Completion Date | Reference |
-| --- | ---- | ---------- | ---------------- | ---------- |
-| 2 | - Introduction to **Amazon S3** <br>&emsp; + Concept and role of S3 <br>&emsp; + Bucket & Object <br>&emsp; + Storage Classes (Standard, IA, Glacier) <br>&emsp; + Basic access control | 15/09/2025 | 15/09/2025 | <https://000048.awsstudygroup.com/> |
-| 3 | - **Practice 1:** <br>&emsp; + Create an S3 bucket <br>&emsp; + Upload / Download files <br>&emsp; + Configure access permissions (Public / Private) <br>&emsp; + Test a simple lifecycle policy | 16/09/2025 | 16/09/2025 | <https://000048.awsstudygroup.com/> |
-| 4 | - Learning about **IAM**: <br>&emsp; + Users, Groups, Roles <br>&emsp; + Policies and permissions <br>&emsp; + Practice assigning IAM User permissions for S3 | 17/09/2025 | 17/09/2025 | <https://000049.awsstudygroup.com/> |
-| 5 | - **Practice 2:** <br>&emsp; + Create IAM User and Group <br>&emsp; + Assign S3 ReadOnly / FullAccess permissions <br>&emsp; + Test login with the new IAM User | 18/09/2025 | 18/09/2025 | <https://000049.awsstudygroup.com/> |
-| 6 | - Introduction to **CloudWatch**: <br>&emsp; + CloudWatch Metrics <br>&emsp; + CloudWatch Logs <br>&emsp; + CloudWatch Alarms <br>&emsp; + Use case: monitoring EC2 and S3 | 19/09/2025 | 19/09/2025 | <https://000057.awsstudygroup.com/> |
-| 7 | - **Practice 3 + Summary:** <br>&emsp; + Configure CloudWatch Alarm for EC2 CPU usage <br>&emsp; + Send notification via SNS <br>&emsp; + Summarize the workflow (S3 → IAM → CloudWatch) | 20-21/09/2025 | 21/09/2025 | <https://000057.awsstudygroup.com/> |
+### Tasks for this week:
+| Day | Task | Start Date | End Date | Resources |
+| --- | ---- | ---------- | -------- | --------- |
+| Mon | - Deploy AWS Backup to the system - Introduction (Module 03-Lab13-01) <br> - Deploy infrastructure (Module 03-Lab13-02.2) <br> - Create Backup Plan (Module 03-Lab13-03) | 22/09/2025 | 22/09/2025 | <https://000013.awsstudygroup.com/> |
+| Tue | - Test Restore (Module 03-Lab13-05) <br> - Clean up Backup resources (Module 03-Lab13-06) | 23/09/2025 | 23/09/2025 | <https://000013.awsstudygroup.com/> |
+| Wed | - Create S3 Bucket & EC2 for Storage Gateway (Module 03-Lab24-01.1 & 01.2) <br> - Create Storage Gateway and File Shares (Module 03-Lab24-02.1 & 02.2) | 24/09/2025 | 24/09/2025 | <https://000024.awsstudygroup.com/> |
+| Thu | - Create S3 Bucket, load data, enable static website (Module 03-Lab57-02.1, 02.2 & 03) <br> - Configure public access and test website (Module 03-Lab57-04, 05, 06) | 25/09/2025 | 25/09/2025 | <https://000057.awsstudygroup.com/> |
+| Fri | - Block all public access, configure CloudFront & test (Module 03-Lab57-07.1 to 07.3) <br> - Use bucket versioning, move objects, multi-region replication (Module 03-Lab57-08, 09, 10) | 26/09/2025 | 26/09/2025 | <https://000057.awsstudygroup.com/> |
+| Sat | - Clean up S3 & CloudFront resources (Module 03-Lab57-11) | 27/09/2025 | 27/09/2025 | <https://000057.awsstudygroup.com/> |
+| Sun | - Weekly summary, evaluate results, record lessons learned on Backup, Storage Gateway, and S3/CloudFront | 28/09/2025 | 28/09/2025 | N/A |
 
+### Week 3 Achievements:
 
-### Achievements in Week 3:
+* AWS Backup:
+  * Successfully deployed Backup Plan and tested data restore.  
+  * Cleaned up backup resources after testing.
 
-* **Amazon S3**:
-  * Understood buckets, objects, and storage classes (Standard, IA, Glacier).  
-  * Successfully created a bucket, uploaded/downloaded files, and configured Public/Private access.  
-  * Learned how to apply lifecycle policies for automatic file management.  
+* Storage Gateway & S3:
+  * Created S3 Bucket and EC2 for Storage Gateway.  
+  * Configured Storage Gateway and file shares, loaded data successfully.
 
-* **IAM (Identity and Access Management)**:
-  * Understood the difference between Users, Groups, and Roles.  
-  * Learned how to write and attach policies to IAM Users.  
-  * Created a new IAM User, assigned S3 ReadOnly/FullAccess, and verified login.  
+* Static Website & CloudFront:
+  * Deployed static website on S3, configured public access, and verified display.  
+  * Configured CloudFront to distribute content, checked operation.  
+  * Applied versioning, moved objects, and performed multi-region replication.
 
-* **CloudWatch**:
-  * Understood the concepts of Metrics, Logs, and Alarms.  
-  * Configured an alarm for EC2 CPU usage.  
-  * Integrated with SNS to receive email notifications.  
-
-* **End-of-week practical skills**:
-  * Integrated the basic AWS services: S3 (storage) + IAM (access control) + CloudWatch (monitoring).  
-  * Can independently set up and combine these services in an AWS practice environment.  
-  * Built a foundational understanding of securing and monitoring AWS resources.  
+* Self-evaluation:
+  * Mastered AWS Backup, Storage Gateway, S3, and CloudFront deployment steps.  
+  * Practiced restore testing, versioning, replication, and resource cleanup.  
+  * Ready for next week with advanced AWS exercises on security and cost optimization.

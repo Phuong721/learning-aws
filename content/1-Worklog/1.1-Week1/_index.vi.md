@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 1"
-date: 2025-09-10
+date: 2025-09-08
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
@@ -12,50 +12,38 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.q
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Khởi tạo và quản lý tài khoản AWS cơ bản.  
+* Làm quen với các cơ chế bảo mật, quản lý người dùng, ngân sách và hỗ trợ trên AWS.  
+* Thực hành thao tác trên AWS Console và AWS CLI.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --------- | ------------ | ---------------- | -------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý nội quy, quy định tại đơn vị thực tập | 08/09/2025 | 08/09/2025 | |
-| 3   | - Tìm hiểu AWS và các nhóm dịch vụ chính: Compute, Storage, Networking, Database, ... | 09/09/2025 | 09/09/2025 | <https://000001.awsstudygroup.com/vi/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** Tạo account, cài & cấu hình AWS CLI, sử dụng lệnh cơ bản | 10/09/2025 | 10/09/2025 | <https://000001.awsstudygroup.com/vi/> |
-| 5   | - Cấu hình bảo mật cơ bản: Setup Virtual MFA, tạo nhóm & user admin, Account Authentication Support <br> - Tạo Budget từ template | 11/09/2025 | 11/09/2025 | <https://000007.awsstudygroup.com/vi/> |
-| 6   | - **Thực hành:** Tạo Cost Budget, Usage Budget, Reservation Budget, Savings Plans Budget | 12/09/2025 | 12/09/2025 | <https://000007.awsstudygroup.com/vi/> |
-
-
+| 2   | - Tạo AWS Free Tier account (Module 01-Lab01-01) <br> - Thiết lập Virtual MFA (Module 01-Lab01-02) | 08/09/2025 | 08/09/2025 | <https://000001.awsstudygroup.com/> |
+| 3   | - Tạo nhóm quản trị (Admin Group) và user Admin (Module 01-Lab01-03) <br> - Cấu hình Account Authentication Support (Module 01-Lab01-04) | 09/09/2025 | 09/09/2025 | <https://000007.awsstudygroup.com/> |
+| 4   | - Tạo Budget bằng template (Module 01-Lab07-01) <br> - Tạo Cost Budget (Module 01-Lab07-02) | 10/09/2025 | 10/09/2025 | <https://000009.awsstudygroup.com/> |
+| 5   | - Tạo Usage Budget (Module 01-Lab07-03) <br> - Tạo Reservation Instance (RI) Budget (Module 01-Lab07-04) | 11/09/2025 | 11/09/2025 | <https://000009.awsstudygroup.com/> |
+| 6   | - Tạo Savings Plans Budget (Module 01-Lab07-05) <br> - Clean Up Budgets (Module 01-Lab07-06) | 12/09/2025 | 12/09/2025 | <https://000009.awsstudygroup.com/> |
+| 7   | - Tìm hiểu gói hỗ trợ AWS (Module 01-Lab09-01) <br> - Các loại yêu cầu hỗ trợ (Module 01-Lab09-02) <br> - Thay đổi gói hỗ trợ (Module 01-Lab09-03) <br> - Quản lý yêu cầu hỗ trợ (Module 01-Lab09-04) | 13/09/2025 | 13/09/2025 | <https://000007.awsstudygroup.com/> |
+| CN  | - Ôn tập, tổng hợp và hoàn thiện các thiết lập, clean up các tài nguyên thử nghiệm | 14/09/2025 | 14/09/2025 | - |
 
 ### Kết quả đạt được tuần 1:
 
-* Khởi động tại FCJ:
-  * Kết nối thành công với các thành viên trong nhóm FCJ, tạo nền tảng giao tiếp tốt.
-  * Hiểu và tuân thủ các quy định, nội quy tại đơn vị thực tập.
+* Khởi động tài khoản AWS:
+  * Tạo thành công AWS Free Tier account.  
+  * Thiết lập MFA cho root account để bảo mật.  
+  * Tạo Admin Group và Admin User để quản lý thay vì dùng root.  
+  * Hoàn tất cấu hình Account Authentication Support.
 
-* Quản lý tài khoản AWS cơ bản:
-  * Tạo và kích hoạt thành công tài khoản AWS Free Tier.
-  * Bảo mật tài khoản root bằng cách bật MFA (Multi-Factor Authentication).
-  * Tạo nhóm quản trị (Admin Group) và user IAM Admin để thay thế việc sử dụng root account.
-  * Xác minh thông tin tài khoản AWS.
+* Quản lý ngân sách:
+  * Tạo Budget bằng template, Cost Budget, Usage Budget, RI Budget, Savings Plans Budget.  
+  * Thực hành Clean Up các Budget đã tạo để tránh chi phí phát sinh.
 
-* Làm quen với AWS Management Console:
-  * Đăng nhập và tìm hiểu cách sử dụng giao diện AWS Console.
-  * Biết cách truy cập và quản lý dịch vụ cơ bản từ Console.
-  * Thực hành các thao tác cấu hình hiển thị và điều hướng trong Console.
-
-* Quản lý chi phí với AWS Budgets:
-  * Tạo Cost Budget để giám sát chi phí dịch vụ.
-  * Tạo Usage Budget để theo dõi mức sử dụng tài nguyên.
-  * Tìm hiểu và cấu hình Reservation Budget nhằm quản lý chi phí đặt chỗ (Reserved Instances).
-  * Thử nghiệm Savings Plans Budget để tối ưu chi phí dài hạn.
-
-* Hỗ trợ & xử lý sự cố:
-  * Biết cách mở Support Case trong AWS để liên hệ với AWS Support khi cần.
-
-* Dọn dẹp tài nguyên (Clean Up):
-  * Thực hiện clean up (xóa hoặc tắt các tài nguyên thử nghiệm) để tránh phát sinh chi phí ngoài ý muốn.
+* Hỗ trợ và xử lý sự cố:
+  * Hiểu và biết cách sử dụng các gói hỗ trợ AWS.  
+  * Thực hành tạo, quản lý và thay đổi các yêu cầu hỗ trợ trên AWS Console.
 
 * Tự đánh giá:
-  * Hoàn thành các bước thiết lập tài khoản và bảo mật cơ bản.
-  * Nắm được cách tạo user và group quản trị, cũng như cơ chế giám sát chi phí qua Budget.
-  * Sẵn sàng cho tuần 2 với các nội dung chuyên sâu hơn về dịch vụ AWS cụ thể (như EC2, S3, VPC…).
+  * Nắm được quy trình khởi tạo tài khoản, bảo mật, quản lý người dùng và nhóm.  
+  * Thực hành quản lý ngân sách AWS cơ bản và các gói hỗ trợ.  
+  * Sẵn sàng tiếp tục sang các tuần sau với nội dung chuyên sâu hơn về dịch vụ AWS.

@@ -1,9 +1,9 @@
 ﻿---
 title: "Worklog Tuần 12"
-date: 2025-09-10
+date: 2025-11-24
 weight: 2
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
@@ -11,49 +11,31 @@ pre: " <b> 1.12 </b> "
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Trình bày dự án của nhóm trước các mentor và giảng viên hướng dẫn.
+* Ghi nhận phản hồi để cải thiện kiến trúc, nội dung triển khai và chất lượng phần thuyết trình.
+* Xác định các phần cần chỉnh sửa trước khi nộp báo cáo cuối kỳ.
+* Tổng hợp toàn bộ góp ý và lập danh sách công việc cần thực hiện ở tuần tiếp theo.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc                                                                                                                                                                           | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu       |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | ---------------------- |
+| 2   | - Chuẩn bị slide thuyết trình cuối cùng <br> - Rà soát phân công nhiệm vụ và phần trình bày của từng thành viên                                                                    | 24/11/2025   | 24/11/2025       | Slide deck            |
+| 3   | - Thực hiện buổi rehearsal nội bộ <br> - Điều chỉnh thời gian và chuyển đoạn giữa các thành viên                                                                                   | 25/11/2025   | 25/11/2025       | Ghi chú nội bộ        |
+| 4   | - Trình bày dự án chính thức trước các mentor <br> - Trình bày kiến trúc hệ thống, CI/CD pipeline, cost estimate và demo                                                          | 26/11/2025   | 26/11/2025       | Tài liệu thuyết trình |
+| 5   | - Ghi nhận phản hồi từ mentor về kiến trúc, bảo mật, thiết kế hệ thống và cách trình bày <br> - Tổng hợp toàn bộ góp ý                                                             | 27/11/2025   | 27/11/2025       | Mentor feedback       |
+| 6   | - Phân tích phản hồi đã nhận được <br> - Xác định những phần cần chỉnh sửa về kiến trúc, lưu đồ, nội dung slide                                                                     | 28/11/2025   | 28/11/2025       | Góp ý tổng hợp        |
+| 7   | - Chỉnh sửa tài liệu và slide theo phản hồi của mentor <br> - Chuẩn bị danh sách action items cho tuần tiếp theo                                                                    | 29–30/11/2025 | 30/11/2025      | Proposal, Slide deck  |
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Trình bày dự án thành công trước mentor và nhận được phản hồi chi tiết về kiến trúc, nội dung triển khai và phong cách thuyết trình.
+* Ghi nhận đầy đủ góp ý liên quan đến:
+  * Cải thiện kiến trúc hệ thống  
+  * Làm rõ data flow và lớp mạng  
+  * Giải thích CI/CD pipeline mạch lạc hơn  
+  * Tối ưu chi phí AWS  
+  * Tăng cường bảo mật trong thiết kế hệ thống  
+* Hoàn thiện lại slide deck và tài liệu dự án dựa trên góp ý từ mentor.
+* Xác định các đầu mục quan trọng cần chỉnh sửa cho giai đoạn cuối trước khi nộp bài.
+* Hoàn thành rehearsal và buổi trình bày giữa kỳ đúng tiến độ.
 

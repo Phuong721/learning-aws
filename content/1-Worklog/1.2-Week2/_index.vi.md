@@ -1,58 +1,52 @@
 ﻿---
 title: "Worklog Tuần 2"
-date: 2025-09-10
+date: 2025-09-15
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo. Vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn, kể cả warning này.
 {{% /notice %}}
 
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Học và thực hành thiết lập mạng AWS bằng VPC, Subnet, Route Table, Internet Gateway, NAT Gateway và các cơ chế bảo mật.  
+* Cấu hình EC2 instances trong các subnet và kiểm tra kết nối.  
+* Thiết lập Hybrid DNS với Route 53 Resolver.  
+* Tìm hiểu và triển khai VPC Peering và AWS Transit Gateway.  
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | ---------------- | -------------- |
-| 2 | - Giới thiệu EC2 <br>&emsp; + Khái niệm EC2 <br>&emsp; + Instance Types (t2.micro, t3, m5...) <br>&emsp; + AMI (Amazon Machine Image) <br>&emsp; + EBS cơ bản | 08/09/2025 | 08/09/2025 | <https://000002.awsstudygroup.com/> |
-| 3 | - **Thực hành 1:** <br>&emsp; + Tạo EC2 instance (Amazon Linux 2) <br>&emsp; + Hiểu cấu hình cơ bản khi khởi tạo <br>&emsp; + Tìm hiểu Key Pair để kết nối | 09/09/2025 | 09/09/2025 | <https://000002.awsstudygroup.com/> |
-| 4 | - Bảo mật và mạng: <br>&emsp; + Security Groups (firewall cho EC2) <br>&emsp; + Elastic IP (cố định IP) <br>&emsp; + Networking cơ bản (VPC mặc định, Subnet) | 10/09/2025 | 10/09/2025 | <https://000003.awsstudygroup.com/> |
-| 5 | - **Thực hành 2:** <br>&emsp; + Kết nối SSH vào EC2 qua key pair <br>&emsp; + Thực hành remote và thao tác trên Linux instance <br>&emsp; + Test Elastic IP gán vào instance | 11/09/2025 | 11/09/2025 | <https://000003.awsstudygroup.com/> |
-| 6 | - Quản lý lưu trữ: <br>&emsp; + Gắn thêm EBS Volume vào EC2 <br>&emsp; + Mount và kiểm tra dung lượng <br>&emsp; + Tìm hiểu snapshot cơ bản | 12/09/2025 | 12/09/2025 | <https://000004.awsstudygroup.com/> |
-| 7 | - **Thực hành 3 + Tổng kết:** <br>&emsp; + Tạo thêm 1 instance để luyện tập <br>&emsp; + Gắn / tháo EBS volume <br>&emsp; + Kiểm tra toàn bộ quy trình (Tạo → Kết nối → Elastic IP → EBS) | 13/09/2025 | 13/09/2025 | <https://000004.awsstudygroup.com/> |
-
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2   | - Giới thiệu Amazon VPC và AWS VPN Site-to-Site (Module 02-Lab03-01) <br> - Subnets (Module 02-Lab03-01.1) <br> - Route Table (Module 02-Lab03-01.2) <br> - Internet Gateway (IGW) (Module 02-Lab03-01.3) <br> - NAT Gateway (Module 02-Lab03-01.4) | 15/09/2025 | 15/09/2025 | <https://000003.awsstudygroup.com/> |
+| 3   | - Cấu hình Security Group (Module 02-Lab03-02.1) <br> - Network ACLs (Module 02-Lab03-02.2) <br> - VPC Resource Map (Module 02-Lab03-02.3) | 16/09/2025 | 16/09/2025 | <https://000003.awsstudygroup.com/> |
+| 4   | - Tạo VPC (Module 02-Lab03-03.1) <br> - Tạo Subnet (Module 02-Lab03-03.2) <br> - Tạo Internet Gateway (Module 02-Lab03-03.3) <br> - Tạo Route Table cho Outbound Internet Routing qua IGW (Module 02-Lab03-03.4) <br> - Tạo Security Groups (Module 02-Lab03-03.5) | 17/09/2025 | 17/09/2025 | <https://000010.awsstudygroup.com/> |
+| 5   | - Tạo EC2 Instances trong Subnets (Module 02-Lab03-04.1) <br> - Kiểm tra kết nối (Module 02-Lab03-04.2) <br> - Tạo NAT Gateway (Module 02-Lab03-04.3) <br> - EC2 Instance Connect Endpoint (Module 02-Lab03-04.5) | 18/09/2025 | 18/09/2025 | <https://000010.awsstudygroup.com/> |
+| 6   | - Thiết lập Hybrid DNS với Route 53 Resolver (Module 02-Lab10-01) <br> - Tạo Key Pair (Module 02-Lab10-02.1) <br> - Khởi tạo CloudFormation Template (Module 02-Lab10-02.2) <br> - Cấu hình Security Group (Module 02-Lab10-02.3) <br> - Kết nối đến RDGW (Module 02-Lab10-03) | 19/09/2025 | 19/09/2025 | <https://000019.awsstudygroup.com/> |
+| 7   | - Thiết lập DNS: Route 53 Outbound Endpoint (Module 02-Lab10-05.1) <br> - Tạo Resolver Rules (Module 02-Lab10-05.2) <br> - Tạo Inbound Endpoints (Module 02-Lab10-05.3) <br> - Kiểm tra kết quả (Module 02-Lab10-05.4) <br> - Dọn dẹp tài nguyên (Module 02-Lab10-06) | 20/09/2025 | 20/09/2025 | <https://000019.awsstudygroup.com/> |
+| CN  | - VPC Peering setup: Giới thiệu (Module 02-Lab19-01) <br> - Khởi tạo CloudFormation Templates (Module 02-Lab19-02.1) <br> - Tạo Security Group (Module 02-Lab19-02.2) <br> - Tạo EC2 instance (Module 02-Lab19-02.3) <br> - Cập nhật Network ACLs (Module 02-Lab19-03) <br> - Tạo peering connection (Module 02-Lab19-04) <br> - Cấu hình Route Tables (Module 02-Lab19-05) <br> - Bật Cross-Peer DNS (Module 02-Lab19-06) <br> - Dọn dẹp tài nguyên (Module 02-Lab19-07) <br> - AWS Transit Gateway setup: Giới thiệu (Module 02-Lab20-01) <br> - Các bước chuẩn bị (Module 02-Lab20-02) <br> - Tạo Transit Gateway (Module 02-Lab20-03) <br> - Tạo TGW Attachments (Module 02-Lab20-04) <br> - Tạo TGW Route Tables (Module 02-Lab20-05) <br> - Thêm TGW Routes vào VPC Route Tables (Module 02-Lab20-06) <br> - Dọn dẹp tài nguyên (Module 02-Lab20-07) | 21/09/2025 | 21/09/2025 | <https://000020.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu rõ kiến thức cơ bản về **Amazon EC2**:  
-  * Các loại Instance Types (t2.micro, t3, m5...) và mục đích sử dụng.
-  * AMI (Amazon Machine Image) và cách chọn hệ điều hành khi tạo máy ảo.
-  * Hiểu EBS (Elastic Block Store) và vai trò của nó trong lưu trữ dữ liệu cho EC2.
+* Mạng AWS:
+  * Tạo và cấu hình VPC, Subnet, Route Table, Internet Gateway, NAT Gateway, Security Groups.  
+  * Triển khai EC2 instances trong các subnet và kiểm tra kết nối thành công.  
+  * Cấu hình EC2 Instance Connect Endpoint để truy cập dễ dàng hơn.
 
-* Thực hành thành công việc **tạo EC2 instance** trên AWS Console:
-  * Lựa chọn AMI (Amazon Linux 2).
-  * Chọn cấu hình instance phù hợp (Free Tier).
-  * Tạo và tải về Key Pair để chuẩn bị kết nối.
+* Hybrid DNS:
+  * Tạo Key Pairs và khởi tạo CloudFormation Templates.  
+  * Cấu hình Security Groups và kết nối đến RDGW.  
+  * Tạo Route 53 Outbound/Inbound Endpoints, thiết lập Resolver Rules và kiểm tra kết quả.  
+  * Dọn dẹp tài nguyên DNS sau khi kiểm tra.
 
-* Làm quen với **Security Groups** và hiểu cách thiết lập firewall cho instance.
+* VPC Peering & Transit Gateway:
+  * Thiết lập VPC Peering, cấu hình Route Tables và bật Cross-Peer DNS.  
+  * Tạo AWS Transit Gateway, attachments, route tables, thêm routes vào VPC route tables.  
+  * Dọn dẹp các tài nguyên để tránh phát sinh chi phí không mong muốn.
 
-* Thực hành với **Elastic IP**: tạo, gán và kiểm tra tính ổn định của IP tĩnh so với Public IP mặc định.
-
-* Thành thạo cách **kết nối SSH** vào EC2: 
-  * Dùng key pair `.pem` để kết nối.
-  * Kiểm tra hệ thống, chạy lệnh cơ bản trên Linux instance.
-
-* Quản lý **lưu trữ với EBS**:
-  * Gắn thêm 1 EBS volume vào instance.
-  * Mount volume, format và kiểm tra dung lượng khả dụng.
-  * Hiểu snapshot là gì và khi nào nên dùng để backup.
-
-* Kỹ năng thực hành cuối tuần:
-  * Triển khai toàn bộ quy trình từ **Tạo → Kết nối → Elastic IP → Gắn EBS → Kiểm tra snapshot**.
-  * Có thể lặp lại các bước này một cách độc lập.
-
-* Nắm được sự kết hợp giữa lý thuyết và thực hành trong quản lý EC2 và tài nguyên đi kèm.
+* Tự đánh giá:
+  * Có kinh nghiệm thực hành với mạng AWS, Hybrid DNS, VPC Peering và Transit Gateway.  
+  * Triển khai, kiểm tra và dọn dẹp tài nguyên thành công.  
+  * Sẵn sàng cho các tuần tiếp theo với kiến thức nâng cao hơn.

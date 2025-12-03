@@ -1,58 +1,53 @@
 ﻿---
-title: "Week 7 Worklog"
-date: 2025-09-10
+title: "Worklog Week 7"
+date: 2025-10-20
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
-
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Deploy and manage data on S3, DynamoDB, and Redshift.  
+* Create data pipelines using Kinesis, Glue, DataBrew, and EMR.  
+* Analyze data with Athena and Kinesis Data Analytics, and visualize with QuickSight.  
+* Build serverless applications and interactive dashboards.  
+* Familiarize with CloudShell, AWS SDK, and Cloud9 for programming and data handling tasks.  
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | End Date | Resources |
+| --- | ----- | ---------- | -------- | --------- |
+| Mon | - Create S3 Bucket, Delivery Stream, sample data, Glue Crawler, data validation, session setup, analysis with Athena, visualization with QuickSight, resource cleanup (Module 07-Lab35-3.1 to 7) | 20/10/2025 | 20/10/2025 | <https://000035.awsstudygroup.com/> |
+| Tue | - Explore DynamoDB, console exploration, data backup, cleanup, apply Advanced Design Patterns, deploy global serverless app, event-driven architecture (Module 07-Lab39-1 to 8) | 21/10/2025 | 21/10/2025 | <https://000039.awsstudygroup.com/> |
+| Wed | - Prepare and build database, manage table data, cost, tagging, usage, queries, resource cleanup (Module 07-Lab40-2.1 to 4) | 22/10/2025 | 22/10/2025 | <https://000040.awsstudygroup.com/> |
+| Thu | - Familiarize with CloudShell, console, SDK; create Cloud9 instance, download & upload dataset to S3; setup DataBrew, data profiling, clean & transform data (Module 07-Lab60 & 07-Lab70) | 23/10/2025 | 23/10/2025 | <https://000060.awsstudygroup.com/> |
+| Fri | - Prepare pipeline, ingest & store data, catalog data, transform with Glue (interactive & GUI), DataBrew, EMR; analyze with Athena & Kinesis Data Analytics; visualize with QuickSight; serve with Lambda; warehouse on Redshift (Module 07-Lab72-2 to 13) | 24/10/2025 | 24/10/2025 | <https://000070.awsstudygroup.com/> |
+| Sat | - Build dashboard, improve dashboard, create interactive dashboard (Module 07-Lab73-3 to 5) | 25/10/2025 | 25/10/2025 | <https://000072.awsstudygroup.com/> |
+| Sun | - Summarize, review results, cleanup resources, self-assess week, and prepare for next week | 26/10/2025 | 26/10/2025 | <https://000073.awsstudygroup.com/> |
 
+### Achievements in Week 7:
 
-### Week 7 Achievements:
+* Data management & processing:
+  * Deployed data on S3, DynamoDB, and Redshift.  
+  * Built data pipelines using Kinesis, Glue, DataBrew, and EMR.  
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Analysis & visualization:
+  * Analyzed data using Athena and Kinesis Data Analytics.  
+  * Visualized data and built interactive dashboards using QuickSight.  
 
-* Successfully created and configured an AWS Free Tier account.
+* Serverless applications:
+  * Deployed serverless applications on DynamoDB and Lambda.  
+  * Built event-driven architecture for global serverless apps.  
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Programming & data handling tools:
+  * Utilized CloudShell, AWS SDK, and Cloud9 for data handling and programming tasks.  
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Resource management:
+  * Cleaned up all deployed resources to avoid unexpected costs.  
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Self-assessment:
+  * Gained proficiency in data management, pipeline creation, analysis & visualization, and serverless applications.  
+  * Prepared for the next week with advanced content on security, tagging, and cost management.

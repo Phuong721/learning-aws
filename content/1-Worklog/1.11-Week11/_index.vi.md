@@ -1,6 +1,6 @@
 ﻿---
 title: "Worklog Tuần 11"
-date: 2025-09-10
+date: 2025-11-17
 weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
@@ -9,52 +9,27 @@ pre: " <b> 1.11. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tổng hợp nội dung từ 2 proposal hiện có của nhóm.
+* Chuẩn bị tài liệu để làm slide thuyết trình báo cáo cuối kỳ.
+* Chuẩn hóa nội dung, xác định phần trình bày chính và phần bổ sung.
+* Đảm bảo tính nhất quán giữa kiến trúc hệ thống và kế hoạch triển khai.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc                                                                                                                                                                                       | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                  |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | --------------------------------- |
+| 2   | - Rà soát toàn bộ nội dung Proposal.docx <br> - Liệt kê các mục quan trọng cần đưa vào slide                                                                                                     | 17/11/2025   | 17/11/2025      | Proposal.docx                    |
+| 3   | - Tổng hợp nội dung Executive Summary, Problem Statement, Solution Overview <br> - Chỉnh sửa nội dung cho ngắn gọn, phù hợp trình chiếu                                                          | 18/11/2025   | 18/11/2025      | Proposal.docx                    |
+| 4   | - Tách và chuẩn hóa phần Solution Architecture <br>&emsp; + Networking layer <br>&emsp; + Application layer <br>&emsp; + CI/CD <br>&emsp; + Security & Monitoring                                | 19/11/2025   | 19/11/2025      | Proposal Template.docx           |
+| 5   | - Tổng hợp bảng AWS Cost Estimate <br> - Rà lại Risk Assessment và Timeline <br> - Chuyển nội dung sang dạng bullet ngắn gọn để đưa vào slide                                                    | 20/11/2025   | 20/11/2025      | Proposal.docx                    |
+| 6   | - Xây dựng outline slide thuyết trình: <br>&emsp; + Summary <br>&emsp; + Problem <br>&emsp; + Architecture <br>&emsp; + Cost <br>&emsp; + Risk <br>&emsp; + Roadmap                              | 21/11/2025   | 21/11/2025      | Tổng hợp nội dung                |
+| 7   | - Chuẩn hóa toàn bộ nội dung sang tiếng Anh <br> - Kiểm tra tính logic giữa các phần <br> - Chuẩn bị tài liệu bàn giao cho nhóm thiết kế slide                                                   | 22/11/2025   | 23/11/2025      | Proposal.docx, Proposal Template |
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Hoàn tất tổng hợp nội dung từ 2 proposal (đầy đủ các phần Executive Summary, Problem, Solution, Architecture, Risk, Cost…).
+* Xây dựng outline slide trình bày, chia rõ các phần chính và phần mở rộng.
+* Chuẩn hóa toàn bộ nội dung sang **tiếng Anh** để triển khai slide báo cáo cuối kỳ.
+* Đảm bảo tính nhất quán giữa kiến trúc hệ thống, kế hoạch triển khai và nội dung trình bày.
+* Sẵn sàng chuyển sang giai đoạn thiết kế slide và chuẩn bị cho buổi báo cáo.

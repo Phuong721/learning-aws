@@ -1,58 +1,52 @@
 ﻿---
 title: "Worklog Week 2"
-date: 2025-09-10
+date: 2025-09-15
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Note:** The following information is for reference only. Please **do not copy verbatim** into your official report, including this warning.
+⚠️ **Note:** The information below is for reference only. Please **do not copy it verbatim** for your report, including this warning.
 {{% /notice %}}
 
 
-### Goals for Week 2:
+### Week 2 Objectives:
 
-* Connect and get to know members of the First Cloud Journey.  
-* Understand the basics of AWS services, and how to use the Console & CLI.  
+* Learn and practice AWS network setup using VPC, Subnet, Route Table, Internet Gateway, NAT Gateway, and security mechanisms.  
+* Configure EC2 instances in subnets and test connectivity.  
+* Set up Hybrid DNS with Route 53 Resolver.  
+* Explore and deploy VPC Peering and AWS Transit Gateway.  
 
-### Tasks to be completed this week:
-| Day | Task | Start Date | Completion Date | Reference |
-| --- | ---- | ---------- | ---------------- | ---------- |
-| 2 | - Introduction to EC2 <br>&emsp; + EC2 concept <br>&emsp; + Instance Types (t2.micro, t3, m5...) <br>&emsp; + AMI (Amazon Machine Image) <br>&emsp; + Basic EBS | 08/09/2025 | 08/09/2025 | <https://000002.awsstudygroup.com/> |
-| 3 | - **Practice 1:** <br>&emsp; + Launch an EC2 instance (Amazon Linux 2) <br>&emsp; + Understand basic configuration during setup <br>&emsp; + Learn about Key Pair for connection | 09/09/2025 | 09/09/2025 | <https://000002.awsstudygroup.com/> |
-| 4 | - Security and Networking: <br>&emsp; + Security Groups (firewall for EC2) <br>&emsp; + Elastic IP (static IP) <br>&emsp; + Basic networking (default VPC, Subnet) | 10/09/2025 | 10/09/2025 | <https://000003.awsstudygroup.com/> |
-| 5 | - **Practice 2:** <br>&emsp; + Connect to EC2 via SSH with key pair <br>&emsp; + Practice remote access and operations on Linux instance <br>&emsp; + Test Elastic IP assignment | 11/09/2025 | 11/09/2025 | <https://000003.awsstudygroup.com/> |
-| 6 | - Storage management: <br>&emsp; + Attach additional EBS Volume to EC2 <br>&emsp; + Mount and check capacity <br>&emsp; + Learn about basic snapshots | 12/09/2025 | 12/09/2025 | <https://000004.awsstudygroup.com/> |
-| 7 | - **Practice 3 + Summary:** <br>&emsp; + Launch another instance for practice <br>&emsp; + Attach / detach EBS volume <br>&emsp; + Review the full process (Launch → Connect → Elastic IP → EBS) | 13/09/2025 | 13/09/2025 | <https://000004.awsstudygroup.com/> |
+### Tasks to implement this week:
+| Day | Task | Start Date | End Date | Reference |
+| --- | ---- | ---------- | -------- | --------- |
+| Mon | - Introduction to Amazon VPC and AWS Site-to-Site VPN (Module 02-Lab03-01) <br> - Subnets (Module 02-Lab03-01.1) <br> - Route Table (Module 02-Lab03-01.2) <br> - Internet Gateway (IGW) (Module 02-Lab03-01.3) <br> - NAT Gateway (Module 02-Lab03-01.4) | 15/09/2025 | 15/09/2025 | <https://000003.awsstudygroup.com/> |
+| Tue | - Configure Security Group (Module 02-Lab03-02.1) <br> - Network ACLs (Module 02-Lab03-02.2) <br> - VPC Resource Map (Module 02-Lab03-02.3) | 16/09/2025 | 16/09/2025 | <https://000003.awsstudygroup.com/> |
+| Wed | - Create VPC (Module 02-Lab03-03.1) <br> - Create Subnet (Module 02-Lab03-03.2) <br> - Create Internet Gateway (Module 02-Lab03-03.3) <br> - Create Route Table for Outbound Internet Routing via IGW (Module 02-Lab03-03.4) <br> - Create Security Groups (Module 02-Lab03-03.5) | 17/09/2025 | 17/09/2025 | <https://000010.awsstudygroup.com/> |
+| Thu | - Create EC2 Instances in Subnets (Module 02-Lab03-04.1) <br> - Test connection (Module 02-Lab03-04.2) <br> - Create NAT Gateway (Module 02-Lab03-04.3) <br> - EC2 Instance Connect Endpoint (Module 02-Lab03-04.5) | 18/09/2025 | 18/09/2025 | <https://000010.awsstudygroup.com/> |
+| Fri | - Set up Hybrid DNS with Route 53 Resolver (Module 02-Lab10-01) <br> - Generate Key Pair (Module 02-Lab10-02.1) <br> - Initialize CloudFormation Template (Module 02-Lab10-02.2) <br> - Configure Security Group (Module 02-Lab10-02.3) <br> - Connect to RDGW (Module 02-Lab10-03) | 19/09/2025 | 19/09/2025 | <https://000019.awsstudygroup.com/> |
+| Sat | - DNS setup: Route 53 Outbound Endpoint (Module 02-Lab10-05.1) <br> - Create Resolver Rules (Module 02-Lab10-05.2) <br> - Create Inbound Endpoints (Module 02-Lab10-05.3) <br> - Test results (Module 02-Lab10-05.4) <br> - Clean up resources (Module 02-Lab10-06) | 20/09/2025 | 20/09/2025 | <https://000019.awsstudygroup.com/> |
+| Sun | - VPC Peering setup: Introduction (Module 02-Lab19-01) <br> - Initialize CloudFormation Templates (Module 02-Lab19-02.1) <br> - Create Security Group (Module 02-Lab19-02.2) <br> - Create EC2 instance (Module 02-Lab19-02.3) <br> - Update Network ACLs (Module 02-Lab19-03) <br> - Create peering connection (Module 02-Lab19-04) <br> - Configure Route Tables (Module 02-Lab19-05) <br> - Enable Cross-Peer DNS (Module 02-Lab19-06) <br> - Clean up resources (Module 02-Lab19-07) <br> - AWS Transit Gateway setup: Introduction (Module 02-Lab20-01) <br> - Preparation steps (Module 02-Lab20-02) <br> - Create Transit Gateway (Module 02-Lab20-03) <br> - Create TGW Attachments (Module 02-Lab20-04) <br> - Create TGW Route Tables (Module 02-Lab20-05) <br> - Add TGW Routes to VPC Route Tables (Module 02-Lab20-06) <br> - Clean up resources (Module 02-Lab20-07) | 21/09/2025 | 21/09/2025 | <https://000020.awsstudygroup.com/> |
 
+### Week 2 Results:
 
-### Achievements in Week 2:
+* AWS Networking:
+  * Created and configured VPC, Subnet, Route Table, Internet Gateway, NAT Gateway, Security Groups.  
+  * Deployed EC2 instances in subnets and verified connectivity.  
+  * Configured EC2 Instance Connect Endpoint for easier access.
 
-* Gained solid understanding of **Amazon EC2** basics:  
-  * Different instance types (t2.micro, t3, m5...) and their purposes.  
-  * AMI (Amazon Machine Image) and how to choose an OS when launching a virtual machine.  
-  * EBS (Elastic Block Store) and its role in storing data for EC2.  
+* Hybrid DNS:
+  * Created Key Pairs and initialized CloudFormation Templates.  
+  * Configured Security Groups and connected to RDGW.  
+  * Created Route 53 Outbound/Inbound Endpoints, set up Resolver Rules, and verified results.  
+  * Cleaned up DNS resources after testing.
 
-* Successfully practiced **launching an EC2 instance** on AWS Console:  
-  * Selected AMI (Amazon Linux 2).  
-  * Chose a suitable instance type (Free Tier).  
-  * Created and downloaded a Key Pair for connection.  
+* VPC Peering & Transit Gateway:
+  * Established VPC Peering, configured Route Tables, and enabled Cross-Peer DNS.  
+  * Created AWS Transit Gateway, attachments, route tables, and added routes to VPC route tables.  
+  * Cleaned up resources to avoid unexpected costs.
 
-* Learned about **Security Groups** and understood how to configure firewall rules for an instance.  
-
-* Practiced with **Elastic IP**: created, attached, and tested stability of a static IP compared to the default Public IP.  
-
-* Became proficient in **SSH connection to EC2**:  
-  * Used `.pem` key pair to connect.  
-  * Checked system status and ran basic commands on the Linux instance.  
-
-* Managed **storage with EBS**:  
-  * Attached an additional EBS volume to an instance.  
-  * Mounted, formatted, and verified available capacity.  
-  * Understood what snapshots are and when to use them for backup.  
-
-* **End-of-week practical skills**:  
-  * Completed the full workflow: **Launch → Connect → Elastic IP → Attach EBS → Verify snapshot**.  
-  * Able to repeat the steps independently.  
-
-* Gained strong integration between theory and practice in managing EC2 and its related resources.  
+* Self-assessment:
+  * Gained hands-on experience with AWS networking, Hybrid DNS, VPC Peering, and Transit Gateway.  
+  * Successfully deployed, tested, and cleaned up resources.  
+  * Ready for the following weeks with more advanced knowledge.

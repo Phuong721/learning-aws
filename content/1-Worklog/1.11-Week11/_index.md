@@ -1,58 +1,35 @@
 ﻿---
-title: "Week 11 Worklog"
-date: 2025-09-10
+title: "Worklog Week 11"
+date: 2025-11-17
 weight: 2
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your official report, including this warning.
 {{% /notice %}}
-
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Consolidate content from the team’s two proposal documents.
+* Prepare materials for the final presentation slide deck.
+* Standardize all information and identify the main sections to be presented.
+* Ensure consistency between system architecture and the implementation plan.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Tasks                                                                                                                                                                                             | Start Date   | Completion Date | Resources Used                |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- | ------------------------------ |
+| 2   | - Review the entire Proposal.docx <br> - Identify key sections to include in the presentation slides                                                         | 17/11/2025   | 17/11/2025       | Proposal.docx                  |
+| 3   | - Consolidate Executive Summary, Problem Statement, and Solution Overview <br> - Rewrite content in a concise, presentation-friendly format                   | 18/11/2025   | 18/11/2025       | Proposal.docx                  |
+| 4   | - Extract and standardize the Solution Architecture section: <br>&emsp; + Networking layer <br>&emsp; + Application layer <br>&emsp; + CI/CD <br>&emsp; + Security & Monitoring | 19/11/2025   | 19/11/2025       | Proposal Template.docx         |
+| 5   | - Consolidate AWS Cost Estimate <br> - Review Risk Assessment and Timeline <br> - Convert information into short bullet points for slides                     | 20/11/2025   | 20/11/2025       | Proposal.docx                  |
+| 6   | - Build the outline for the presentation slides: <br>&emsp; + Summary <br>&emsp; + Problem <br>&emsp; + Architecture <br>&emsp; + Cost <br>&emsp; + Risk <br>&emsp; + Roadmap | 21/11/2025   | 21/11/2025       | Consolidated content           |
+| 7   | - Standardize all content in English <br> - Validate logical flow between sections <br> - Prepare materials for the slide design team                        | 22/11/2025   | 23/11/2025       | Proposal.docx, Proposal Template |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
-
+* Completed consolidation of content from both proposal documents (Executive Summary, Problem, Solution, Architecture, Risk, Cost, etc.).
+* Built a structured outline for the presentation slide deck, clearly separating core and supplementary sections.
+* Standardized all content in **English** for the final presentation.
+* Ensured consistency between the system architecture, implementation plan, and presentation materials.
+* Ready to move on to the slide design phase and prepare for the final presentation.

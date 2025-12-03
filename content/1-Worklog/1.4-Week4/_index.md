@@ -1,53 +1,54 @@
 ﻿---
 title: "Worklog Week 4"
-date: 2025-09-22
+date: 2025-09-29
 weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+⚠️ **Note:** The information below is for reference only. Please **do not copy verbatim** for your report.
 {{% /notice %}}
 
+### Objectives for Week 4:
 
-### Week 4 Objectives:
+* Advanced AWS Backup deployment and notification setup.  
+* Deploy and manage virtual machines from On-Premises to AWS using AMI.  
+* Advanced S3, Storage Gateway, and File Shares management.  
+* Deploy Multi-AZ File System with SSD & HDD, monitor performance, manage users.  
+* Manage static S3 websites, CloudFront, versioning, replication, and resource cleanup.
 
-* Gain knowledge of **Amazon S3** and cloud data management.  
-* Understand **IAM (Identity and Access Management)** for user and permission management.  
-* Get familiar with **AWS Billing & Cost Management** for monitoring service costs.  
+### Tasks to accomplish this week:
+| Day | Task | Start Date | End Date | Resources |
+| --- | ---- | ---------- | -------- | --------- |
+| Mon | - Create S3 Bucket (Module 04-Lab13-02.1) <br> - Deploy Backup infrastructure (Module 04-Lab13-02.2) <br> - Create Backup Plan (Module 04-Lab13-03) <br> - Set up notifications (Module 04-Lab13-04) | 29/09/2025 | 29/09/2025 | <https://000013.awsstudygroup.com/>, <https://000014.awsstudygroup.com/> |
+| Tue | - Test Restore (Module 04-Lab13-05) <br> - Clean up Backup resources (Module 04-Lab13-06) | 30/09/2025 | 30/09/2025 | <https://000013.awsstudygroup.com/>, <https://000014.awsstudygroup.com/> |
+| Wed | - Work with VMWare Workstation (Module 04-Lab14-01) <br> - Export VM from On-Premises (Module 04-Lab14-02.1) <br> - Upload VM to AWS (Module 04-Lab14-02.2) <br> - Import VM to AWS (Module 04-Lab14-02.3) <br> - Deploy Instance from AMI (Module 04-Lab14-02.4) | 01/10/2025 | 01/10/2025 | <https://000024.awsstudygroup.com/>, <https://000025.awsstudygroup.com/> |
+| Thu | - Manage S3 Bucket ACL (Module 04-Lab14-03.1) <br> - Export VM from Instance (Module 04-Lab14-03.2) <br> - Clean up VM & AWS resources (Module 04-Lab14-05) | 02/10/2025 | 02/10/2025 | <https://000024.awsstudygroup.com/>, <https://000025.awsstudygroup.com/> |
+| Fri | - Create Storage Gateway (Module 04-Lab24-2.1) <br> - Create File Shares (Module 04-Lab24-2.2) <br> - Mount File Shares on On-Premises machine (Module 04-Lab24-2.3) <br> - Clean up resources (Module 04-Lab24-3) | 03/10/2025 | 03/10/2025 | <https://000024.awsstudygroup.com/> |
+| Sat | - Create SSD & HDD Multi-AZ File System (Module 04-Lab25-2.2 & 2.3) <br> - Create file shares, test & monitor performance (Module 04-Lab25-3, 4, 5) <br> - Enable deduplication, shadow copies, manage user sessions & quotas, scale throughput & storage (Module 04-Lab25-6 to 12) | 04/10/2025 | 04/10/2025 | <https://000024.awsstudygroup.com/> |
+| Sun | - Clean up Multi-AZ environment (Module 04-Lab25-13) <br> - Create S3 Bucket, load data, static website, CloudFront, versioning & replication, test & cleanup (Module 04-Lab57-2.1 to 11) | 05/10/2025 | 05/10/2025 | <https://000057.awsstudygroup.com/> |
 
-### Tasks for this week:
-| Day | Task | Start Date | Completion Date | Reference |
-| --- | ---- | ---------- | ---------------- | --------- |
-| 2 | - Introduction to Amazon S3 <br>&emsp; + Concept of Bucket & Object <br>&emsp; + Storage Classes (Standard, IA, Glacier...) <br>&emsp; + Versioning and Lifecycle rules | 22/09/2025 | 22/09/2025 | <https://000005.awsstudygroup.com/> |
-| 3 | - **Hands-on 1:** <br>&emsp; + Create S3 Bucket <br>&emsp; + Upload / Download files <br>&emsp; + Enable Versioning and verify | 23/09/2025 | 23/09/2025 | <https://000005.awsstudygroup.com/> |
-| 4 | - Basics of IAM: <br>&emsp; + User, Group, Role, Policy <br>&emsp; + Root user vs IAM user <br>&emsp; + Best Practices in account management | 24/09/2025 | 24/09/2025 | <https://000045.awsstudygroup.com/> |
-| 5 | - **Hands-on 2:** <br>&emsp; + Create IAM user <br>&emsp; + Assign permissions (Policy) <br>&emsp; + Log in with IAM user to test privileges | 25/09/2025 | 25/09/2025 | <https://000045.awsstudygroup.com/> |
-| 6 | - AWS Cost Management: <br>&emsp; + Introduction to Billing Dashboard <br>&emsp; + Basic Cost Explorer <br>&emsp; + Set up Billing Alarm with CloudWatch | 26/09/2025 | 26/09/2025 | <https://000046.awsstudygroup.com/> |
-| 7 | - **Hands-on 3 + Summary:** <br>&emsp; + Review billing in Free Tier <br>&emsp; + Practice with Cost Explorer <br>&emsp; + Consolidate knowledge of S3 + IAM + Billing | 27/09/2025 | 28/09/2025 | <https://000046.awsstudygroup.com/> |
+### Achievements for Week 4:
 
+* Advanced AWS Backup:
+  * Successfully deployed Backup Plan, configured notifications, and tested restore.  
+  * Cleaned up backup resources.
 
-### Week 4 Outcomes:
+* Virtual Machines & AMI:
+  * Exported VM from On-Premises, uploaded & imported to AWS.  
+  * Deployed Instance from AMI and managed S3 Bucket ACL.  
+  * Cleaned up VM & resources after testing.
 
-* Gained a solid understanding of **Amazon S3**:  
-  * Bucket, Object, and different Storage Classes.  
-  * How to use Versioning to manage multiple file versions.  
-  * Lifecycle rules to automate data storage and deletion.  
+* Storage Gateway & Multi-AZ File System:
+  * Created Storage Gateway, File Shares, and mounted on On-Premises machine.  
+  * Deployed SSD & HDD Multi-AZ File System, created file shares, tested & monitored performance.  
+  * Managed users, enabled deduplication, shadow copies, quotas, scaled throughput & storage.
 
-* Successfully completed **S3 hands-on exercises**:  
-  * Created Buckets, uploaded and downloaded files.  
-  * Enabled Versioning and verified file versions.  
+* S3 & CloudFront:
+  * Created S3 Bucket, loaded data, deployed static website, configured CloudFront.  
+  * Used versioning, replication multi-region, tested & cleaned up resources.
 
-* Learned the basics of **IAM**:  
-  * Difference between Root user and IAM user.  
-  * Created IAM user and assigned proper Policies.  
-  * Logged in as IAM user to test permissions.  
-
-* Understood **AWS Billing & Cost Management**:  
-  * Used Billing Dashboard to track account charges.  
-  * Explored Cost Explorer for cost visualization.  
-  * Configured Billing Alarm to trigger alerts when exceeding thresholds.  
-
-* End-of-week practical skills:  
-  * Able to implement the workflow from data management (S3) → user management (IAM) → cost monitoring (Billing).  
-  * Understood the relationship between resources, security, and cost in AWS operations.  
+* Self-evaluation:
+  * Confident in deploying advanced Backup, Storage Gateway, Multi-AZ File System, VM management & static website.  
+  * Practiced proper resource cleanup to avoid costs.  
+  * Ready for next week’s lessons on security, IAM & cost optimization.

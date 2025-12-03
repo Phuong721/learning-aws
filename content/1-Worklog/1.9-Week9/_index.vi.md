@@ -1,60 +1,55 @@
 ﻿---
 title: "Worklog Tuần 9"
-date: 2025-09-10
+date: 2025-11-03
 weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính tham khảo, vui lòng **không sao chép nguyên văn** khi nộp báo cáo.
 {{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thu thập yêu cầu và bắt đầu xây dựng nội dung cho **Proposal** và **Proposal Template** của dự án BDSS.
+* Viết các phần mở đầu: Executive Summary, Problem Statement, Solution Overview.
+* Xác định kiến trúc AWS để đưa vào cả hai tài liệu.
+* Hoàn thiện bản nháp đầu tiên cho Proposal và phần khung (structure) của Proposal Template.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | --------------- |
+| 2 | - Nhận yêu cầu từ mentor về nội dung cần có trong Proposal & Proposal Template <br> - Xác định outline chung cho cả hai tài liệu | 03/11/2025 | 03/11/2025 | proposal.docx <br> Proposal Template.docx |
+| 3 | - Viết **Executive Summary** cho Proposal <br> - Chuẩn bị phần mở đầu tương ứng trong Proposal Template | 04/11/2025 | 04/11/2025 | proposal.docx |
+| 4 | - Viết **Problem Statement**: mô tả vấn đề tại các cơ sở y tế & nhu cầu kết nối người hiến máu <br> - Điều chỉnh nội dung để phù hợp khi đưa vào Proposal Template | 05/11/2025 | 05/11/2025 | Tài liệu nhóm |
+| 5 | - Viết **Proposed Solution** cho Proposal <br> - Đồng thời hoàn thiện phần Solution Overview trong Proposal Template | 06/11/2025 | 06/11/2025 | proposal.docx |
+| 6 | - Mô tả **Solution Architecture** theo 4 layer <br> - Rà soát cách trình bày kiến trúc trong Proposal Template để khớp layout chuẩn | 07/11/2025 | 07/11/2025 | AWS Docs |
+| 7 | - Viết phần **Technical Implementation** và lộ trình triển khai <br> - Đồng thời điền các mục tương ứng trong Proposal Template (Activities, Deliverables, Scope…) | 08/11/2025 | 08/11/2025 | Proposal Template.docx |
+| CN | - Hoàn thiện bản nháp đầu cho cả Proposal và Proposal Template <br> - Gửi mentor review và ghi nhận feedback <br> - Cập nhật Worklog tuần 9 | 09/11/2025 | 09/11/2025 | Slack/Meeting |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thành bản nháp đầu tiên của **Proposal** và phần skeleton của **Proposal Template**, gồm các mục:
+  * Executive Summary  
+  * Problem Statement  
+  * Proposed Cloud Solution  
+  * Solution Architecture (4 lớp)  
+  * Technical Implementation (draft)
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Xây dựng được cấu trúc hoàn chỉnh cho **Proposal Template**, sẵn sàng điền nội dung chi tiết ở tuần sau.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Hiểu rõ hơn yêu cầu từ mentor và cách trình bày nội dung theo hai định dạng khác nhau:
+  * Proposal: mô tả chi tiết  
+  * Proposal Template: mô hình chuẩn AWS
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Xác định rõ kiến trúc AWS sử dụng trong cả hai tài liệu:
+  * Route 53, CloudFront  
+  * API Gateway – EC2  
+  * RDS MySQL  
+  * Cognito Authorization  
+  * CI/CD Pipeline  
+  * Monitoring & Security Layer  
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Tạo nền tảng nội dung quan trọng để tuần tới tiếp tục hoàn thiện:  
+  Technical Plan, Budget Estimate, Risk Assessment và hoàn chỉnh Proposal Template.
 

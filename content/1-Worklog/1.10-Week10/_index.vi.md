@@ -1,60 +1,37 @@
 ﻿---
 title: "Worklog Tuần 10"
-date: 2025-09-10
+date: 2025-11-10
 weight: 2
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xây dựng workshop dựa trên nội dung của Proposal và Proposal Template.  
+* Xác định các phần sẽ được trình bày trong workshop: Overview, Architecture, CI/CD, Cost, Security…  
+* Chuẩn hóa nội dung workshop theo cấu trúc AWS.  
+* Chuẩn bị tài liệu để nhóm có thể trình bày hiệu quả trong buổi workshop.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------- | ----------------- | --------------- |
+| 2 | - Đọc lại proposal nhóm BDSS <br> - Nghiên cứu Proposal Template <br> - Xác định phạm vi workshop cần xây dựng | 10/11/2025 | 10/11/2025 | proposal.docx <br> Proposal Template.docx |
+| 3 | - Phân tích cấu trúc workshop dựa trên template <br> - Chọn các phần phù hợp từ hai proposal để đưa vào workshop | 11/11/2025 | 11/11/2025 | Proposal Template.docx |
+| 4 | - Viết nội dung cho các mục: Introduction, Background, Objectives của workshop <br> - Chuẩn hóa flow và wording theo format AWS | 12/11/2025 | 12/11/2025 | proposal.docx |
+| 5 | - Xây dựng phần Workshop Content chính: <br>&emsp; + System Architecture <br>&emsp; + Data Flow <br>&emsp; + CI/CD Pipeline <br>&emsp; + Security Model | 13/11/2025 | 14/11/2025 | proposal.docx |
+| 6 | - Tổng hợp AWS Cost Estimate, Risk Assessment để đưa vào workshop <br> - Điều chỉnh nội dung theo bố cục workshop | 14/11/2025 | 15/11/2025 | Proposal Template.docx |
+| 7 | - Hoàn thiện bản Workshop Draft <br> - Chỉnh sửa định dạng, heading, flow trình bày <br> - Gửi tài liệu workshop cho nhóm review | 16/11/2025 | 16/11/2025 | — |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
-
+* Đã xây dựng xong bản Workshop Draft dựa vào Proposal & Proposal Template.  
+* Chuẩn hóa nội dung workshop gồm: Introduction, Background, Architecture, CI/CD, Cost, Security, Roadmap.  
+* Kiến trúc BDSS được mô tả theo cấu trúc workshop rõ ràng và dễ trình bày.  
+* Tổng hợp đầy đủ phần chi phí, rủi ro và kế hoạch triển khai để đưa vào workshop.  
+* Tài liệu workshop đã sẵn sàng để nhóm duyệt và chuẩn bị cho buổi trình bày.
