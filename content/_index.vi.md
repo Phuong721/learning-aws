@@ -1,21 +1,21 @@
 ﻿---
 title: "Báo cáo thực tập"
-date: 2025-09-10
+date: 2025-11-30
 weight: 1
 chapter: false
 ---
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Đỗ Đoàn Duy Phương
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0983394370
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** phuongdddse180235@fpt.edu.vn
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** Đại học FPT TP.HCM
 
-&emsp; **Ngành:** Công nghệ thông tin
+&emsp; **Ngành:** An toàn thông tin
 
 &emsp; **Lớp:** AWS082025
 
@@ -23,9 +23,9 @@ chapter: false
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
 
-&emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
+&emsp; **Thời gian thực tập:** Từ ngày 08/09/2025 đến ngày 30/12/2025
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![Ảnh đại diện của bạn](/images/avatar.jpq)
 
 
 

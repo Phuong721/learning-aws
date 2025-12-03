@@ -13,15 +13,15 @@ chapter: false
 {{% /notice %}}
 
 ### Student Information:
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Do Doan Duy Phuong
 
-&emsp; **Phone Number:** 0989888999 
+&emsp; **Phone Number:** 0983394370
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** phuongdddse180235@fpt.edu.vn
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University Ho Chi Minh City
 
-&emsp; **Major:** Information Technology
+&emsp; **Major:** Information Security
 
 &emsp; **Class:** AWS082025
 
@@ -29,9 +29,9 @@ chapter: false
 
 &emsp; **Internship Position:** FCJ Cloud Intern
 
-&emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
+&emsp; **Internship Duration:** From 08/09/2025 to 30/12/2025
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/images/avatar.jpg)
 
 ### Report Content
 
