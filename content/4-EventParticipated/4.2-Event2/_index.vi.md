@@ -1,7 +1,7 @@
 ﻿---
 title: "Event 2"
-date: 2025-09-10
-weight: 1
+date: 2025-11-29
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
@@ -10,117 +10,156 @@ pre: " <b> 4.2. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “AWS Cloud Club – First Cloud AI Journey Workshop”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Sự kiện “AWS Cloud Club – First Cloud AI Journey” được tổ chức nhằm:
+
+- Cung cấp định hướng cho sinh viên bước đầu tiếp cận điện toán đám mây và AI.
+- Giới thiệu cộng đồng **AWS Cloud Clubs** và vai trò của họ trong việc lan tỏa kiến thức cloud.
+- Trang bị kiến thức nền tảng để học viên chuẩn bị tham gia các hành trình cloud/AI chuyên sâu.
+- Kết nối các bạn trẻ yêu thích công nghệ với cộng đồng AWS tại Việt Nam.
+- Tạo môi trường trao đổi, chia sẻ kinh nghiệm giữa các thành viên Cloud Club của nhiều trường đại học.
+
+---
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Le Vu Xuan An** – AWS Cloud Club Captain HCMUTE
+- **Tran Duc Anh** – AWS Cloud Club Captain SGU
+- **Tran Doan Cong Ly** – AWS Cloud Captain PTIT
+- **Danh Hoang Hieu Nghi** – AWS CLoud Captain HUFLIT
 
-### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+---
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+# Nội Dung Nổi Bật
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+## 1. Giới thiệu AWS Cloud Club
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Cloud Club là cộng đồng do AWS hỗ trợ, dành cho sinh viên quan tâm đến Cloud Computing, AI/ML và DevOps.
+- Mỗi trường đại học có Cloud Club Captain – người dẫn dắt hoạt động học thuật.
+- Cộng đồng mang mục tiêu tạo ra:
+  - Không gian học tập chủ động.
+  - Nơi chia sẻ kinh nghiệm chuẩn bị certification.
+  - Các workshop thực hành từ cơ bản đến nâng cao.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+## 2. First Cloud AI Journey – Lộ trình học Cloud + AI cho sinh viên
 
-#### Domain-Driven Design (DDD)
+Trong sự kiện, diễn giả trình bày:
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+- Tổng quan chương trình First Cloud AI Journey.
+- Lộ trình tiếp cận từ **AWS Cloud fundamentals → hands-on labs → AI/ML foundation → project thực tế**.
+- Giới thiệu các chủ đề trọng tâm:
+  - Điện toán đám mây (EC2, S3, Lambda…)
+  - AI cơ bản
+  - Kiến thức cần có cho GenAI (dữ liệu, vector DB, prompt engineering…)
+  - Các công cụ AWS định hướng AI như Bedrock, Q Developer (ở các session tiếp theo)
 
-#### Event-Driven Architecture
+## 3. Chia sẻ về hành trình học Cloud của các Cloud Club Captains
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+Nội dung chia sẻ xoay quanh:
 
-#### Compute Evolution
+- Cách bắt đầu học AWS từ con số 0 mà không bị “ngợp”.
+- Quy trình chuẩn bị thi các chứng chỉ:  
+  - Cloud Practitioner  
+  - Solutions Architect – Associate  
+- Cách tham gia hoạt động trong cộng đồng để học nhanh hơn.
+- Những sai lầm phổ biến của người mới học cloud:
+  - Không thực hành.
+  - Không đọc Well-Architected.
+  - Không quản lý thời gian học tập.
+- Kinh nghiệm tìm cơ hội trong ngành:
+  - Làm dự án cá nhân (pet projects).  
+  - Viết note, blog, chia sẻ kiến thức.  
+  - Tạo portfolio cloud/AI chuyên nghiệp.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+## 4. Hoạt động giao lưu & tương tác
 
-#### Amazon Q Developer
+Trong sự kiện có các phần:
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+- Q&A mở giữa diễn giả và người tham dự.
+- Chia sẻ thật về:
+  - Thói quen học cloud hiệu quả.
+  - Các nguồn tài liệu miễn phí.
+  - Lộ trình thi chứng chỉ.
+- Giao lưu networking giữa các bạn đến từ nhiều trường.
 
-### Những Gì Học Được
+---
 
-#### Tư Duy Thiết Kế
+# Những Gì Học Được
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+## 1. Tư duy định hướng Cloud & AI
 
-#### Kiến Trúc Kỹ Thuật
+- Hiểu được sự quan trọng của nền tảng cloud trước khi học AI/GenAI.
+- Biết cách xây dựng lộ trình học phù hợp với bản thân.
+- Tư duy “learn by doing” — thực hành mới là điểm quan trọng nhất.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+## 2. Kiến thức cộng đồng và cơ hội phát triển
 
-#### Chiến Lược Hiện Đại Hóa
+- Cộng đồng AWS Cloud Club đóng vai trò quan trọng giúp sinh viên:
+  - Học nhanh hơn.
+  - Có người dẫn dắt.
+  - Có cơ hội tham gia các dự án/hackathon.
+- Học được cách tận dụng networking để phát triển sự nghiệp.
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+## 3. Kỹ năng học tập và chuẩn bị chứng chỉ
 
-### Ứng Dụng Vào Công Việc
+- Cách tiếp cận exam AWS thực tế.
+- Những công cụ hỗ trợ học:
+  - AWS Skill Builder
+  - Cloud Quest
+  - Digital Training miễn phí
+- Chiến lược hạn chế “burn-out” trong hành trình học cloud dài hạn.
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+## 4. Tư duy AI thời đại mới
 
-### Trải nghiệm trong event
+- Cloud là nền tảng bắt buộc để triển khai AI/ML và GenAI.
+- AI không bắt đầu từ mô hình — mà từ dữ liệu, cơ sở hạ tầng, và business understanding.
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+---
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+# Ứng Dụng Vào Công Việc
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+- Xây dựng roadmap học Cloud Practitioner để có kiến thức nền.
+- Tham gia hoạt động Cloud Club để mở rộng network.
+- Bắt đầu thực hiện mini-project:
+  - Deploy website lên S3/CloudFront.
+  - Tạo API serverless bằng AWS Lambda.
+- Trải nghiệm các dịch vụ AI cơ bản trong AWS ở các workshop tiếp theo.
+- Ghi chép và chia sẻ lại kiến thức đã học để củng cố.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+---
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+# Trải Nghiệm Trong Event
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+Tham gia “AWS Cloud Club – First Cloud AI Journey” mang đến nhiều trải nghiệm thú vị:
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+## Học hỏi từ người đi trước
+- Được nghe chia sẻ thực tế về hành trình học AWS.
+- Học được mindset tự học hiệu quả, giúp tránh mất thời gian.
+
+## Không khí sự kiện
+- Không gian mở, nhiều bạn sinh viên đam mê cloud.
+- Giảng trình trực quan, slide rõ ràng và hiện đại.
+
+## Networking
+- Kết nối được với nhiều bạn từ các trường khác nhau.
+- Có thêm góc nhìn mới về phát triển sự nghiệp trong ngành cloud.
+
+## Động lực học tập
+- Buổi workshop giúp mình định hướng rõ ràng hơn.
+- Tạo thêm động lực để theo đuổi lộ trình cloud & AI nghiêm túc.
+
+---
+
+# Một số hình ảnh trong sự kiện
+![AWS Cloud Club Workshop 1](/images/4-EventParticipated/image6.jpg)
+![AWS Cloud Club 2 Workshop](/images/4-EventParticipated/image7.jpg)
+![AWS Cloud Club 3 Workshop](/images/4-EventParticipated/image8.jpg)
+![AWS Cloud Club 4 Workshop](/images/4-EventParticipated/image9.jpg)
+![AWS Cloud Club 5 Workshop](/images/4-EventParticipated/image10.jpg)
+
+> Tổng thể, sự kiện không chỉ truyền cảm hứng mạnh mẽ mà còn giúp tôi định hình rõ ràng con đường học tập về Cloud và AI, đồng thời xây dựng được kết nối với cộng đồng công nghệ đầy nhiệt huyết.
 

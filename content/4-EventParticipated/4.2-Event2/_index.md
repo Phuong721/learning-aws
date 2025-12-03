@@ -1,127 +1,165 @@
 ﻿---
 title: "Event 2"
-date: 2025-09-10
-weight: 1
+date: 2025-11-29
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
+⚠️ **Note:** The information below is for reference only. Please **do not copy it verbatim** for your official report, including this warning.
 {{% /notice %}}
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Reflection Report – “AWS Cloud Club – First Cloud AI Journey Workshop”
 
-### Event Objectives
+### Purpose of the Event
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The “AWS Cloud Club – First Cloud AI Journey” workshop was organized to:
+
+- Provide orientation for students beginning their journey into cloud computing and AI.
+- Introduce the AWS Cloud Clubs community and its role in fostering cloud knowledge.
+- Equip participants with foundational knowledge to prepare for deeper cloud/AI learning tracks.
+- Connect tech–driven students with the AWS community in Vietnam.
+- Create a collaborative environment where learners can exchange knowledge and gain insights from others in the same field.
+
+---
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Le Vu Xuan An** – AWS Cloud Club Captain HCMUTE
+- **Tran Duc Anh** – AWS Cloud Club Captain SGU
+- **Tran Doan Cong Ly** – AWS Cloud Captain PTIT
+- **Danh Hoang Hieu Nghi** – AWS CLoud Captain HUFLIT
 
-### Key Highlights
+---
 
-#### Identifying the drawbacks of legacy application architecture
+# Key Content Covered
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## 1. Introduction to AWS Cloud Clubs
 
-#### Transitioning to modern application architecture – Microservices
+- AWS Cloud Clubs are student-led communities supported by AWS.
+- Each university has a Cloud Club Captain responsible for leading academic and technical activities.
+- The community aims to:
+  - Enable peer-to-peer learning.
+  - Provide guidance on preparing for AWS certifications.
+  - Organize workshops ranging from fundamentals to advanced topics.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+## 2. First Cloud AI Journey – Learning Roadmap
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+The speakers introduced an overview of the First Cloud AI Journey program, including:
 
-#### Domain-Driven Design (DDD)
+- Cloud learning path:
+  - **AWS Cloud fundamentals → hands-on labs → AI/ML basics → real-world projects**
+- Foundations of:
+  - Cloud computing (EC2, S3, Lambda…)
+  - Basic AI concepts
+  - Key elements for GenAI (data, vector databases, prompt engineering…)
+- Introduction to AWS services supporting AI learning (to be covered in later sessions).
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+## 3. Cloud Learning Experiences Shared by Captains
 
-#### Event-Driven Architecture
+The Cloud Club Captains emphasized:
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- How to start learning AWS from zero without feeling overwhelmed.
+- Certification preparation strategies:
+  - Cloud Practitioner
+  - Solutions Architect – Associate
+- Importance of joining communities to accelerate learning.
+- Common beginner mistakes:
+  - Not practicing hands-on labs
+  - Ignoring foundational principles (like the Well-Architected Framework)
+  - Lack of personal project building
+- Tips for building a strong cloud career:
+  - Create personal projects
+  - Share notes/blogs
+  - Build a professional cloud portfolio
 
-#### Compute Evolution
+## 4. Q&A and Networking Activities
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+The event included:
 
-#### Amazon Q Developer
+- Open Q&A with the speakers.
+- Discussion about effective study habits and resource selection.
+- Networking among students from different universities.
+- Sharing real experiences in preparing for certifications and participating in cloud projects.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
-### Key Takeaways
+# What I Learned
 
-#### Design Mindset
+## 1. Cloud & AI Learning Mindset
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- Cloud fundamentals are essential before diving into AI or GenAI.
+- A clear, structured learning plan prevents burnout and wasted effort.
+- Hands-on practice is more valuable than passive study.
 
-#### Technical Architecture
+## 2. Importance of Community in Learning
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- AWS Cloud Clubs accelerate learning through:
+  - Study groups  
+  - Peer mentoring  
+  - Shared resources  
+- Networking exposes students to real opportunities in cloud engineering.
 
-#### Modernization Strategy
+## 3. Certification Preparation Skills
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- How to approach AWS exams efficiently.
+- Useful learning tools:
+  - AWS Skill Builder
+  - Cloud Quest
+  - AWS free digital training
+- Balancing study time and avoiding burnout.
 
-### Applying to Work
+## 4. AI Readiness Mindset
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- AI is not just about models — it starts with:
+  - Data readiness
+  - Infrastructure readiness
+  - Understanding real business use cases
+- Cloud plays a foundational role in deploying AI applications.
 
-### Event Experience
+---
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+# Application to My Work
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Build a study plan to earn the AWS Cloud Practitioner certification.
+- Join Cloud Club activities to expand my community and learn collaboratively.
+- Start hands-on mini-projects such as:
+  - Deploying static website on S3/CloudFront.
+  - Building serverless APIs using AWS Lambda.
+- Explore introductory AI services on AWS in upcoming workshops.
+- Document my learning journey and share insights to reinforce understanding.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+---
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+# Event Experience
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+Attending the “AWS Cloud Club – First Cloud AI Journey” workshop was a valuable and motivating experience.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+## Learning From Experienced Members
+- Insightful stories on cloud learning paths.
+- Practical advice on developing a discipline-based study habit.
 
-#### Some event photos
-*Add your event photos here*  
+## Event Atmosphere
+- A professional yet friendly environment.
+- Clear slides and explanations that were easy to follow.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+## Networking
+- Connected with peers interested in Cloud and AI.
+- Gained exposure to multiple perspectives on cloud career development.
+
+## Motivation & Direction
+- The session helped me form a clearer vision of my cloud learning path.
+- Renewed motivation to pursue cloud and AI seriously.
+
+---
+
+# Event Photos
+![AWS Cloud Club Workshop 1](/images/4-EventParticipated/image6.jpg)
+![AWS Cloud Club 2 Workshop](/images/4-EventParticipated/image7.jpg)
+![AWS Cloud Club 3 Workshop](/images/4-EventParticipated/image8.jpg)
+![AWS Cloud Club 4 Workshop](/images/4-EventParticipated/image9.jpg)
+![AWS Cloud Club 5 Workshop](/images/4-EventParticipated/image10.jpg)
+
+> Overall, the event not only strengthened my technical understanding but also shaped my perspective on cloud learning, community engagement, and AI readiness. It has given me a clearer roadmap and strong motivation to move forward in my Cloud & AI journey.
 
