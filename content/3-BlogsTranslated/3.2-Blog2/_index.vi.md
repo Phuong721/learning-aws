@@ -1,128 +1,268 @@
 ﻿---
-title: "Blog 2"
-date: 2025-09-10
-weight: 1
+title: "Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí"
+date: 2025-08-21
+weight: 2
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: "<b>Bài viết bởi:</b> Itay Meller, Ran Isenberg, và Yossi Lagstein"
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% notice info %}}
+Bài viết này hướng dẫn cách tối ưu hoá quản lý khóa mã hóa AWS KMS trong môi trường SaaS đa thuê bao, giảm chi phí và độ phức tạp hệ thống.
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+## Giới thiệu
+Các tổ chức phải đối mặt diverse challenges when it comes to managing encryption keys. Mặc dù một số kịch bản yêu cầu sự tách biệt nghiêm ngặt, nhưng có những trường hợp sử dụng thiết thực mà phương pháp tập trung có thể hợp lý hóa hoạt động và giảm độ phức tạp. Trong bài viết này, chúng tôi tập trung vào kịch bản nhà cung cấp phần mềm dưới dạng dịch vụ (SaaS), nhưng các nguyên tắc chúng tôi thảo luận có thể được áp dụng bởi các tổ chức lớn đang đối mặt với những thách thức quản lý quan trọng tương tự.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Việc quản lý mã hóa trên một kiến ​​trúc đa thuê bao, đa dịch vụ đặt ra một thách thức đáng kể. Nhiều tổ chức đang phải vật lộn với sự phức tạp và chi phí liên quan đến việc cung cấp các dịch vụ riêng biệt AWS Key Management Service (AWS KMS) customer managed keys cho từng đối tượng thuê bao và dịch vụ. Cách tiếp cận này, mặc dù an toàn, nhưng thường dẫn đến chi phí vận hành tăng cao và chi phí sử dụng AWS KMS tăng theo thời gian.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Nhưng nếu có cách hiệu quả hơn thì sao?
 
----
+Trong bài viết này, chúng tôi sẽ giới thiệu một chiến lược sử dụng một khóa duy nhất do khách hàng quản lý (đối xứng) cho mỗi đối tượng thuê trên các dịch vụ. Sau khi đọc hết bài viết này, bạn sẽ tìm hiểu:
+- Làm thế nào để triển khai một mô hình mã hóa có khả năng mở rộng, an toàn và tiết kiệm chi phí
+- Các kỹ thuật sử dụng một khóa do khách hàng quản lý cho mỗi đối tượng thuê trên nhiều dịch vụ và môi trường
+- Phương pháp mã hóa dữ liệu người thuê trong Amazon DynamoDB và các loại lưu trữ khác trong khi vẫn duy trì sự cô lập của người thuê.
 
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Yêu cầu mã hóa đa thuê bao trong SaaS
+Việc cô lập dữ liệu là nền tảng cơ bản của các kiến ​​trúc SaaS đa thuê bao, đáp ứng cả yêu cầu tuân thủ và sự tin tưởng của khách hàng. Nhiều nhà cung cấp SaaS cần mã hóa thông tin nhạy cảm - từ khóa API và thông tin đăng nhập đến dữ liệu cá nhân - trên các giải pháp lưu trữ như DynamoDB và Amazon Simple Storage Service (Amazon S3).
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Mặc dù các dịch vụ lưu trữ này cung cấp mã hóa mặc định khi lưu trữ, nhưng chúng thường sử dụng một khóa chung duy nhất trên các mục dữ liệu. Hãy xem xét DynamoDB in a shared pool model, trong đó một bảng chứa dữ liệu từ nhiều đối tượng thuê. Trong thiết lập này, dữ liệu đối tượng thuê được mã hóa bằng cùng một AWS KMS Key, bất kể quyền sở hữu.
 
----
+Khóa KMS đại diện cho một vùng chứa tài liệu khóa cấp cao nhất và được xác định duy nhất trong KMS, để biết thêm thông tin về các khóa khác nhau liên quan khi mã hóa hoặc giải mã dữ liệu bằng KMS, hãy xem AWS KMS key hierarchy.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+Phương pháp khóa chia sẻ này thường tỏ ra không đủ hiệu quả đối với các nhà cung cấp SaaS hoạt động theo khuôn khổ bảo mật và tuân thủ nghiêm ngặt. Một số khách hàng yêu cầu
+- Khả năng mang theo chìa khóa riêng (BYOK)
+- Cô lập dữ liệu một cách hợp lý thông qua các khóa mã hóa chuyên dụng
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Để đáp ứng các yêu cầu này, nhà cung cấp có thể triển khai khóa được quản lý AWS KMS dành riêng cho khách hàng, giúp đảm bảo dữ liệu nhạy cảm của mỗi khách hàng vẫn được tách biệt và không thể truy cập được bởi những người thuê khác.
+
+Ngoài ra, các nhà cung cấp có thể cân nhắc mô hình silo với các bảng riêng biệt cho mỗi khách hàng. Tuy nhiên, cách tiếp cận này cũng đặt ra những thách thức riêng - khi cơ sở khách hàng tăng lên, việc quản lý nhiều bảng riêng lẻ trở nên ngày càng phức tạp và service quota giới hạn có thể trở thành một ràng buộc.
 
 ---
 
-## The pub/sub hub
+## Quản lý tăng trưởng: Quản lý khóa KMS ở quy mô lớn
+Khi mở rộng quy mô nền tảng SaaS, việc trao quyền cho các nhóm phát triển dịch vụ một cách độc lập là rất quan trọng. Một cách nhanh chóng để mở rộng quy mô là có each team develop independently using a dedicated account. Điều này thường dẫn đến phương pháp tiếp cận phi tập trung, trong đó mỗi dịch vụ quản lý khóa KMS riêng cho từng khách hàng. Tuy nhiên, tính tự chủ này đi kèm với những chi phí ẩn khi cơ sở khách hàng và danh mục dịch vụ của bạn mở rộng.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+## Thách thức của sự phổ biến chìa khóa
+Khi công ty phát triển, số lượng khóa sẽ tăng lên theo mỗi khách hàng và dịch vụ mới được bổ sung. Sự gia tăng này tạo ra một số thách thức cho tổ chức:
+- Tác động về chi phí: Một khóa AWS KMS có giá 1 đô la mỗi tháng, tăng lên tối đa 3 đô la mỗi tháng với hai hoặc nhiều lần luân chuyển khóa.
+- Độ phức tạp trong vận hành: Việc quản lý nhiều khóa KMS trên nhiều môi trường và tài khoản dễ xảy ra lỗi và khó mở rộng quy mô.
+- Lãng phí tổ chức: Nỗ lực trùng lặp giữa các nhóm vì mỗi nhóm phát triển và duy trì mã riêng để quản lý vòng đời khóa khách hàng.
+- Chi phí quản lý: Việc thực thi các chính sách nhất quán hoặc theo dõi việc sử dụng khóa KMS trên nhiều tài khoản AWS trở nên khó khăn.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+## Một cách tiếp cận hợp lý
+Giải pháp nằm ở việc thực hiện một centralized key management strategy. Một khóa KMS cho mỗi đối tượng thuê, được lưu trữ trong một tài khoản AWS trung tâm. Phương pháp này giải quyết hiệu quả các thách thức về chi phí, vận hành và quản trị, đồng thời vẫn đảm bảo tính bảo mật.
 
----
+Trong các phần sau, chúng tôi sẽ khám phá cách triển khai phương pháp tập trung này và chia sẻ khóa KMS một cách an toàn trên nhiều dịch vụ và tài khoản AWS khác nhau.
 
-## Core microservice
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+## Tổng quan về giải pháp: Tập trung quản lý khóa đối tượng thuê
+Cốt lõi của giải pháp của chúng tôi là dịch vụ quản lý khóa thuê bao tập trung (được hiển thị là Dịch vụ A trong hình sau). Dịch vụ này xử lý mọi khía cạnh của vòng đời khóa KMS của khách hàng—từ việc tạo khóa trong quá trình đăng ký thuê bao đến việc quản lý bí danh, chính sách truy cập và xóa khóa.
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Dịch vụ này đạt được khả năng sử dụng khóa an toàn, có thể mở rộng trên toàn tổ chức thông qua quyền truy cập AWS Identity and Access Management (IAM) liên tài khoản. Nó cấp cho các dịch vụ khác (ví dụ: dịch vụ dành cho khách hàng trong Tài khoản B trong hình sau) quyền thực hiện các hoạt động mã hóa cụ thể bằng khóa KMS dành riêng cho đối tượng thuê thông qua phân quyền vai trò. Việc triển khai này tuân thủ các thông lệ tốt nhất của AWS về truy cập liên tài khoản, sử dụng IAM và AWS Security Token Service (AWS STS) giả định vai trò như được mô tả trong the AWS documentation và điều này blog post.
 
----
 
-## Front door microservice
+## Quản lý khóa tập trung trong thực tế: Mã hóa dữ liệu khách hàng
+Chúng ta hãy cùng xem xét cách thức hoạt động này trong thực tế với một kịch bản phổ biến:
+- Dịch vụ A: Dịch vụ quản lý khóa thuê tập trung của chúng tôi trong Tài khoản A
+- Dịch vụ B: Khối lượng công việc hướng tới khách hàng đang chạy trong Tài khoản B
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Khi khách hàng tương tác với Dịch vụ B, họ cần lưu trữ thông tin nhạy cảm một cách an toàn, cho dù đó là bí mật, khóa API hay thông tin giấy phép trong bảng DynamoDB. Thay vì dựa vào khóa KMS dùng chung hoặc mã hóa mặc định, Dịch vụ B mã hóa dữ liệu bằng khóa KMS chuyên dụng của khách hàng do Dịch vụ A quản lý. Quy trình này hoạt động thông qua AWS Identity and Access Management (IAM) ủy quyền vai trò. Dịch vụ B tạm thời đảm nhận một vai trò (ServiceARole) trong Tài khoản A, nhận được các quyền chi tiết, được thu hẹp phạm vi cho khóa KMS của đối tượng thuê cụ thể. Với các thông tin xác thực tạm thời này, Dịch vụ B có thể thực hiện các hoạt động mã hóa phía máy khách trên thông tin nhạy cảm bằng AWS SDK hoặc AWS Encryption SDK.
 
----
+Trong bài đăng trên blog này, chúng tôi đã sử dụng Boto3. Đối với các trường hợp sử dụng nâng cao hơn yêu cầu data key caching hoặc keyrings, sử dụng AWS Encryption SDK.
 
-## Staging ER7 microservice
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+## Hướng dẫn giải pháp
+Hãy cùng mở rộng các khía cạnh kỹ thuật của giải pháp được mô tả ở trên. Giả định và định nghĩa:
+- Các yêu cầu đến bao gồm một tiêu đề xác thực với JSON Web Token (JWT) bao gồm dữ liệu xác định người thuê OF hiện tại. Các mã thông báo này được ký bởi nhà cung cấp danh tính, đảm bảo JWT không thể bị sửa đổi và danh tính người thuê có thể được tin cậy.
+- Tài khoản A: Dịch vụ quản lý khóa tập trung.
+- Tài khoản B: Dịch vụ kinh doanh phục vụ nhu cầu của khách hàng.
+- alias/customer-<tenant-id> là định dạng của các bí danh trong tài khoản A. Mỗi bí danh trỏ đến khóa KMS của khách hàng tương ứng được xác định theo giá trị của <tenant-id> . Dịch vụ A tạo các bí danh này trong quá trình đưa người thuê lên hệ thống và xóa chúng trong quá trình đưa người thuê rời khỏi hệ thống.
+- ServiceARole: Một vai trò trong Tài khoản A có thể mã hóa và giải mã khóa KMS có tiền tố bí danh là alias/customer-*. Các quyền được thu hẹp phạm vi hơn nữa bằng cách sử dụng  session policies khi ServiceBRole  giả định ServiceARole.
+- ServiceBRole:Một vai trò trong Tài khoản B có thể đảm nhận ServiceARole  trong Tài khoản A để có quyền truy cập vào khóa KMS của khách hàng. Đây sẽ là AWS Lambda vai trò thực thi của hàm.
 
----
+Lưu ý rằng lớp tính toán của Dịch vụ B trong trường hợp này là một hàm Lambda, nhưng giải pháp này cũng được áp dụng cho các kiến ​​trúc tính toán khác. Hãy cùng xem xét kỹ năng hơn về xử lý luồng:
 
-## Tính năng mới trong giải pháp
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+## Sử dụng dịch vụ với JWT
+Khách hàng thuộc về một đối tượng thuê đăng nhập vào giải pháp SaaS và được cấp JWT để xác định đối tượng thuê của mình bằng ID đối tượng thuê (<tenant-id>). Khách hàng thực hiện một hành động trong ServiceB và gửi thông tin nhạy cảm.
 
+ServiceB xử lý yêu cầu (trong hàm Lambda), xác minh mã thông báo JWT và muốn:
+- Mã hóa dữ liệu nhạy cảm của khách hàng
+- Lưu dữ liệu được mã hóa cùng với dữ liệu khác trong bảng DynamoDB
+
+
+## Đảm nhận vai trò
+Trong ví dụ này, hàm Lambda sử dụng execution role thông tin đăng nhập để đảm nhận vai trò Dịch vụ trong tài khoản Dịch vụ. Một cách khác để cấp quyền truy cập liên tài khoản vào khóa KMS là sử dụng KMS grants,để tìm hiểu thêm, hãy xem Allowing users in other accounts to use a KMS key.
+
+Hãy cùng xem lại chính sách IAM ServiceRoleA:
+
+Cấp quyền mã hóa và giải mã cho khóa KMS bằng cách sử dụng alias/customer-* mẫu.
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowKMSByAlias",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:RequestAlias": "alias/customer-*"
+        }
+      }
+    }
+  ]
+}
+
+
+Để mã hóa bí mật của người thuê một cách an toàn và trên quy mô lớn, chúng tôi cấp cho các vai trò ứng dụng quyền truy cập liên tài khoản vào khóa KMS—nhưng chỉ thông qua bí danh của họ, bí danh này ánh xạ tới mã định danh người thuê có trong mã thông báo xác thực JWT của họ, thực thi sự cô lập mạnh mẽ.
+
+Bạn có thể kiểm soát quyền truy cập vào khóa KMS dựa trên các bí danh được liên kết với mỗi khóa KMS. Để thực hiện việc này, hãy sử dụng kms:RequestAlias và kms:ResourceAliases các phím điều kiện như được chỉ định trong Use aliases to control access to KMS keys.
+
+Ngoài ra, chính sách quan hệ tin cậy của ServiceARole cho phép ServiceBRole trong tài khoản B đảm nhận:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<ACCOUNT_B_ID>:role/ServiceBRole"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+Tùy thuộc vào môi trường của bạn, bạn có thể thêm các điều kiện bổ sung vào chính sách ủy thác này để thu hẹp hơn nữa phạm vi những người có thể đảm nhận vai trò này. Để biết thêm thông tin, hãy xem IAM and AWS STS condition context keys.
+
+Sau đó, mỗi khóa KMS do khách hàng quản lý sẽ có chính sách sau. Ví dụ: khóa KMS cho khách hàng có <tenant-id>: 123 sẽ có chính sách hạn chế quyền truy cập vào khóa bằng cách sử dụng bí danh khách hàng cụ thể và chỉ thông qua ServiceRoleA.
+{
+  "Version": "2012-10-17",
+  "Id": "TenantKeyPolicy",
+  "Statement": [
+    {
+      "Sid": "AllowServiceARoleViaAlias",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<ACCOUNT_A_ID>:role/ServiceARole"
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:RequestAlias": "alias/customer-123"
+        }
+      }
+    }
+  ]
+}
+
+Sau đây là ví dụ mã Python minh họa cách Dịch vụ B tự động đảm nhận vai trò trong Tài khoản A để mã hóa dữ liệu cho một đối tượng thuê cụ thể bằng chính sách IAM có phạm vi phiên, chính sách này chỉ cho phép truy cập vào bí danh khóa KMS của đối tượng thuê đó.
+
+Mẫu này tuân theo các nguyên tắc tương tự được nêu trong Isolating SaaS Tenants with Dynamically Generated IAM Policies. Ý tưởng là tạo và đính kèm một chính sách IAM dành riêng cho đối tượng thuê trong thời gian chạy, cấp các quyền tối thiểu cần thiết để vận hành trên các tài nguyên do đối tượng thuê sở hữu—trong trường hợp này là một bí danh khóa KMS. Thông tin xác thực sẽ cho phép hàm Lambda chỉ sử dụng khóa KMS thuộc về khách hàng (được xác định bởi tenant_id).
+
+Chúng tôi sẽ gọi assume_role_for_tenant cho mọi người thuê nhà.
+
+Tình trạng của "StringEquals" - "kms:RequestAlias": alias  là công thức kỳ diệu của AWS STS, nó hạn chế ServiceB sử dụng bí danh của người thuê hiện tại trong các cuộc gọi SDK mã hóa của nó và dựa vào alias authorization
+
+import boto3
+def assume_role_for_tenant(tenant_id: str):
+    alias = f"alias/customer-{tenant_id}"
+    # Session policy scoped to only the specific alias
+    session_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "kms:Encrypt",
+                    "kms:Decrypt",
+                    "kms:GenerateDataKey*"
+                ],
+                "Resource": "*",
+                "Condition": {
+                    "StringEquals": {
+                        "kms:RequestAlias": alias
+                    }
+                }
+            }
+        ]
+    }
+    # Assume ServiceARole in Account A with inline session policy
+    sts = boto3.client("sts")
+    assumed = sts.assume_role(
+        RoleArn="arn:aws:iam::<ACCOUNT_A_ID>:role/ServiceARole",
+        RoleSessionName=f"Tenant{tenant_id}Session",
+        Policy=json.dumps(session_policy)
+    )
+    return assumed["Credentials"]
+
+## Mã hóa dữ liệu và lưu trong DynamoDB
+Bây giờ, việc còn lại cần làm là sử dụng thông tin xác thực vai trò đã được giả định và sử dụng AWS SDK để mã hóa dữ liệu khách hàng nhạy cảm và lưu trữ dữ liệu đó trong bảng DynamoDB.
+
+# Use temporary credentials to create a KMS client
+    creds = assume_role_for_tenant(tenant_id, plaintext)
+    kms = boto3.client(
+        "kms",
+        region_name="us-east-1",
+        aws_access_key_id=creds["AccessKeyId"],
+        aws_secret_access_key=creds["SecretAccessKey"],
+        aws_session_token=creds["SessionToken"]
+    )
+    # Encrypt using the alias
+    response = kms.encrypt(
+        KeyId= f"alias/customer-{tenant_id}"
+        Plaintext=plaintext
+    )
+    # store response["CiphertextBlob"] in DynamoDB table
+
+Bài viết này không đề cập đến việc cô lập giữa các dịch vụ khác nhau, mà chỉ đề cập đến việc cô lập giữa các đối tượng thuê. Nếu cần cô lập dịch vụ như vậy, bạn có thể sử dụng encryption context, một tập hợp tùy chọn các cặp khóa/giá trị không bí mật có thể chứa thông tin ngữ cảnh bổ sung về dữ liệu, ví dụ như mã định danh dịch vụ. Điều này giúp đảm bảo rằng các dịch vụ chỉ có thể mã hóa hoặc giải mã dữ liệu bằng ngữ cảnh mã hóa dịch vụ tương ứng.
+
+
+## Lợi ích của quản lý khóa tập trung
+Hãy cùng xem giải pháp này giải quyết những thách thức trước đây của chúng ta như thế nào.
+
+## Thiết kế cô lập người thuê nhà
+Mặc dù giảm tổng số khóa KMS, chúng tôi vẫn duy trì việc cô lập nghiêm ngặt đối với người thuê. Dữ liệu nhạy cảm của mỗi khách hàng vẫn được mã hóa bằng khóa chuyên dụng, được xác định bằng một bí danh duy nhất (alias/customer-<tenant-id>). Quyền kiểm soát truy cập vào khóa thuê được quản lý chặt chẽ thông qua việc phân quyền vai trò IAM, tuân theo các nguyên tắc đặc quyền tối thiểu:
+
+- Dịch vụ A kiểm soát độc quyền việc quản lý khóa KMS của người thuê.
+- Dịch vụ B chỉ có thể đảm nhận vai trò cấp quyền truy cập mã hóa, giải mã và GenerateDataKey bị hạn chế cho khóa do khách hàng quản lý được chỉ định bởi bí danh: alias/customer-<tenant-id>.
+
+
+## Quản lý chi phí tối ưu
+Phương pháp của chúng tôi giúp giảm đáng kể chi phí bằng cách chuyển từ nhiều khóa KMS dành riêng cho từng dịch vụ cho mỗi đối tượng thuê sang một khóa KMS duy nhất cho mỗi đối tượng thuê, được chia sẻ an toàn trên nhiều dịch vụ và môi trường. Cách tiếp cận này giới thiệu một tài khoản tập trung mới (Tài khoản A) cung cấp quyền truy cập vào khóa mã hóa trong những trường hợp phù hợp. Điều quan trọng là phải hiểu AWS STS limits, cụ thể cho  các cuộc gọi và xem xét các cơ chế lưu trữ thông tin xác thực IAM tạm thời nếu những giới hạn đó trở thành nút thắt cổ chai. Ngoài ra, nếu KMS limits là một nút thắt cổ chai, hãy cân nhắc sử dụng data key caching bằng cách sử dụng AWS Encryption SDK.
+
+
+## Hoạt động và quản trị hợp lý
+Bằng cách tập trung quản lý khóa trong Dịch vụ A, bạn có thể đạt được:
+- Quản lý vòng đời khóa KMS nhất quán trên toàn tổ chức
+- Cải thiện khả năng kiểm toán bằng cách sử dụng  AWS CloudTrail để hiểu rõ hơn về các mẫu truy cập chính theo dịch vụ
+- Giảm chi phí hoạt động
+- Giám sát tuân thủ đơn giản hóa
+
+Sự phức tạp bổ sung duy nhất là việc thiết lập phân quyền vai trò liên tài khoản ban đầu giữa Dịch vụ A và các dịch vụ khác. Sau khi được thiết lập, khuôn khổ này có thể được mở rộng để đáp ứng các đối tượng thuê bao và dịch vụ mới.
+
+Tốt nhất là đóng gói logic đảm nhiệm vai trò, tạo chính sách và khởi tạo máy khách AWS SDK trong một SDK dùng chung cho toàn tổ chức. Sự trừu tượng hóa này giúp giảm tải nhận thức cho các nhà phát triển và giảm thiểu rủi ro cấu hình sai. Bạn có thể tiến xa hơn bằng cách cung cấp các hàm tiện ích cấp cao như encrypt_tenant_data() và  decrypt_tenant_data(), ẩn đi sự phức tạp tiềm ẩn trong khi thúc đẩy các mô hình sử dụng an toàn và nhất quán trong toàn nhóm.
+
+
+## Phần kết luận
+Trong bài viết này, chúng tôi đã khám phá một phương pháp hiệu quả để quản lý khóa mã hóa trong môi trường SaaS đa thuê bao thông qua tập trung hóa. Chúng tôi đã xem xét những thách thức phổ biến mà các nhà cung cấp SaaS đang phát triển phải đối mặt, bao gồm sự gia tăng khóa, chi phí tăng cao và tính phức tạp trong vận hành trên nhiều tài khoản và dịch vụ AWS. Giải pháp tập trung hóa quản lý khóa này sử dụng các phương pháp hay nhất của AWS để phân quyền vai trò IAM và truy cập liên tài khoản, cho phép các tổ chức duy trì bảo mật và tuân thủ đồng thời giảm thiểu chi phí vận hành. Bằng cách triển khai phương pháp này, các nhà cung cấp SaaS hoặc các tổ chức lớn đang gặp phải những thách thức tương tự có thể quản lý hiệu quả cơ sở hạ tầng mã hóa của họ khi mở rộng quy mô, mà không ảnh hưởng đến bảo mật hoặc tăng tính phức tạp.
+
+
+## Về các tác giả
+- Itay Meller là Kiến trúc sư Giải pháp Chuyên gia Bảo mật tại AWS, với nền tảng vững chắc về Nghiên cứu & Phát triển an ninh mạng và vai trò lãnh đạo tại nhiều công ty tập trung vào bảo mật. Với chuyên môn sâu rộng về bảo mật đám mây, Itay giúp các tổ chức áp dụng và mở rộng môi trường AWS một cách an toàn bằng cách giải quyết các thách thức phức tạp về bảo mật và tuân thủ.
+
+- Ran Isenberg là một Anh hùng Không máy chủ của AWS, Kiến trúc sư Phần mềm Chính tại CyberArk, một blogger và diễn giả. Anh duy trì blog RanTheBuilder.cloud, nơi anh chia sẻ kiến ​​thức và kinh nghiệm trong thế giới Không máy chủ.
+
+- Yossi Lagstein là Kiến trúc sư Giải pháp Cấp cao tại Amazon Web Services. Yossi có hơn 30 năm kinh nghiệm trong vai trò chuyên gia và quản lý phát triển các thành phần cơ sở hạ tầng cho nhiều dự án và sản phẩm. Yossi hỗ trợ khách hàng AWS phát triển, thiết kế và xây dựng các giải pháp được kiến ​​trúc tốt. Ngoài giờ làm việc, Yossi thích chạy bộ, bơi lội và đi bộ đường dài.

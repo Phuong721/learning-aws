@@ -1,127 +1,272 @@
 ﻿---
-title: "Blog 2"
-date: 2025-09-10
-weight: 1
+title: "Simplifying Multi-Tenant Encryption with a Cost-Efficient AWS KMS Key Strategy"
+date: 2025-08-21
+weight: 2
 chapter: false
-pre: " <b> 3.2. </b> "
+pre: "<b>Written by:</b> Itay Meller, Ran Isenberg, and Yossi Lagstein"
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+
+{{% notice info %}}
+This article provides guidance on optimizing AWS KMS encryption-key management in multi-tenant SaaS environments, reducing both cost and system complexity.
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+## Introduction
+Organizations face diverse challenges when it comes to managing encryption keys. While some scenarios require strict separation, there are practical use cases where a centralized approach can streamline operations and reduce complexity. In this post, we focus on Software-as-a-Service (SaaS) providers, but the principles can apply to large enterprises facing similar key-management challenges.
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Managing encryption in a multi-tenant, multi-service architecture presents significant complexity. Many organizations struggle with the overhead and cost of provisioning separate AWS Key Management Service (AWS KMS) customer managed keys for each tenant and each service. While secure, this approach often increases operational overhead and KMS usage costs over time.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+But what if there were a more efficient way?
 
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+In this article, we introduce a strategy for using a single customer-managed (symmetric) key per tenant across your services. After reading this post, you will learn:
+- How to implement a scalable, secure, and cost-efficient encryption model  
+- Techniques for sharing a single customer-managed key per tenant across multiple services and environments  
+- How to encrypt tenant data stored in Amazon DynamoDB and other storage types while maintaining strong tenant isolation  
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Multi-Tenant Encryption Requirements in SaaS
+Data isolation is a foundational requirement in SaaS multi-tenant architectures, supporting compliance and customer trust. Many SaaS providers must encrypt sensitive information—such as API keys, credentials, and personal data—in storage solutions like DynamoDB and Amazon Simple Storage Service (Amazon S3).
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Although these services provide default encryption at rest, they often use a single shared key across many data records. Consider DynamoDB in a shared-pool model, where a single table stores data for multiple tenants. In this setup, tenant data is encrypted using the same AWS KMS key regardless of ownership.
 
----
+A KMS key represents a top-level key container uniquely identified in AWS KMS. For more details about the hierarchy of keys involved when encrypting or decrypting data, see the AWS KMS key hierarchy.
 
-## Technology Choices and Communication Scope
+This shared-key approach is often insufficient for SaaS providers operating under strict security or compliance frameworks. Some customers require:
+- **Bring Your Own Key (BYOK)**  
+- **Logical data isolation via dedicated encryption keys**
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+To meet these demands, a provider may create dedicated AWS KMS customer managed keys for each customer, ensuring their sensitive data remains isolated and inaccessible to other tenants.
+
+Providers may also consider a silo model—separate tables per customer. However, that approach introduces challenges: as the customer base grows, managing numerous tables becomes increasingly complex, and AWS service quotas can become limiting.
 
 ---
 
-## The Pub/Sub Hub
+## Scaling Concerns: Managing KMS Keys at Large Scale
+As a SaaS platform grows, empowering service teams to develop independently is crucial. A common scaling pattern is enabling each team to build services in dedicated AWS accounts. This often leads to a decentralized model where each service manages its own KMS keys per customer.
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+However, this autonomy introduces hidden costs as both your customer base and service catalog expand.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+### The Challenge of Key Proliferation
+As the organization grows, the number of keys increases with each new tenant and service. This results in several challenges:
+- **Cost impact:** Each AWS KMS key costs $1 per month, up to $3 per month with two or more key rotations.  
+- **Operational complexity:** Managing many KMS keys across environments and accounts becomes error-prone and hard to scale.  
+- **Organizational inefficiency:** Duplicate engineering efforts as teams build and maintain similar key-management logic.  
+- **Governance cost:** Enforcing consistent policies and tracking KMS usage across multiple AWS accounts becomes difficult.  
 
 ---
 
-## Front Door Microservice
+## A Streamlined Approach
+The solution lies in adopting a **centralized key-management strategy**—one KMS key per tenant, stored in a central AWS account. This approach effectively addresses cost, operational, and governance challenges while maintaining strong security guarantees.
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+In the following sections, we'll explore how to implement this centralized model and securely share KMS keys across services and AWS accounts.
 
 ---
 
-## Staging ER7 Microservice
+## Solution Overview: Centralized Tenant Key Management
+At the core of the solution is a centralized Tenant Key Management Service (shown as Service A in the illustration). This service manages the entire life cycle of tenant KMS keys—from creation during tenant onboarding to alias management, access policies, and deletion.
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+The service enables safe, scalable cross-organization use of keys through cross-account AWS Identity and Access Management (IAM) access. It grants other services (such as a customer-facing service in Account B) permissions to perform specific encryption operations using the tenant's KMS key via role delegation. The design follows AWS best practices for cross-account IAM access using AWS Security Token Service (AWS STS), as described in AWS documentation and related blog posts.
 
 ---
 
-## New Features in the Solution
+## Centralized Key Management in Practice: Encrypting Customer Data
+Let’s examine how this works in practice with a common scenario:
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+- **Service A**: The centralized tenant key-management service in Account A  
+- **Service B**: A customer-facing workload running in Account B  
 
+When a customer interacts with Service B, sensitive information—such as secrets, API keys, or license information—must be stored securely in a DynamoDB table. Instead of relying on a shared KMS key or default encryption, Service B encrypts data using the customer's dedicated KMS key managed by Service A.
+
+This process uses cross-account IAM role delegation. Service B temporarily assumes a role (ServiceARole) in Account A, gaining scoped permissions for the specific tenant’s KMS key. Using these temporary credentials, Service B can perform client-side encryption using AWS SDK or AWS Encryption SDK.
+
+---
+
+## Solution Walkthrough
+Assumptions and definitions:
+- Incoming requests include an authentication header with a JWT containing the tenant identifier (<tenant-id>).  
+- **Account A**: Centralized key-management service  
+- **Account B**: Customer-facing service  
+- **alias/customer-<tenant-id>**: The alias format in Account A, mapped to each tenant's KMS key  
+- **ServiceARole**: A role in Account A allowed to encrypt and decrypt using tenant-key aliases  
+- **ServiceBRole**: A role in Account B that may assume ServiceARole  
+
+Let’s walk through the flow:
+
+---
+
+## Using the Service with JWT
+A tenant-associated customer logs into the SaaS application and receives a JWT containing their tenant ID. The customer performs an action in Service B and sends sensitive data.
+
+Service B processes the request, verifies the JWT, and must:
+- Encrypt the customer's sensitive data  
+- Store the encrypted value along with other data in DynamoDB  
+
+---
+
+## Assuming the Role
+The Lambda execution role in Service B assumes ServiceARole in Account A. An alternative cross-account access method is KMS grants.
+
+Example IAM policy for ServiceARole, allowing encryption/decryption based only on alias/customer-*:
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowKMSByAlias",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:RequestAlias": "alias/customer-*"
+        }
+      }
+    }
+  ]
+}
+
+To securely encrypt tenant secrets at scale, we grant application roles cross-account access to the KMS key—but only through their alias, which maps to the tenant identifier contained in their JWT authentication token, enforcing strong isolation.
+
+You can control access to the KMS key based on the aliases associated with each KMS key. To do this, use the kms:RequestAlias ​​and kms:ResourceAliases conditional keys as specified in Use aliases to control access to KMS keys.
+
+Additionally, the ServiceARole trust policy allows ServiceBRole in account B to assume:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<ACCOUNT_B_ID>:role/ServiceBRole"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+Depending on your environment, you can add additional conditions to this trust policy to further narrow the scope of who can assume this role. For more information, see IAM and AWS STS condition context keys.
+
+Each customer-managed KMS key will then have the following policy. For example, a KMS key for a customer with <tenant-id>: 123 will have a policy that restricts access to the key using a specific customer alias and only through ServiceRoleA.
+{
+  "Version": "2012-10-17",
+  "Id": "TenantKeyPolicy",
+  "Statement": [
+    {
+      "Sid": "AllowServiceARoleViaAlias",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<ACCOUNT_A_ID>:role/ServiceARole"
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:GenerateDataKey*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringLike": {
+          "kms:RequestAlias": "alias/customer-123"
+        }
+      }
+    }
+  ]
+}
+
+Here is a Python code example that illustrates how Service B automatically assumes a role in Account A to encrypt data for a specific tenant using a session-scoped IAM policy that only allows access to that tenant's KMS key alias.
+
+This pattern follows the same principles outlined in Isolating SaaS Tenants with Dynamically Generated IAM Policies. The idea is to create and attach a tenant-specific IAM policy at runtime that grants the minimum permissions required to operate on tenant-owned resources—in this case, a KMS key alias. The credentials will allow the Lambda function to only use the KMS key that belongs to the customer (identified by tenant_id).
+
+We'll call assume_role_for_tenant for every tenant.
+
+Status of "StringEquals" - "kms:RequestAlias": alias is the magic formula of AWS STS, it restricts ServiceB from using the current tenant's alias in its encrypted SDK calls and relies on alias authorization
+
+import boto3
+def assume_role_for_tenant(tenant_id: str):
+    alias = f"alias/customer-{tenant_id}"
+    # Session policy scoped to only the specific alias
+    session_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "kms:Encrypt",
+                    "kms:Decrypt",
+                    "kms:GenerateDataKey*"
+                ],
+                "Resource": "*",
+                "Condition": {
+                    "StringEquals": {
+                        "kms:RequestAlias": alias
+                    }
+                }
+            }
+        ]
+    }
+    # Assume ServiceARole in Account A with inline session policy
+    sts = boto3.client("sts")
+    assumed = sts.assume_role(
+        RoleArn="arn:aws:iam::<ACCOUNT_A_ID>:role/ServiceARole",
+        RoleSessionName=f"Tenant{tenant_id}Session",
+        Policy=json.dumps(session_policy)
+    )
+    return assumed["Credentials"]
+
+## Encrypt data and store it in DynamoDB
+Now, all that's left to do is use the assumed role credentials and use the AWS SDK to encrypt sensitive customer data and store it in a DynamoDB table.
+
+# Use temporary credentials to create a KMS client
+    creds = assume_role_for_tenant(tenant_id, plaintext)
+    kms = boto3.client(
+        "kms",
+        region_name="us-east-1",
+        aws_access_key_id=creds["AccessKeyId"],
+        aws_secret_access_key=creds["SecretAccessKey"],
+        aws_session_token=creds["SessionToken"]
+    )
+    # Encrypt using the alias
+    response = kms.encrypt(
+        KeyId= f"alias/customer-{tenant_id}"
+        Plaintext=plaintext
+    )
+    # store response["CiphertextBlob"] in DynamoDB table
+
+
+This article is not about isolation between different services, only isolation between tenants. If you need such service isolation, you can use an encryption context, an optional set of non-secret key/value pairs that can contain additional contextual information about the data, such as a service identifier. This helps ensure that services can only encrypt or decrypt data using their respective service encryption context.
+
+## Benefits of Centralized Key Management
+Let's see how this solution addresses our previous challenges.
+
+# Tenant Isolation Design
+While reducing the total number of KMS keys, we still maintain strict tenant isolation. Each customer's sensitive data is still encrypted with a dedicated key, identified by a unique alias (alias/customer-<tenant-id>). Access control to the tenant key is tightly managed through IAM role delegation, following the principles of least privilege:
+
+- Service A has exclusive control over the tenant's KMS key management.
+
+- Service B can only assume the role of granting restricted encryption, decryption, and GenerateDataKey access to the customer-managed key specified by the alias: alias/customer-<tenant-id>.
+
+## Optimized Cost Management
+Our approach significantly reduces costs by moving from multiple service-specific KMS keys per tenant to a single KMS key per tenant, securely shared across multiple services and environments. This approach introduces a new centralized account (Account A) that provides access to encryption keys in appropriate circumstances. It is important to understand AWS STS limits, specific to calls, and consider mechanisms for storing temporary IAM credentials if those limits become a bottleneck. Additionally, if KMS limits are a bottleneck, consider using data key caching using the AWS Encryption SDK.
+
+## Streamlined Operations and Governance
+By centralizing key management in Service A, you can achieve:
+- Consistent KMS key lifecycle management across the organization
+- Improved auditability by using AWS CloudTrail to better understand key access patterns by service
+- Reduced operational costs
+- Simplified compliance monitoring
+
+The only additional complexity is setting up initial cross-account role delegation between Service A and other services. Once established, this framework can be extended to accommodate new subscribers and services.
+
+It is best to encapsulate the logic for role assignment, policy generation, and AWS SDK client initialization in a common SDK for the entire organization. This abstraction reduces the cognitive load on developers and minimizes the risk of misconfiguration. You can go further by providing high-level utility functions like encrypt_tenant_data() and decrypt_tenant_data(), which hide the underlying complexity while promoting secure and consistent usage patterns across the team.
+
+## Conclusion
+In this article, we explored an effective approach to managing encryption keys in multi-tenant SaaS environments through centralization. We looked at common challenges faced by growing SaaS providers, including key proliferation, rising costs, and operational complexity across multiple AWS accounts and services. This centralized key management solution uses AWS best practices for IAM role delegation and cross-account access, allowing organizations to maintain security and compliance while minimizing operational costs. By implementing this approach, SaaS providers or large organizations facing similar challenges can effectively manage their encryption infrastructure as they scale, without compromising security or increasing complexity.
+
+## About the Authors
+- Itay Meller is a Security Specialist Solutions Architect at AWS, with a strong background in cybersecurity R&D and leadership roles at multiple security-focused companies. With extensive expertise in cloud security, Itay helps organizations securely adopt and scale AWS environments by solving complex security and compliance challenges.
+
+- Ran Isenberg is an AWS Serverless Hero, Principal Software Architect at CyberArk, blogger and speaker. He maintains the blog RanTheBuilder.cloud, where he shares his knowledge and experience in the Serverless world.
+
+- Yossi Lagstein is a Senior Solutions Architect at Amazon Web Services. Yossi has over 30 years of experience as an expert and manager developing infrastructure components for a variety of projects and products. Yossi helps AWS customers develop, design, and build well-architected solutions. Outside of work, Yossi enjoys running, swimming, and hiking.
