@@ -11,8 +11,8 @@ pre: " <b> 2. </b> "
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Blood Donation Support System
+## AWS Solution for Blood Donation Support Software
 
 ### 1. Executive Summary
 Blood Donation Support System (BDSS)** is a web platform that supports the management and connection of blood donors with medical facilities. The project was developed by a group of students in Ho Chi Minh City to optimize the blood donation process, reduce the burden of searching for donors and improve the efficiency of medical communication.
@@ -32,9 +32,9 @@ Reduce the time it takes to find a matching donor by 60–70%. Increase the accu
 ### 3. Solution Architecture
 The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+![Blood Donation Support Software Architecture](/images/2-Proposal/edge_bdss.png)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![Blood Donation Support System Platform Architecture](/images/2-Proposal/platform_bdss.png)
 
 The system is divided into **4 main layers**:
 
