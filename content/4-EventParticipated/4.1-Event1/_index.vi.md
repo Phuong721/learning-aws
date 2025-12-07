@@ -201,11 +201,11 @@ Phần này rất quan trọng vì container gần như là tiêu chuẩn hiện
 - Kết nối với những người tham gia khác giúp tôi học thêm nhiều kinh nghiệm trong nghề DevOps.
 
 ## Một số hình ảnh trong sự kiện
-![Workshop Session 1](/static/images/4-EventParticipated/Image1.png)
-![Workshop Session 2](/static/images/4-EventParticipated/Image2.jpg)
-![Workshop Session 3](/static/images/4-EventParticipated/Image3.jpg)
-![Workshop Session 4](/static/images/4-EventParticipated/Image4.jpg)
-![Group Photo](/static/images/4-EventParticipated/Image5.jpg)
+![Workshop Session 2](../../../static/images/4-EventParticipated/Image1.jpg)
+![Workshop Session 2](../../../static/images/4-EventParticipated/Image2.jpg)
+![Workshop Session 3](../../../static/images/4-EventParticipated/Image3.jpg)
+![Workshop Session 4](../../../static/images/4-EventParticipated/Image4.jpg)
+![Group Photo](../../../static/images/4-EventParticipated/Image5.jpg)
 
 
 > Sau sự kiện, tôi cảm thấy mình tự tin hơn rất nhiều trong việc tiếp cận AWS Infrastructure as Code và container orchestration, đồng thời có định hướng rõ ràng để áp dụng chúng vào công việc thực tế.
