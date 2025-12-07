@@ -32,9 +32,9 @@ Reduce the time it takes to find a matching donor by 60–70%. Increase the accu
 ### 3. Solution Architecture
 The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![Blood Donation Support Software Architecture](/images/2-Proposal/edge_bdss.png)
+![Blood Donation Support Software Architecture](/static/images/2-Proposal/edge_bdss.png)
 
-![Blood Donation Support System Platform Architecture](/images/2-Proposal/platform_bdss.png)
+![Blood Donation Support System Platform Architecture](/static/images/2-Proposal/platform_bdss.png)
 
 The system is divided into **4 main layers**:
 
