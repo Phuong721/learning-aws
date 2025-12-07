@@ -217,11 +217,11 @@ A simple service to run web applications or APIs:
 
 ## Event Photos  
 ### Event Photos
-![Workshop Session 1](/images/4-EventParticipated/Image1.png)
-![Workshop Session 2](/images/4-EventParticipated/Image2.jpg)
-![Workshop Session 3](/images/4-EventParticipated/Image3.jpg)
-![Workshop Session 4](/images/4-EventParticipated/Image4.jpg)
-![Group Photo](/images/4-EventParticipated/Image5.jpg)
+![Workshop Session 1](/static/images/4-EventParticipated/Image1.png)
+![Workshop Session 2](/static/images/4-EventParticipated/Image2.jpg)
+![Workshop Session 3](/static/images/4-EventParticipated/Image3.jpg)
+![Workshop Session 4](/static/images/4-EventParticipated/Image4.jpg)
+![Group Photo](/static/images/4-EventParticipated/Image5.jpg)
 
 > Overall, the workshop provided not only deep technical knowledge but also shaped my mindset toward modern cloud infrastructure, helping me approach future projects with more clarity and confidence.
 
