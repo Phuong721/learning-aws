@@ -155,11 +155,11 @@ Tham gia “AWS Cloud Club – First Cloud AI Journey” mang đến nhiều tr�
 ---
 
 # Một số hình ảnh trong sự kiện
-![AWS Cloud Club Workshop 1](/images/4-EventParticipated/image6.jpg)
-![AWS Cloud Club 2 Workshop](/images/4-EventParticipated/image7.jpg)
-![AWS Cloud Club 3 Workshop](/images/4-EventParticipated/image8.jpg)
-![AWS Cloud Club 4 Workshop](/images/4-EventParticipated/image9.jpg)
-![AWS Cloud Club 5 Workshop](/images/4-EventParticipated/image10.jpg)
+![AWS Cloud Club Workshop 1](/static/images/4-EventParticipated/image6.jpg)
+![AWS Cloud Club 2 Workshop](/static/images/4-EventParticipated/image7.jpg)
+![AWS Cloud Club 3 Workshop](/static/images/4-EventParticipated/image8.jpg)
+![AWS Cloud Club 4 Workshop](/static/images/4-EventParticipated/image9.jpg)
+![AWS Cloud Club 5 Workshop](/static/images/4-EventParticipated/image10.jpg)
 
 > Tổng thể, sự kiện không chỉ truyền cảm hứng mạnh mẽ mà còn giúp tôi định hình rõ ràng con đường học tập về Cloud và AI, đồng thời xây dựng được kết nối với cộng đồng công nghệ đầy nhiệt huyết.
 

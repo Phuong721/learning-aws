@@ -155,11 +155,11 @@ Attending the “AWS Cloud Club – First Cloud AI Journey” workshop was a val
 ---
 
 # Event Photos
-![AWS Cloud Club Workshop 1](/images/4-EventParticipated/image6.jpg)
-![AWS Cloud Club 2 Workshop](/images/4-EventParticipated/image7.jpg)
-![AWS Cloud Club 3 Workshop](/images/4-EventParticipated/image8.jpg)
-![AWS Cloud Club 4 Workshop](/images/4-EventParticipated/image9.jpg)
-![AWS Cloud Club 5 Workshop](/images/4-EventParticipated/image10.jpg)
+![AWS Cloud Club Workshop 1](/static/images/4-EventParticipated/image6.jpg)
+![AWS Cloud Club 2 Workshop](/static/images/4-EventParticipated/image7.jpg)
+![AWS Cloud Club 3 Workshop](/static/images/4-EventParticipated/image8.jpg)
+![AWS Cloud Club 4 Workshop](/static/images/4-EventParticipated/image9.jpg)
+![AWS Cloud Club 5 Workshop](/static/images/4-EventParticipated/image10.jpg)
 
 > Overall, the event not only strengthened my technical understanding but also shaped my perspective on cloud learning, community engagement, and AI readiness. It has given me a clearer roadmap and strong motivation to move forward in my Cloud & AI journey.
 
