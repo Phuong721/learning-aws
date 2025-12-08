@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí on Báo cáo thực tập</title>
-    <link>https://phuong721.github.io/learning-aws/vi/3-blogstranslated/3.2-blog2/</link>
+    <link>https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.2-blog2/</link>
     <description>Recent content in Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí on Báo cáo thực tập</description>
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://phuong721.github.io/learning-aws/vi/3-blogstranslated/3.2-blog2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.2-blog2/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
