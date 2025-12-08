@@ -1,6 +1,6 @@
 baseURL = "https://phuong721.github.io/learning-aws/"
-relativeURLs = false
-canonifyURLs = false
+relativeURLs = true
+canonifyURLs = true
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
