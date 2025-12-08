@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="thienlh@thienlu.com" />
+
+    <link rel="icon" href="../../../images/favicon.png" type="image/png">
+
+    <title>Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A :: Báo cáo thực tập</title>
+
+    
+    <link href="../../../css/nucleus.css?1765168131" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765168131" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765168131" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765168131" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765168131" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765168131" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765168131" rel="stylesheet">
+    <link href="../../../css/theme.css?1765168131" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765168131" rel="stylesheet">
+    
+    <link href="../../../css/theme-workshop.css?1765168131" rel="stylesheet">
+    
+    
+
+    <script src="../../../js/jquery-3.3.1.min.js?1765168131"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../../vi/3-blogstranslated/3.3-blog3/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../../js/lunr.min.js?1765168131"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765168131"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/thienluhoan.github.io\/workshop-template\/\/vi";
+    
+</script>
+<script type="text/javascript" src="../../../js/search.js?1765168131"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/vi/1-worklog/"
+  title="Nhật ký công việc"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/">
+     <b> 1. </b> Nhật ký công việc 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/1-worklog/1.9-week9/"
+  title="Worklog Tuần 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Tuần 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.8-week8/"
+  title="Worklog Tuần 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.8-week8/">
+     <b> 1.9. </b> Worklog Tuần 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.7-week7/"
+  title="Worklog Tuần 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Tuần 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.6-week6/"
+  title="Worklog Tuần 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Tuần 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.5-week5/"
+  title="Worklog Tuần 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Tuần 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.4-week4/"
+  title="Worklog Tuần 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Tuần 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.3-week3/"
+  title="Worklog Tuần 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Tuần 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.2-week2/"
+  title="Worklog Tuần 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Tuần 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.1-week1/"
+  title="Worklog Tuần 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Tuần 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.12-week12/"
+  title="Worklog Tuần 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.12-week12/">
+     <b> 1.12. </b> Worklog Tuần 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.11-week11/"
+  title="Worklog Tuần 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Tuần 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/1-worklog/1.10-week10/"
+  title="Worklog Tuần 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Tuần 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/2-proposal/"
+  title="Bản đề xuất"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/2-proposal/">
+     <b> 2. </b> Bản đề xuất 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/4-eventparticipated/"
+  title="Các events đã tham gia"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/">
+     <b> 4. </b> Các events đã tham gia 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/4-eventparticipated/4.2-event2/"
+  title="Event 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Event 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/3-blogstranslated/"
+  title="Các bài blogs đã dịch"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/">
+     <b> 3. </b> Các bài blogs đã dịch 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.4-blog4/"
+  title="Blog 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.4-blog4/">
+     <b> 3.4. </b> Blog 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.5-blog5/"
+  title="Blog 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.5-blog5/">
+     <b> 3.6. </b> Blog 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.6-blog6/"
+  title="Blog 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.6-blog6/">
+     <b> 3.6. </b> Blog 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.1-blog1/"
+  title="Tăng tốc Chiến lược Đám mây của bạn với Kết nối Trực tiếp AWS được Lưu trữ 25 Gbps của Megaport"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.1-blog1/">
+    <b>Bài viết bởi:</b> Mokshith Kumar và Miranda LiTăng tốc Chiến lược Đám mây của bạn với Kết nối Trực tiếp AWS được Lưu trữ 25 Gbps của Megaport 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.2-blog2/"
+  title="Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.2-blog2/">
+    <b>Bài viết bởi:</b> Itay Meller, Ran Isenberg, và Yossi LagsteinĐơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/3-blogstranslated/3.3-blog3/"
+  title="Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../../vi/3-blogstranslated/3.3-blog3/">
+     Artificial Intelligence, Customer Solutions, Generative AI, Open Source Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
+  title="Giới thiệu"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.1-workshop-overview/">
+     <b> 5.1. </b> Giới thiệu 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.2-prerequiste/"
+  title="Các bước chuẩn bị"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Các bước chuẩn bị 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/"
+  title="Truy cập S3 từ VPC"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/">
+     <b> 5.3. </b> Truy cập S3 từ VPC 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+  title="Tạo một Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/">
+     <b> 5.3.1 </b> Tạo một Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
+  title="Kiểm tra Gateway Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/">
+     <b> 5.3.2 </b> Kiểm tra Gateway Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/"
+  title="Truy cập S3 từ môi trường truyền thống"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/">
+     <b> 5.4. </b> Truy cập S3 từ môi trường truyền thống 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+  title="Chuẩn bị tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/">
+     <b> 5.4.1 </b> Chuẩn bị tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+  title="Tạo một S3 Interface endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/">
+     <b> 5.4.2 </b> Tạo một S3 Interface endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
+  title="Kiểm tra Interface Endpoint"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/">
+     <b> 5.4.3 </b> Kiểm tra Interface Endpoint 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+  title="Mô phỏng On-premises DNS "
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/">
+     <b> 5.4.4 </b> Mô phỏng On-premises DNS  
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.5-policy/"
+  title="VPC Endpoint Policies"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.5-policy/">
+     <b> 5.5 </b> VPC Endpoint Policies 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/vi/5-workshop/5.6-cleanup/"
+  title="Dọn dẹp tài nguyên"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/5-workshop/5.6-cleanup/">
+     <b> 5.6. </b> Dọn dẹp tài nguyên 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/vi/6-self-evaluation/"
+  title="Tự đánh giá"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/6-self-evaluation/">
+     <b> 6. </b> Tự đánh giá 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/vi/7-feedback/"
+  title="Chia sẻ, đóng góp ý kiến"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../../vi/7-feedback/">
+     <b> 7. </b> Chia sẻ, đóng góp ý kiến 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="https://thienluhoan.github.io/workshop-template/3-blogstranslated/3.3-blog3/"
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="https://thienluhoan.github.io/workshop-template/vi/3-blogstranslated/3.3-blog3/"
+                  selected
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#giới-thiệu">Giới thiệu:</a></li>
+    <li><a href="#tổng-quan-về-a2a">Tổng quan về A2A</a></li>
+    <li><a href="#thẻ-đại-lý">Thẻ đại lý</a></li>
+    <li><a href="#thực-hiện-nhiệm-vụ-có-cấu-trúc">Thực hiện nhiệm vụ có cấu trúc</a></li>
+    <li><a href="#nhiều-lựa-chọn-vận-chuyển">Nhiều lựa chọn vận chuyển</a></li>
+    <li><a href="#bảo-mật-a2a">Bảo mật A2A</a></li>
+    <li><a href="#inter-agent-với-strands-agents--a2a">Inter-Agent với Strands Agents &amp; A2A</a></li>
+    <li><a href="#quan-điểm-của-khách-hàng">Quan điểm của khách hàng</a></li>
+    <li><a href="#bắt-đầu-và-cung-cấp-phản-hồi">Bắt đầu và cung cấp phản hồi</a></li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="giới-thiệu">Giới thiệu:</h2>
+<p>Chào mừng đến với Phần 4 của loạt bài viết trên blog của chúng tôi về Open Protocols for Agent Interoperability nơi chúng tôi sẽ đề cập đến giao thức Agent-to-Agent (A2A), sự tham gia của AWS với Linux Foundation-based open standard, và sự hỗ trợ của chúng tôi dành cho A2A trong Strands Agents SDK. Dưới đây là những gì chúng tôi đã đề cập cho đến nay:</p>
+<ul>
+<li>Part 1: Giao thức ngữ cảnh mô hình (MCP) tạo điều kiện thuận lợi cho giao tiếp giữa các tác nhân như thế nào và AWS đã nỗ lực cải tiến thông số kỹ thuật MCP ra sao để hỗ trợ tốt hơn cho giao tiếp giữa các tác nhân.</li>
+<li>Part 2: Chi tiết về các bản cập nhật thông số kỹ thuật MCP gần đây liên quan đến Xác thực.</li>
+<li>Part 3: Làm thế nào để xây dựng hệ thống liên tác nhân với cái mới Strands Agents SDK và MCP</li>
+</ul>
+<p>Giao thức chuẩn là cách chính để kết nối các dịch vụ mạng. Thông thường, có nhiều giao thức khác nhau để giải quyết các cách kết nối mạng khác nhau. Ở tầng mạng, có hai giao thức chính: TCP và UDP. Mỗi giao thức phù hợp với các nhu cầu cụ thể và không giao thức nào mang tính phổ quát. Điều này cũng đúng khi kết nối các tác nhân AI. Trong phần 4 của loạt bài viết về giao tiếp giữa các tác nhân, chúng tôi sẽ giới thiệu về A2A, cách sử dụng nó để giao tiếp giữa các tác nhân và cách AWS hỗ trợ khách hàng xây dựng hệ thống với A2A.</p>
+<p>MCP ban đầu được tạo ra để kết nối các tác nhân với các công cụ, nhưng cũng có thể được sử dụng để kết nối các tác nhân với nhau. A2A được tạo ra để kết nối các tác nhân với nhau và cũng có thể được sử dụng kết hợp với MCP để các tác nhân giao tiếp với các công cụ. Việc sử dụng giao thức nào cho kết nối tác nhân với tác nhân tùy thuộc vào nhu cầu của bạn. AWS hỗ trợ cả hai giao thức, cho phép khách hàng sử dụng MCP, A2A hoặc kết hợp cả hai để triển khai mã của họ trên AWS.</p>
+<p>Khi các giao thức liên tác nhân và các khuôn khổ xung quanh chúng phát triển, nhiều khả năng chúng sẽ trở nên giống như TCP &amp; UDP, nơi hầu hết các nhà phát triển tập trung nhiều hơn vào việc xây dựng các tác nhân của họ thay vì các giao thức nền tảng. Bước đầu tiên hướng tới điều đó là các khuôn khổ tác nhân hỗ trợ các giao thức và xây dựng hệ sinh thái xung quanh chúng. Tại AWS, chúng tôi đã thực hiện bước đầu tiên này bằng cách tham gia cộng đồng tiêu chuẩn A2A và bổ sung hỗ trợ cho A2A trong SDK Strands Agents nguồn mở của mình. Swami Sivasubramanian, Phó Chủ tịch AWS Agentic AI, tóm tắt nỗ lực này:</p>
+<p>Tại AWS, chúng tôi tin rằng AI agentic sẽ đóng vai trò quan trọng đối với hầu hết mọi trải nghiệm của khách hàng. Chúng tôi hoan nghênh A2A tham gia Quỹ Linux và kỳ vọng điều này sẽ tạo ra nhiều cơ hội hơn cho bất kỳ ai xây dựng ứng dụng AI. Chúng tôi dự định hỗ trợ cộng đồng bằng các đóng góp dự án và tiếp cận bộ khung, giao thức và dịch vụ agentic rộng lớn và chuyên sâu nhất.</p>
+<p>Tương tự như cách chúng tôi đang hỗ trợ phát triển MCP, chúng tôi cũng đang hỗ trợ phát triển A2A để đáp ứng nhu cầu của khách hàng. Chúng tôi dự định sẽ tập trung vào một số lĩnh vực để A2A hoạt động hiệu quả trên AWS, bao gồm hỗ trợ Amazon Bedrock AgentCore, mở rộng giao thức A2A cho lưu trữ tác vụ tạm thời và SigV4, cải thiện quản lý đa tác vụ và cải tiến Java A2A SDK.</p>
+<h2 id="tổng-quan-về-a2a">Tổng quan về A2A</h2>
+<p>Giao thức A2A giải quyết một thách thức quan trọng trong bối cảnh AI. Nó cho phép các tác nhân AI được xây dựng trên các nền tảng đa dạng, được vận hành bởi các công ty khác nhau trên các máy chủ riêng biệt, giao tiếp và cộng tác hiệu quả — với tư cách là tác nhân, chứ không chỉ là công cụ. A2A đại diện cho một bước tiến đáng kể trong việc tạo ra các hệ thống AI có khả năng tương tác, hoạt động cùng nhau xuyên biên giới tổ chức. Giao thức này được hỗ trợ bởi một hệ sinh thái đối tác đang phát triển, bao gồm hơn 50 công ty công nghệ như Google, Atlassian, Confluent, Salesforce, SAP và MongoDB.</p>
+<p>Trước A2A, các tổ chức phải đối mặt với những thách thức đáng kể trong việc triển khai các hệ thống AI đa tác tử ở quy mô lớn. Nếu không có giao thức chuẩn hóa, mỗi cặp tác tử đều yêu cầu mã tích hợp tùy chỉnh, dẫn đến chi phí phát triển quá mức và độ phức tạp trong bảo trì. Điều này tạo ra các hệ thống AI bị cô lập, nơi các tác tử chuyên biệt không thể dễ dàng chia sẻ năng lực hoặc phối hợp thực hiện các nhiệm vụ phức tạp. Giao thức này cung cấp cho các tác tử một ngôn ngữ chung, cho phép chúng duy trì tính tự chủ và các kỹ năng chuyên biệt trong khi hợp tác - các tác tử giao tiếp với nhau như những người ngang hàng, chứ không chỉ là những công cụ đơn thuần. Sự khác biệt này rất quan trọng vì nó cho phép các tác tử tham gia vào các tương tác qua lại phức tạp, đàm phán các yêu cầu nhiệm vụ và duy trì khả năng ra quyết định độc lập trong khi hướng tới các mục tiêu chung.</p>
+<p>Đối với khách hàng AWS, A2A cung cấp một số tính năng hấp dẫn phù hợp với yêu cầu của doanh nghiệp. Giao thức này cho phép các khả năng của doanh nghiệp bao gồm phát hiện tác nhân an toàn thông qua thẻ tác nhân được chuẩn hóa, cơ chế xác thực và ủy quyền cho quyền truy cập được kiểm soát, hỗ trợ nhiều phương thức giao tiếp (văn bản, biểu mẫu, phương tiện) và khả năng cho phép các tác nhân cộng tác trong các tác vụ dài hạn mà không tiết lộ trạng thái nội bộ hoặc chi tiết triển khai của họ.</p>
+<p>A2A giải quyết những thách thức độc đáo của cộng tác đa tác nhân thông qua các tính năng cho phép quy trình làm việc phức tạp, xử lý các quy trình kinh doanh thực tế phức tạp với khả năng quan sát và kiểm soát mà môi trường sản xuất yêu cầu. Cụ thể, nó hỗ trợ thẻ tác nhân, tác vụ có cấu trúc, nhiều tùy chọn vận chuyển và các nguyên hàm xác thực/ủy quyền.</p>
+<h2 id="thẻ-đại-lý">Thẻ đại lý</h2>
+<p>Giao tiếp đa tác nhân hiệu quả đòi hỏi các tác nhân phải khám phá và hiểu rõ khả năng của nhau. A2A hỗ trợ điều này thông qua Thẻ Tác nhân — các tài liệu siêu dữ liệu nắm bắt ý nghĩa ngữ nghĩa về những gì mỗi tác nhân có thể làm, cách thức hoạt động ưa thích và loại nhiệm vụ mà tác nhân đó giỏi. Thẻ Tác nhân cho phép các tác nhân khác đưa ra quyết định thông minh về thời điểm và cách thức hợp tác. Thẻ Tác nhân cũng mô tả các yêu cầu xác thực/ủy quyền của một tác nhân và hỗ trợ các khả năng được mở rộng dần dần sau khi xác thực, sử dụng Thẻ Tác nhân Mở rộng Đã Xác thực.</p>
+<h2 id="thực-hiện-nhiệm-vụ-có-cấu-trúc">Thực hiện nhiệm vụ có cấu trúc</h2>
+<p>Các tác nhân làm việc cùng nhau để giải quyết vấn đề bằng cách tận dụng các tác vụ để cấu trúc giao tiếp; họ sắp xếp thông điệp của mình thành các đơn vị công việc thông minh, mang ngữ cảnh, theo dõi tiến độ và lưu trữ các hiện vật đầu ra. Thông qua các tác vụ, các tác nhân có thể tham chiếu các hiện vật đã tạo trước đó, hiểu được sự phụ thuộc giữa các tác vụ trong quy trình làm việc và đưa ra quyết định sáng suốt dựa trên toàn bộ lịch sử hội thoại. Các tác vụ hỗ trợ cả thực thi tuần tự và song song cho các quy trình làm việc phức tạp. Các tác nhân có thể tạo ra nhiều tác vụ tiếp theo đồng thời và tạo ra các chuỗi hoạt động phụ thuộc. Điều này mang lại cho các nhà phát triển ứng dụng sự linh hoạt để mô hình hóa các quy trình kinh doanh trong thế giới thực.</p>
+<p>Bằng cách tận dụng ID tác vụ và ngữ cảnh, các ứng dụng có thể theo dõi nguồn gốc tác vụ, lần theo chuỗi tác vụ đến tận gốc để khôi phục thông tin về cách tạo ra kết quả đầu ra. Điều này cải thiện khả năng quan sát bằng cách cung cấp cho các tác nhân khả năng tạo nhật ký hoạt động phong phú để gỡ lỗi và kiểm tra.</p>
+<h2 id="nhiều-lựa-chọn-vận-chuyển">Nhiều lựa chọn vận chuyển</h2>
+<p>A2A hỗ trợ các nhà phát triển ứng dụng bằng cách hỗ trợ ba giao thức cốt lõi có khả năng tương đương: JSON-RPC 2.0, gRPC và REST. Điều này cho phép các nhà phát triển lựa chọn phương thức vận chuyển phù hợp nhất với chuyên môn, cơ sở hạ tầng hiện có và yêu cầu hiệu suất của nhóm. Đối với các hoạt động dài hạn, A2A tăng cường mỗi phương thức vận chuyển với Server-Sent Events (SSE) để phát trực tuyến và gửi thông báo đẩy dựa trên webhook. Các nhà phát triển có các tùy chọn trực quan để xử lý cập nhật tác vụ không đồng bộ và giám sát tiến độ theo thời gian thực mà không cần logic thăm dò phức tạp.</p>
+<h2 id="bảo-mật-a2a">Bảo mật A2A</h2>
+<p>Bảo mật cấp doanh nghiệp là một yêu cầu không thể thương lượng đối với các hệ thống agent. A2A cho phép kiến ​​trúc bảo mật mạnh mẽ bằng cách hỗ trợ một số giao thức xác thực; bao gồm OAuth 2.0, OpenID Connect và mTLS, cho phép các tổ chức tích hợp agent với cơ sở hạ tầng nhận dạng hiện có của họ, trong khi siêu dữ liệu ủy quyền theo kỹ năng cụ thể và hỗ trợ xác thực thứ cấp cho phép các chính sách kiểm soát truy cập chi tiết có thể được thực thi ở cấp ứng dụng.</p>
+<p>Quyết định của A2A trong việc giữ cho các tác nhân không minh bạch với nhau hỗ trợ kiến ​​trúc không tin cậy bằng cách coi mỗi tác nhân là một ranh giới bảo mật độc lập và việc giao thức hỗ trợ kiểm tra tác vụ cung cấp nền tảng cho việc giám sát bảo mật toàn diện và báo cáo tuân thủ.</p>
+<h2 id="inter-agent-với-strands-agents--a2a">Inter-Agent với Strands Agents &amp; A2A</h2>
+<p>Các tính năng độc đáo của A2A khiến nó trở nên hoàn hảo cho khả năng tương tác giữa các nền tảng tác nhân. Một số nền tảng tác nhân nguồn mở hiện đã hỗ trợ nó. Bộ SDK Strands Agents nguồn mở gần đây đã bổ sung hỗ trợ cho A2A để các tác nhân có thể dễ dàng communicate with other agents.</p>
+<p>Strands Agents áp dụng phương pháp tiếp cận dựa trên mô hình để xây dựng và vận hành các tác nhân AI chỉ trong vài dòng mã. Strands mở rộng từ các trường hợp sử dụng tác nhân đơn giản đến phức tạp, và từ phát triển cục bộ đến triển khai trong môi trường sản xuất. Nhiều nhóm tại AWS đã sử dụng Strands cho các tác nhân AI trong môi trường sản xuất, bao gồm Amazon Q Developer, AWS Glue và VPC Reachability Analyzer.</p>
+<p>Với hỗ trợ A2A tích hợp sẵn trong Strands Agents, bạn có thể dễ dàng sử dụng một agent như một máy chủ A2A và giao tiếp từ một Agent Strands này đến các agent A2A khác. Để minh họa điều này, hãy xem xét ví dụ về một agent Nhân sự (HR) có thể trả lời các câu hỏi về nhân viên. Để làm điều này, bạn có thể tưởng tượng agent HR giao tiếp với một số agent khác như agent dữ liệu nhân viên, agent Hoạch định Nguồn lực Doanh nghiệp (ERP), agent hiệu suất, agent mục tiêu, v.v. Trong ví dụ này, hãy bắt đầu với một kiến ​​trúc cơ bản, trong đó REST API cung cấp quyền truy cập vào một agent HR kết nối với một agent Thông tin Nhân viên: Kiến trúc của hệ thống liên agent bao gồm hai agent (HR &amp; Employee Info), được kết nối bằng A2A.</p>
+<p>Note: The complete, working version of the following example is available in our Agentic AI samples repo.</p>
+<ul>
+<li>
+<p>Công cụ thông tin nhân viên của chúng tôi sử dụng Amazon Bedrock và công cụ MCP để lấy dữ liệu nhân viên (xem mã đầy đủ cho các khía cạnh đó):
+employee_agent = Agent(
+model=bedrock_model,
+name=&ldquo;Employee Agent&rdquo;,
+description=&ldquo;Answers questions about employees&rdquo;,
+tools=tools,
+system_prompt=&ldquo;you must abbreviate employee first names and list all their skills&rdquo;
+)</p>
+</li>
+<li>
+<p>Để hiển thị tác nhân này thông qua A2A, chúng ta chỉ cần tạo máy chủ A2A và khởi động nó khi chương trình chạy:
+a2a_server = A2AServer(agent=employee_agent, host=urlparse(EMPLOYEE_AGENT_URL).hostname, port=urlparse(EMPLOYEE_AGENT_URL).port)</p>
+</li>
+</ul>
+<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&rdquo;:
+a2a_server.serve(host=&ldquo;0.0.0.0&rdquo;, port=8001)</p>
+<p>Lưu ý rằng chúng tôi vượt qua EMPLOYEE_AGENT_URL thông qua một biến môi trường. Điều này giúp định nghĩa cơ sở hạ tầng của chúng ta biết URL điểm cuối có thể thiết lập máy chủ và cổng được sử dụng trong thẻ tác nhân A2A (được máy khách A2A sử dụng để khám phá tác nhân).</p>
+<ul>
+<li>Hiện tại, chúng ta có thể truy cập vào tác nhân Thông tin nhân viên thông qua A2A và chúng ta có thể tạo tác nhân HR:
+provider = A2AClientToolProvider(known_agent_urls=[EMPLOYEE_AGENT_URL])</li>
+</ul>
+<p>agent = Agent(model=bedrock_model, tools=provider.tools)</p>
+<p>Tác nhân này giờ đây có thể được gọi theo nhiều cách khác nhau. Trong ví dụ này, chúng tôi gọi nó từ một yêu cầu REST. Xem mã đầy đủ để biết các khía cạnh REST. Sau đây là những gì xảy ra khi yêu cầu REST được thực hiện:</p>
+<ul>
+<li>Người dùng (có thể thông qua ứng dụng web hoặc ứng dụng di động) gửi truy vấn như &ldquo;liệt kê những nhân viên có kỹ năng liên quan đến AI&rdquo;</li>
+<li>Nhân viên HR sử dụng mô hình Amazon Nova để hiểu truy vấn của người dùng và quyết định rằng truy vấn đó cần được gửi đến nhân viên thông tin nhân viên.</li>
+<li>Khi sử dụng A2A, truy vấn sẽ được gửi đến tác nhân Thông tin nhân viên.</li>
+<li>Tác nhân Thông tin nhân viên sử dụng mô hình Amazon Nova để hiểu truy vấn và quyết định cần gọi máy chủ MCP Dữ liệu nhân viên.</li>
+<li>Tác nhân Thông tin nhân viên gọi máy chủ MCP Dữ liệu nhân viên để truy vấn cơ sở dữ liệu nhân viên và trả dữ liệu về mô hình Nova.</li>
+<li>Với yêu cầu của hệ thống là viết tắt tên của nhân viên, mô hình sẽ lấy danh sách nhân viên, định dạng danh sách một cách đẹp mắt, viết tắt tên và trả lại văn bản cho tác nhân Thông tin nhân viên.</li>
+<li>Tác nhân Thông tin nhân viên trả lại văn bản cho tác nhân HR, tác nhân này trả lại văn bản trong phản hồi REST.</li>
+</ul>
+<p>Tất nhiên, tất cả những điều này đều có thể chạy trên AWS bằng nhiều môi trường thời gian chạy khác nhau (Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Container Service (Amazon ECS), Amazon Bedrock AgentCore, AWS Lambda, v.v.). Ví dụ này chứa AWS CloudFormation deployment template triển khai các tác nhân và máy chủ MCP trên Amazon ECS (tất cả trong một VPC) và một Bộ cân bằng tải ứng dụng để công khai dịch vụ REST.</p>
+<ul>
+<li>Chúng ta có thể thử nghiệm với curl:
+curl -X POST &ndash;location &ldquo;<a href="http://something.us-east-1.elb.amazonaws.com/inquire%22">http://something.us-east-1.elb.amazonaws.com/inquire"</a> <br>
+-H &ldquo;Content-Type: application/json&rdquo; <br>
+-d &lsquo;{&ldquo;question&rdquo;: &ldquo;list employees that have skills related to AI programming&rdquo;}&rsquo;</li>
+</ul>
+<p>Và chúng ta quay lại: Here are the employees with skills related to AI programming:</p>
+<ul>
+<li>A. Rosalez - Machine Learning, REST API</li>
+<li>E. Owusu - DevOps, Machine Learning, Python</li>
+<li>J. Doe- Machine Learning, JavaScript</li>
+<li>K. Mensah - REST API, Kubernetes, Machine Learning, Node.js</li>
+<li>M. Rivera - AWS, Kubernetes, GraphQL, Machine Learning</li>
+<li>M. Major - MongoDB, Angular, Kotlin, Machine Learning, REST API</li>
+<li>C. Salazar - React, Machine Learning, SQL, Kotlin</li>
+<li>N. Wolf - SQL, Machine Learning, Docker, DevOps, Git</li>
+</ul>
+<p>If you need more detailed information about any of these employees or require further assistance, please let me know!</p>
+<p>Lấy  the complete source cho ví dụ này.</p>
+<p>Với Strands Agents, chỉ cần vài dòng mã là có thể hiển thị các agent dưới dạng máy chủ A2A và giao tiếp giữa các agent với nhau bằng A2A. Trong các bài viết tiếp theo, chúng tôi sẽ đề cập đến các dạng agent nâng cao hơn như Swarms, Graphs và Workflows.</p>
+<h2 id="quan-điểm-của-khách-hàng">Quan điểm của khách hàng</h2>
+<p>Chúng tôi đã nhận được phản hồi từ một số khách hàng và đối tác rất hào hứng với dịch vụ hỗ trợ A2A của chúng tôi. Dưới đây là một số chia sẻ của họ:</p>
+<p>“Tại Autodesk, chúng tôi cam kết thúc đẩy các tiêu chuẩn mở cho AI đại diện và khả năng tương tác khi chúng tôi định hình tương lai của thiết kế và kỹ thuật. Thông qua sự hợp tác với AWS và cộng đồng A2A, chúng tôi rất hào hứng được góp phần xây dựng một hệ sinh thái nơi các đại diện thông minh có thể giao tiếp liền mạch trên các nền tảng Autodesk. Khi chúng tôi tiếp tục cải tiến Dịch vụ Nền tảng Autodesk với các khả năng AI tạo sinh, chúng tôi nhận thấy tiềm năng to lớn trong cách các đại diện AI có khả năng tương tác có thể chuyển đổi quy trình làm việc trong lĩnh vực kiến ​​trúc, kỹ thuật, xây dựng và sản xuất. Hợp tác cùng AWS, chúng tôi cam kết tạo ra các giải pháp cho phép cộng tác đại diện an toàn và hiệu quả, đồng thời duy trì các tiêu chuẩn cấp doanh nghiệp.” – Ritesh Bansal, Phó Chủ tịch Phân tích Dữ liệu, Thông tin chi tiết và Nền tảng AI/ML, Autodesk</p>
+<p>“Cam kết của chúng tôi trong việc phát triển Agentic AI, các giao thức mở và khả năng tương tác là cốt lõi trong tầm nhìn của chúng tôi về các mạng lưới an toàn và thông minh. Bằng cách hợp tác với AWS và cộng đồng A2A, chúng tôi đang thúc đẩy đổi mới để thiết lập các chuẩn mực mới về bảo mật dựa trên AI, cho phép các tổ chức hoạt động với khả năng phục hồi và sự tự tin cao hơn trong kỷ nguyên AI đang phát triển nhanh chóng.” – Raj Chopra, Phó Chủ tịch Cấp cao kiêm Giám đốc Sản phẩm, Bộ phận An ninh, Cisco</p>
+<p>“Khi các tổ chức thiết kế các hệ thống AI agentic ngày càng tinh vi, việc phối hợp giữa các agent và công cụ đang trở nên thiết yếu. Chúng tôi rất vui mừng khi thấy AWS thúc đẩy những nỗ lực như A2A, hỗ trợ các kiến ​​trúc tương tác tốt hơn, giúp các tổ chức và khách hàng của Datadog xây dựng các ứng dụng agent-based dễ quan sát, đáng tin cậy và an toàn hơn.” — Yrieix Garnier, Phó Chủ tịch Sản phẩm, Datadog</p>
+<p>“MongoDB và AWS cùng cam kết xây dựng một hệ sinh thái mở, có khả năng kết hợp, cho phép các nhà phát triển tự do sáng tạo hơn. Việc áp dụng các tiêu chuẩn mở như A2A là một bước quan trọng hướng tới tầm nhìn này, giúp đơn giản hóa cách các tác nhân tương tác với mô hình tài liệu phong phú của MongoDB, khả năng tìm kiếm vector tích hợp và các mô hình AI Voyage.” – Abhinav Mehla, Phó Chủ tịch Chương trình Đối tác Toàn cầu &amp; Hệ sinh thái, MongoDB</p>
+<p>“Khả năng tương tác rất quan trọng để các tác nhân AI hoạt động liền mạch và hiệu quả trên các hệ thống và công cụ doanh nghiệp, đó là lý do tại sao chúng tôi hợp tác với toàn ngành để phát triển tiêu chuẩn A2A, và tại sao chúng tôi sẽ hỗ trợ các tiêu chuẩn mở như A2A và MCP trong Agentforce. Việc AWS hỗ trợ A2A sẽ tiếp tục giúp phá vỡ rào cản giữa các nhà cung cấp, thúc đẩy đổi mới và mang lại giá trị đáng kể cho khách hàng chung của chúng tôi bằng cách cho phép các tác nhân làm việc trên toàn bộ cơ sở hạ tầng và hệ sinh thái công cụ và tác nhân của công ty.” — Gary Lerhaupt, Phó Chủ tịch Kiến trúc Sản phẩm, Salesforce</p>
+<p>“Thật phấn khích khi thấy những công ty hàng đầu trong ngành như AWS ủng hộ giao thức Agent2Agent. Khởi đầu là một ý tưởng táo bạo, giờ đây nó đang nhanh chóng trở thành một tiêu chuẩn chung của ngành – một tiêu chuẩn dựa trên tính mở, bảo mật và khả năng cộng tác đa nền tảng. Với sự hỗ trợ từ AWS và các đối tác khác, hệ sinh thái A2A đang thực sự phát triển mạnh mẽ, và ServiceNow tự hào dẫn đầu xu hướng này bằng cách hiện thực hóa các tác nhân AI cấp doanh nghiệp có khả năng tương tác.” – Joe Davis, Phó Chủ tịch Điều hành Nhóm Kỹ thuật Nền tảng &amp; Công nghệ AI tại ServiceNow.</p>
+<p>Snowflake tin chắc rằng một số cải tiến lớn nhất trong ngành đến từ các giao thức mở và cộng đồng hỗ trợ chúng. Việc tối đa hóa tiềm năng của AI agentic phụ thuộc vào các giao thức mở như A2A, cũng như kiến ​​thức được chia sẻ và các phương pháp hay nhất mà chúng cung cấp. Chúng tôi rất vui mừng khi thấy AWS thể hiện cam kết của họ đối với các giao thức mở cho khả năng tương tác của agent bằng cách bổ sung hỗ trợ A2A vào Strands Agents. Cùng với sự hỗ trợ của cộng đồng công nghệ rộng lớn hơn, ngành công nghiệp sẽ có thể tự động hóa công việc tri thức với các hệ thống agentic an toàn như Strands Agents và Snowflake Cortex Agents. – Dwarak Rajagopal, Phó Chủ tịch Kỹ thuật &amp; Nghiên cứu AI, Snowflake</p>
+<p>“Trong tương lai, một lực lượng lao động phân mảnh gồm con người và các tác nhân AI chắc chắn sẽ cản trở sự phát triển. Chúng tôi tin rằng các giao thức mở, đặc biệt là Giao thức Agent-to-Agent (A2A), đóng vai trò quan trọng trong sự phát triển của lực lượng lao động hỗn hợp này. Chúng cho phép giao tiếp an toàn, hợp tác, đảm bảo khả năng tương tác giữa các hệ sinh thái tác nhân đa dạng. Hệ thống Agent System of Record (ASOR) của Workday mở rộng nền tảng đáng tin cậy của chúng tôi một cách độc đáo để quản lý con người, tài chính và các tác nhân cùng nhau. Hợp tác với AWS và cộng đồng A2A, chúng tôi cam kết thúc đẩy giao tiếp agent an toàn, tương tác. Điều này không chỉ là về công nghệ mới; mà còn là về việc mở khóa một cách an toàn các cấp độ năng suất và đổi mới mới trên toàn doanh nghiệp, đồng thời duy trì khả năng kiểm soát toàn diện.” —Dean Arnold, Phó Chủ tịch Hệ thống Record, Workday</p>
+<h2 id="bắt-đầu-và-cung-cấp-phản-hồi">Bắt đầu và cung cấp phản hồi</h2>
+<p>Để bắt đầu xây dựng các tác nhân AI tương tác bằng A2A, hãy xem Strands Agents A2A docs. Chúng tôi rất mong nhận được phản hồi của bạn về việc sử dụng A2A với Strands Agents! Hãy tham gia discussions on the open source Strands Agents Python SDK repo để cho chúng tôi biết bạn cần thêm những gì khi xây dựng hệ thống liên tác nhân.</p>
+<ul>
+<li>
+<p>Nick Aldridge là Kỹ sư Chính tại AWS. Trong 6 năm qua, Nick đã tham gia nhiều sáng kiến ​​AI/ML, bao gồm Amazon Lex và Amazon Bedrock. Gần đây nhất, anh là người lãnh đạo nhóm ra mắt Amazon Bedrock Knowledge Bases. Hiện tại, anh làm việc về AI tạo sinh và cơ sở hạ tầng AI, tập trung vào cộng tác giữa các tác nhân và gọi hàm. Trước khi làm việc tại AWS, Nick đã lấy bằng Thạc sĩ tại Đại học Chicago.</p>
+</li>
+<li>
+<p>James Ward is a Principal Developer Advocate at AWS. James travels the world helping enterprise developers learn how to build reliable systems. His current focus is on helping developers build systems of AI agents using Spring AI, Embabel, Strands Agents, Amazon Bedrock, MCP, and A2A.</p>
+</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../../vi/3-blogstranslated/3.2-blog2/" title="Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../../vi/5-workshop/" title="Workshop" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../../js/clipboard.min.js?1765168131"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765168131"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765168131"></script>
+    <script src="../../../js/jquery.sticky.js?1765168131"></script>
+    <script src="../../../js/featherlight.min.js?1765168131"></script>
+    <script src="../../../js/highlight.pack.js?1765168131"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765168131"></script>
+    <script src="../../../js/learn.js?1765168131"></script>
+    <script src="../../../js/hugo-learn.js?1765168131"></script>
+
+    <link href="../../../mermaid/mermaid.css?1765168131" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765168131"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>
+
