@@ -12,24 +12,24 @@
 
     <link rel="icon" href="../../../images/favicon.png" type="image/png">
 
-    <title>Giới thiệu :: Báo cáo thực tập</title>
+    <title>Tổng quan Workshop :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765252681" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765252681" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765252681" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765252681" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765252681" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765252681" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765252681" rel="stylesheet">
-    <link href="../../../css/theme.css?1765252681" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765252681" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765262484" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765262484" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765262484" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765262484" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765262484" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765262484" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765262484" rel="stylesheet">
+    <link href="../../../css/theme.css?1765262484" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765262484" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765252681" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765262484" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765252681"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765262484"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765252681"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765252681"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765262484"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765262484"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765252681"></script>
+<script type="text/javascript" src="../../../js/search.js?1765262484"></script>
  
   </div>
 
@@ -562,7 +562,7 @@
             
 <li
   data-nav-id="/vi/5-workshop/5.1-workshop-overview/"
-  title="Giới thiệu"
+  title="Tổng quan Workshop"
   class="dd-item 
         
         active
@@ -570,7 +570,7 @@
         "
 >
   <a href="../../../vi/5-workshop/5.1-workshop-overview/">
-     <b> 5.1. </b> Giới thiệu 
+     <b> 5.1 </b> Tổng quan Workshop 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -973,7 +973,7 @@
             
           
           
-            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/5-workshop/'>Workshop</a> > Giới thiệu
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/5-workshop/'>Workshop</a> > Tổng quan Workshop
           
         
           
@@ -987,11 +987,53 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#giới-thiệu">Giới thiệu</a></li>
+    <li><a href="#kiến-trúc-ứng-dụng">Kiến trúc Ứng dụng</a>
       <ul>
-        <li></li>
+        <li><a href="#frontend-react--vite">Frontend (React + Vite)</a></li>
+        <li><a href="#backend-spring-boot">Backend (Spring Boot)</a></li>
+        <li><a href="#database-rds-mysql">Database (RDS MySQL)</a></li>
       </ul>
     </li>
+    <li><a href="#kiến-trúc-aws">Kiến trúc AWS</a>
+      <ul>
+        <li><a href="#network-layer">Network Layer</a></li>
+        <li><a href="#application-flow">Application Flow</a></li>
+        <li><a href="#security-architecture">Security Architecture</a></li>
+      </ul>
+    </li>
+    <li><a href="#các-tính-năng-chính">Các Tính năng Chính</a>
+      <ul>
+        <li><a href="#1-user-authentication">1. User Authentication</a></li>
+        <li><a href="#2-dna-analysis">2. DNA Analysis</a></li>
+        <li><a href="#3-data-visualization">3. Data Visualization</a></li>
+        <li><a href="#4-user-management">4. User Management</a></li>
+      </ul>
+    </li>
+    <li><a href="#infrastructure-as-code">Infrastructure as Code</a>
+      <ul>
+        <li><a href="#cloudformation-template">CloudFormation Template</a></li>
+      </ul>
+    </li>
+    <li><a href="#tối-ưu-chi-phí">Tối ưu Chi phí</a>
+      <ul>
+        <li><a href="#1-vpc-endpoints-thay-vì-nat-gateway">1. VPC Endpoints thay vì NAT Gateway</a></li>
+        <li><a href="#2-instance-sizing">2. Instance Sizing</a></li>
+        <li><a href="#3-rds-optimization">3. RDS Optimization</a></li>
+        <li><a href="#4-cloudfront-caching">4. CloudFront Caching</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices-được-áp-dụng">Best Practices được áp dụng</a>
+      <ul>
+        <li><a href="#1-security">1. Security</a></li>
+        <li><a href="#2-high-availability">2. High Availability</a></li>
+        <li><a href="#3-monitoring--logging">3. Monitoring &amp; Logging</a></li>
+        <li><a href="#4-automation">4. Automation</a></li>
+      </ul>
+    </li>
+    <li><a href="#các-bước-triển-khai">Các Bước Triển khai</a></li>
+    <li><a href="#kết-quả-mong-đợi">Kết quả Mong đợi</a></li>
+    <li><a href="#tài-nguyên-tham-khảo">Tài nguyên Tham khảo</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1009,7 +1051,7 @@
           
             <h1>
               
-              Giới thiệu
+              Tổng quan Workshop
             </h1>
           
 
@@ -1017,18 +1059,256 @@
 
 
 
-	<h4 id="giới-thiệu-về-vpc-endpoint">Giới thiệu về VPC Endpoint</h4>
+	<h2 id="giới-thiệu">Giới thiệu</h2>
+<p>Workshop này hướng dẫn bạn triển khai một ứng dụng phân tích DNA full-stack trên AWS. Ứng dụng cho phép người dùng phân tích chuỗi DNA, quản lý kết quả, và trực quan hóa dữ liệu sinh học.</p>
+<h2 id="kiến-trúc-ứng-dụng">Kiến trúc Ứng dụng</h2>
+<h3 id="frontend-react--vite">Frontend (React + Vite)</h3>
 <ul>
-<li>Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.</li>
-<li>Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.</li>
+<li><strong>Framework</strong>: React 18 với TypeScript</li>
+<li><strong>UI Libraries</strong>: Material-UI, TailwindCSS, Recharts</li>
+<li><strong>State Management</strong>: React Context API</li>
+<li><strong>Routing</strong>: React Router v6</li>
+<li><strong>Form Handling</strong>: React Hook Form với Zod validation</li>
+<li><strong>HTTP Client</strong>: Axios</li>
+<li><strong>Hosting</strong>: S3 + CloudFront CDN</li>
 </ul>
-<h4 id="tổng-quan-về-workshop">Tổng quan về workshop</h4>
-<p>Trong workshop này, bạn sẽ sử dụng hai VPC.</p>
+<h3 id="backend-spring-boot">Backend (Spring Boot)</h3>
 <ul>
-<li><strong>&ldquo;VPC Cloud&rdquo;</strong> dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.</li>
-<li><strong>&ldquo;VPC On-Prem&rdquo;</strong> mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong &ldquo;VPC On-prem&rdquo; và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.</li>
+<li><strong>Framework</strong>: Spring Boot 3.x</li>
+<li><strong>Language</strong>: Java 17</li>
+<li><strong>Database</strong>: MySQL 8.0 với Spring Data JPA</li>
+<li><strong>Security</strong>: Spring Security với JWT authentication</li>
+<li><strong>API</strong>: RESTful API với proper error handling</li>
+<li><strong>Hosting</strong>: EC2 instances với Auto Scaling</li>
 </ul>
-<p><img src="../../../images/5-Workshop/5.1-Workshop-overview/diagram1.png" alt="overview"></p>
+<h3 id="database-rds-mysql">Database (RDS MySQL)</h3>
+<ul>
+<li><strong>Engine</strong>: MySQL 8.0.40</li>
+<li><strong>Instance</strong>: db.t3.micro (có thể scale up)</li>
+<li><strong>Storage</strong>: 20GB gp3 với encryption</li>
+<li><strong>Backup</strong>: Automated backups với 3-7 days retention</li>
+<li><strong>High Availability</strong>: Multi-AZ deployment (optional)</li>
+</ul>
+<h2 id="kiến-trúc-aws">Kiến trúc AWS</h2>
+<h3 id="network-layer">Network Layer</h3>
+<pre tabindex="0"><code>VPC (10.0.0.0/16)
+├── Public Subnets (10.0.1.0/24, 10.0.3.0/24)
+│   ├── Internet Gateway
+│   ├── NAT Gateway
+│   └── Application Load Balancer
+│
+└── Private Subnets (10.0.2.0/24, 10.0.4.0/24)
+    ├── EC2 Instances (Auto Scaling Group)
+    ├── RDS MySQL (Multi-AZ)
+    └── VPC Endpoints (S3, CloudWatch, SSM, Cognito)
+</code></pre><h3 id="application-flow">Application Flow</h3>
+<pre tabindex="0"><code>User Browser
+    │
+    ├─── HTTPS ──&gt; CloudFront ──&gt; S3 (Static Frontend)
+    │
+    └─── HTTPS ──&gt; API Gateway ──&gt; ALB ──&gt; EC2 (Backend API)
+                                            │
+                                            └──&gt; RDS MySQL
+</code></pre><h3 id="security-architecture">Security Architecture</h3>
+<pre tabindex="0"><code>Internet
+    │
+    ├─── CloudFront (HTTPS only)
+    │    └─── S3 Bucket Policy (CloudFront OAI)
+    │
+    └─── API Gateway (Resource Policy)
+         └─── ALB Security Group (Port 80/443)
+              └─── EC2 Security Group (Port 8080 from ALB only)
+                   └─── RDS Security Group (Port 3306 from EC2 only)
+</code></pre><h2 id="các-tính-năng-chính">Các Tính năng Chính</h2>
+<h3 id="1-user-authentication">1. User Authentication</h3>
+<ul>
+<li>Đăng ký và đăng nhập người dùng</li>
+<li>JWT token-based authentication</li>
+<li>AWS Cognito integration (optional)</li>
+<li>Session management</li>
+</ul>
+<h3 id="2-dna-analysis">2. DNA Analysis</h3>
+<ul>
+<li>Upload và phân tích chuỗi DNA</li>
+<li>Hỗ trợ nhiều định dạng file</li>
+<li>Xử lý batch processing</li>
+<li>Lưu trữ kết quả phân tích</li>
+</ul>
+<h3 id="3-data-visualization">3. Data Visualization</h3>
+<ul>
+<li>Biểu đồ phân tích DNA</li>
+<li>Dashboard với metrics</li>
+<li>Export kết quả dưới nhiều định dạng</li>
+</ul>
+<h3 id="4-user-management">4. User Management</h3>
+<ul>
+<li>Quản lý profile người dùng</li>
+<li>Lịch sử phân tích</li>
+<li>Role-based access control</li>
+</ul>
+<h2 id="infrastructure-as-code">Infrastructure as Code</h2>
+<h3 id="cloudformation-template">CloudFormation Template</h3>
+<p>Template <code>infrastructure.yaml</code> bao gồm:</p>
+<p><strong>Networking (Lines 1-400)</strong></p>
+<ul>
+<li>VPC với DNS support</li>
+<li>2 Public Subnets (Multi-AZ)</li>
+<li>2 Private Subnets (Multi-AZ)</li>
+<li>Internet Gateway</li>
+<li>NAT Gateway (có thể tắt để tiết kiệm chi phí)</li>
+<li>Route Tables</li>
+<li>VPC Endpoints (S3, CloudWatch, SSM, Cognito)</li>
+</ul>
+<p><strong>Compute (Lines 400-700)</strong></p>
+<ul>
+<li>Launch Template với User Data script</li>
+<li>Auto Scaling Group (1-4 instances)</li>
+<li>Application Load Balancer</li>
+<li>Target Group với health checks</li>
+<li>Scaling Policies (CPU-based)</li>
+</ul>
+<p><strong>Storage &amp; CDN (Lines 700-900)</strong></p>
+<ul>
+<li>S3 Bucket cho Frontend</li>
+<li>S3 Bucket Policy</li>
+<li>CloudFront Distribution</li>
+<li>CloudFront Origin Access Identity</li>
+</ul>
+<p><strong>Database (Lines 900-1000)</strong></p>
+<ul>
+<li>RDS MySQL Instance</li>
+<li>DB Subnet Group</li>
+<li>Automated Backups</li>
+<li>Encryption at rest</li>
+</ul>
+<p><strong>Security (Lines 1000-1200)</strong></p>
+<ul>
+<li>Security Groups (ALB, EC2, RDS, VPC Endpoints)</li>
+<li>IAM Roles (EC2, CloudWatch, S3)</li>
+<li>IAM Instance Profile</li>
+<li>Cognito User Pool (optional)</li>
+<li>Secrets Manager (optional)</li>
+</ul>
+<p><strong>Monitoring (Lines 1200-1393)</strong></p>
+<ul>
+<li>CloudWatch Log Groups</li>
+<li>CloudWatch Alarms (CPU, Memory)</li>
+<li>SNS Topic cho alerts</li>
+<li>API Gateway với CORS</li>
+</ul>
+<h2 id="tối-ưu-chi-phí">Tối ưu Chi phí</h2>
+<h3 id="1-vpc-endpoints-thay-vì-nat-gateway">1. VPC Endpoints thay vì NAT Gateway</h3>
+<p><strong>Tiết kiệm</strong>: ~$20-25/tháng</p>
+<ul>
+<li>S3 Gateway Endpoint: FREE</li>
+<li>Interface Endpoints: $7.20/endpoint/tháng</li>
+<li>Tổng: ~$28/tháng vs NAT Gateway $32/tháng + data transfer</li>
+</ul>
+<h3 id="2-instance-sizing">2. Instance Sizing</h3>
+<p><strong>Development</strong>: t3.micro ($7-10/tháng)
+<strong>Production</strong>: t3.small hoặc t3.medium</p>
+<h3 id="3-rds-optimization">3. RDS Optimization</h3>
+<ul>
+<li>Single-AZ cho development</li>
+<li>Multi-AZ cho production</li>
+<li>Automated backups với retention phù hợp</li>
+</ul>
+<h3 id="4-cloudfront-caching">4. CloudFront Caching</h3>
+<ul>
+<li>Giảm requests đến S3</li>
+<li>Giảm latency cho users</li>
+<li>Free tier: 1TB data transfer/tháng</li>
+</ul>
+<h2 id="best-practices-được-áp-dụng">Best Practices được áp dụng</h2>
+<h3 id="1-security">1. Security</h3>
+<p>✅ Private subnets cho EC2 và RDS
+✅ Security Groups với least privilege
+✅ IAM Roles thay vì hardcoded credentials
+✅ Encryption at rest và in transit
+✅ VPC Endpoints cho private connectivity
+✅ CloudTrail cho audit logging (optional)</p>
+<h3 id="2-high-availability">2. High Availability</h3>
+<p>✅ Multi-AZ deployment
+✅ Auto Scaling Group
+✅ Application Load Balancer
+✅ RDS automated backups
+✅ CloudFront global CDN</p>
+<h3 id="3-monitoring--logging">3. Monitoring &amp; Logging</h3>
+<p>✅ CloudWatch Logs cho application logs
+✅ CloudWatch Alarms cho metrics
+✅ SNS notifications
+✅ Health checks trên ALB và ASG</p>
+<h3 id="4-automation">4. Automation</h3>
+<p>✅ Infrastructure as Code với CloudFormation
+✅ User Data scripts cho EC2 initialization
+✅ Systemd service cho application management
+✅ Automated deployments với scripts</p>
+<h2 id="các-bước-triển-khai">Các Bước Triển khai</h2>
+<ol>
+<li>
+<p><strong>Chuẩn bị</strong> (10 phút)</p>
+<ul>
+<li>Cài đặt AWS CLI</li>
+<li>Tạo EC2 Key Pair</li>
+<li>Cấu hình parameters</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Infrastructure</strong> (15-20 phút)</p>
+<ul>
+<li>Validate CloudFormation template</li>
+<li>Create stack</li>
+<li>Đợi resources được tạo</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Backend</strong> (20-30 phút)</p>
+<ul>
+<li>Build JAR file</li>
+<li>Upload lên S3</li>
+<li>Deploy lên EC2</li>
+<li>Cấu hình database connection</li>
+</ul>
+</li>
+<li>
+<p><strong>Deploy Frontend</strong> (10-15 phút)</p>
+<ul>
+<li>Build React application</li>
+<li>Upload lên S3</li>
+<li>Invalidate CloudFront cache</li>
+</ul>
+</li>
+<li>
+<p><strong>Testing</strong> (15-30 phút)</p>
+<ul>
+<li>Test authentication</li>
+<li>Test DNA analysis features</li>
+<li>Verify monitoring</li>
+</ul>
+</li>
+<li>
+<p><strong>Cleanup</strong> (5-10 phút)</p>
+<ul>
+<li>Delete CloudFormation stack</li>
+<li>Verify all resources deleted</li>
+</ul>
+</li>
+</ol>
+<h2 id="kết-quả-mong-đợi">Kết quả Mong đợi</h2>
+<p>Sau khi hoàn thành workshop, bạn sẽ có:</p>
+<p>✅ Một ứng dụng full-stack hoạt động trên AWS
+✅ Hiểu biết sâu về AWS networking và security
+✅ Kinh nghiệm với Infrastructure as Code
+✅ Kiến thức về cost optimization
+✅ Best practices cho production deployment</p>
+<h2 id="tài-nguyên-tham-khảo">Tài nguyên Tham khảo</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/cloudformation/">AWS CloudFormation Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-best-practices.html">AWS VPC Best Practices</a></li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a></li>
+<li><a href="https://spring.io/guides/gs/spring-boot-aws/">Spring Boot on AWS</a></li>
+<li><a href="https://create-react-app.dev/docs/deployment/">React Deployment Best Practices</a></li>
+</ul>
 
 
 
@@ -1730,19 +2010,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765252681"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765252681"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765252681"></script>
-    <script src="../../../js/jquery.sticky.js?1765252681"></script>
-    <script src="../../../js/featherlight.min.js?1765252681"></script>
-    <script src="../../../js/highlight.pack.js?1765252681"></script>
+    <script src="../../../js/clipboard.min.js?1765262484"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765262484"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765262484"></script>
+    <script src="../../../js/jquery.sticky.js?1765262484"></script>
+    <script src="../../../js/featherlight.min.js?1765262484"></script>
+    <script src="../../../js/highlight.pack.js?1765262484"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765252681"></script>
-    <script src="../../../js/learn.js?1765252681"></script>
-    <script src="../../../js/hugo-learn.js?1765252681"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765262484"></script>
+    <script src="../../../js/learn.js?1765262484"></script>
+    <script src="../../../js/hugo-learn.js?1765262484"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765252681" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765252681"></script>
+    <link href="../../../mermaid/mermaid.css?1765262484" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765262484"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
