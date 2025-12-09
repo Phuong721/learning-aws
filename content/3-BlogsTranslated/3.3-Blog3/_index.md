@@ -3,7 +3,7 @@ title: "Blog 3"
 date: 2025-08-21
 weight: 3
 chapter: false
-pre: " Artificial Intelligence, Customer Solutions, Generative AI, Open Source "
+pre: " <b> 3.3 </b> "
 ---
 
  ### Open Protocol for Agent Interoperability Part 4: A2A Agent Communication

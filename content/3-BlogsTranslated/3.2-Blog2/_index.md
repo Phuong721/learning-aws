@@ -3,7 +3,7 @@ title: "Blog 2"
 date: 2025-08-21
 weight: 2
 chapter: false
-pre: "<b>Written by:</b> Itay Meller, Ran Isenberg, and Yossi Lagstein"
+pre: " <b> 3.2 </b> "
 ---
 
 ### Simplifying Multi-Tenant Encryption with a Cost-Efficient AWS KMS Key Strategy

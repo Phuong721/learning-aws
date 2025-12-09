@@ -3,7 +3,7 @@ title: "Blog 3"
 date: 2025-08-21
 weight: 3
 chapter: false
-pre: " Artificial Intelligence, Customer Solutions, Generative AI, Open Source "
+pre: " <b> 3.3 </b> "
 ---
 
 ### Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A

@@ -3,7 +3,7 @@ title: "Blog 1"
 date: 2025-08-21
 weight: 1
 chapter: false
-pre: "<b>Article by:</b> Mokshith Kumar and Miranda Li"
+pre: " <b> 3.1 </b> "
 ---
 
 ### Accelerate Your Cloud Strategy with Megaport’s 25 Gbps Hosted AWS Direct Connect

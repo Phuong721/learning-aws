@@ -3,7 +3,7 @@ title: "Blog 2"
 date: 2025-08-21
 weight: 2
 chapter: false
-pre: "<b>Bài viết bởi:</b> Itay Meller, Ran Isenberg, và Yossi Lagstein"
+pre: " <b> 3.2 </b> "
 ---
 
 ### Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí

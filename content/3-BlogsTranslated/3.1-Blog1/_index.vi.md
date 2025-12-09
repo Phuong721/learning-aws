@@ -3,7 +3,7 @@ title: "Blog 1"
 date: 2025-08-21
 weight: 1
 chapter: false
-pre: "<b>Bài viết bởi:</b> Mokshith Kumar và Miranda Li"
+pre: " <b> 3.1 </b> "
 ---
 
 ### Tăng tốc Chiến lược Đám mây của bạn với Kết nối Trực tiếp AWS được Lưu trữ 25 Gbps của Megaport
