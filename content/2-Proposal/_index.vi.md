@@ -8,7 +8,7 @@ pre: " <b> 2. </b> "
 
 # Blood Donation Support System (BDSS)
 
-📄 **[Tải Tài Liệu Đề Xuất Đầy Đủ (Word)](Proposal%20Template.docx)**
+📄 **[Tải xuống toàn bộ tài liệu đề xuất (Word)](/file/Proposal%20Template.docx)**
 
 ## 1. Tóm tắt điều hành
 

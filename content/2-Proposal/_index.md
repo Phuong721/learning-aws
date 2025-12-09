@@ -8,7 +8,7 @@ pre: " <b> 2. </b> "
 
 # Blood Donation Support System (BDSS)
 
-📄 **[Download Full Proposal Document (Word)](Proposal%20Template.docx)**
+📄 **[Download Full Proposal Document (Word)](/file/Proposal%20Template.docx)**
 
 ## 1. Executive Summary
 
