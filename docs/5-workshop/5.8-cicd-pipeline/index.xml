@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI/CD Pipeline Setup on Internship Report</title>
+    <link>https://phuong721.github.io/learning-aws/5-workshop/5.8-cicd-pipeline/</link>
+    <description>Recent content in CI/CD Pipeline Setup on Internship Report</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://phuong721.github.io/learning-aws/5-workshop/5.8-cicd-pipeline/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

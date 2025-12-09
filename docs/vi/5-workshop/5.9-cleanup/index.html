@@ -12,24 +12,24 @@
 
     <link rel="icon" href="../../../images/favicon.png" type="image/png">
 
-    <title>Worklog Tuần 6 :: Báo cáo thực tập</title>
+    <title>Dọn dẹp tài nguyên :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765268485" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765268485" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765268485" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765268485" rel="stylesheet">
-    <link href="../../../css/theme.css?1765268485" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765268485" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765268486" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765268486" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765268486" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765268486" rel="stylesheet">
+    <link href="../../../css/theme.css?1765268486" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765268486" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765268485" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765268486" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765268485"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765268486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -40,7 +40,7 @@
     
 
   </head>
-  <body class="" data-url="../../../vi/1-worklog/1.6-week6/">
+  <body class="" data-url="../../../vi/5-workshop/5.9-cleanup/">
     <nav
   id="sidebar"
   class="showVisitedLinks"
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765268485"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765268485"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765268486"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765268486"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765268485"></script>
+<script type="text/javascript" src="../../../js/search.js?1765268486"></script>
  
   </div>
 
@@ -106,7 +106,7 @@
   data-nav-id="/vi/1-worklog/"
   title="Nhật ký công việc"
   class="dd-item 
-        parent
+        
         
         
         "
@@ -179,7 +179,7 @@
   title="Worklog Tuần 6"
   class="dd-item 
         
-        active
+        
         
         "
 >
@@ -546,7 +546,7 @@
   data-nav-id="/vi/5-workshop/"
   title="Workshop"
   class="dd-item 
-        
+        parent
         
         
         "
@@ -709,7 +709,7 @@
   title="Dọn dẹp tài nguyên"
   class="dd-item 
         
-        
+        active
         
         "
 >
@@ -807,14 +807,14 @@
                        
                 <option
                   id="en"
-                  value="https://phuong721.github.io/learning-aws/1-worklog/1.6-week6/"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.9-cleanup/"
                 >
                   English
                 </option>
                             
                 <option
                   id="vi"
-                  value="https://phuong721.github.io/learning-aws/vi/1-worklog/1.6-week6/"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.9-cleanup/"
                   selected
                 >
                   Tiếng Việt
@@ -929,7 +929,7 @@
             
           
           
-            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/1-worklog/'>Nhật ký công việc</a> > Worklog Tuần 6
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/5-workshop/'>Workshop</a> > Dọn dẹp tài nguyên
           
         
           
@@ -943,13 +943,34 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#tổng-quan">Tổng quan</a></li>
+    <li><a href="#bước-1-xóa-s3-bucket-contents">Bước 1: Xóa S3 Bucket Contents</a></li>
+    <li><a href="#bước-2-xóa-cloudformation-stack">Bước 2: Xóa CloudFormation Stack</a>
       <ul>
-        <li><a href="#mục-tiêu-tuần-6">Mục tiêu tuần 6:</a></li>
-        <li><a href="#các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</a></li>
-        <li><a href="#kết-quả-đạt-được-tuần-6">Kết quả đạt được tuần 6:</a></li>
+        <li><a href="#cách-1-sử-dụng-deploy-script">Cách 1: Sử dụng Deploy Script</a></li>
+        <li><a href="#cách-2-sử-dụng-aws-cli">Cách 2: Sử dụng AWS CLI</a></li>
       </ul>
     </li>
+    <li><a href="#bước-3-theo-dõi-quá-trình-xóa">Bước 3: Theo dõi Quá trình Xóa</a></li>
+    <li><a href="#bước-4-xác-nhận-tài-nguyên-đã-bị-xóa">Bước 4: Xác nhận Tài nguyên đã bị Xóa</a>
+      <ul>
+        <li><a href="#kiểm-tra-vpc">Kiểm tra VPC</a></li>
+        <li><a href="#kiểm-tra-ec2-instances">Kiểm tra EC2 Instances</a></li>
+        <li><a href="#kiểm-tra-rds">Kiểm tra RDS</a></li>
+        <li><a href="#kiểm-tra-s3-buckets">Kiểm tra S3 Buckets</a></li>
+      </ul>
+    </li>
+    <li><a href="#bước-5-xóa-rds-snapshots-optional">Bước 5: Xóa RDS Snapshots (Optional)</a></li>
+    <li><a href="#bước-6-xóa-cloudwatch-logs-optional">Bước 6: Xóa CloudWatch Logs (Optional)</a></li>
+    <li><a href="#bước-7-xóa-ec2-key-pair-optional">Bước 7: Xóa EC2 Key Pair (Optional)</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#stack-deletion-failed">Stack Deletion Failed</a></li>
+      </ul>
+    </li>
+    <li><a href="#checklist-cleanup">Checklist Cleanup</a></li>
+    <li><a href="#xác-nhận-không-còn-chi-phí">Xác nhận Không còn Chi phí</a></li>
+    <li><a href="#kết-luận">Kết luận</a></li>
   </ul>
 </nav></div>
 </div>
@@ -967,7 +988,7 @@
           
             <h1>
               
-              Worklog Tuần 6
+              Dọn dẹp tài nguyên
             </h1>
           
 
@@ -975,122 +996,175 @@
 
 
 
-	<h3 id="mục-tiêu-tuần-6">Mục tiêu tuần 6:</h3>
+	<h2 id="tổng-quan">Tổng quan</h2>
+<p>Sau khi hoàn thành workshop, bạn cần xóa tất cả tài nguyên để tránh phát sinh chi phí không mong muốn. CloudFormation sẽ tự động xóa hầu hết các tài nguyên, nhưng một số cần xóa thủ công.</p>
+<h2 id="bước-1-xóa-s3-bucket-contents">Bước 1: Xóa S3 Bucket Contents</h2>
+<p>CloudFormation không thể xóa S3 buckets có chứa objects. Bạn cần xóa contents trước:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Lấy bucket names từ outputs</span>
+</span></span><span style="display:flex;"><span>FRONTEND_BUCKET<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`FrontendBucketName`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xóa tất cả objects trong frontend bucket</span>
+</span></span><span style="display:flex;"><span>aws s3 rm s3://$FRONTEND_BUCKET --recursive --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nếu có backend bucket</span>
+</span></span><span style="display:flex;"><span>BACKEND_BUCKET<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;workshop-aws-dev-backend-</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --query Account --output text<span style="color:#66d9ef">)</span><span style="color:#e6db74">-ap-southeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>aws s3 rm s3://$BACKEND_BUCKET --recursive --region ap-southeast-1 2&gt;/dev/null <span style="color:#f92672">||</span> true
+</span></span></code></pre></div><h2 id="bước-2-xóa-cloudformation-stack">Bước 2: Xóa CloudFormation Stack</h2>
+<h3 id="cách-1-sử-dụng-deploy-script">Cách 1: Sử dụng Deploy Script</h3>
+<p><strong>Windows:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> aws
+</span></span><span style="display:flex;"><span>deploy.bat delete
+</span></span></code></pre></div><p><strong>Linux/Mac:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd aws
+</span></span><span style="display:flex;"><span>./deploy.sh delete
+</span></span></code></pre></div><h3 id="cách-2-sử-dụng-aws-cli">Cách 2: Sử dụng AWS CLI</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation delete-stack <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="bước-3-theo-dõi-quá-trình-xóa">Bước 3: Theo dõi Quá trình Xóa</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra status</span>
+</span></span><span style="display:flex;"><span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].StackStatus&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Đợi stack bị xóa hoàn toàn (có thể mất 10-15 phút)</span>
+</span></span><span style="display:flex;"><span>aws cloudformation wait stack-delete-complete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><p><strong>Qua AWS Console:</strong></p>
+<ol>
+<li>Mở <a href="https://console.aws.amazon.com/cloudformation/">CloudFormation Console</a></li>
+<li>Chọn stack <code>workshop-aws-dev</code></li>
+<li>Tab <strong>Events</strong>: Xem resources đang bị xóa</li>
+<li>Stack sẽ biến mất khỏi danh sách khi xóa hoàn tất</li>
+</ol>
+<h2 id="bước-4-xác-nhận-tài-nguyên-đã-bị-xóa">Bước 4: Xác nhận Tài nguyên đã bị Xóa</h2>
+<h3 id="kiểm-tra-vpc">Kiểm tra VPC</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Không nên thấy VPC của workshop</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-vpcs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="kiểm-tra-ec2-instances">Kiểm tra EC2 Instances</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Không nên thấy instances của workshop</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Reservations[*].Instances[*].[InstanceId,State.Name]&#39;</span>
+</span></span></code></pre></div><h3 id="kiểm-tra-rds">Kiểm tra RDS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Không nên thấy RDS instance (có thể có snapshot)</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;DBInstances[?DBInstanceIdentifier==`workshop-aws-dev-db`]&#39;</span>
+</span></span></code></pre></div><h3 id="kiểm-tra-s3-buckets">Kiểm tra S3 Buckets</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Buckets nên đã bị xóa</span>
+</span></span><span style="display:flex;"><span>aws s3 ls | grep workshop-aws-dev
+</span></span></code></pre></div><h2 id="bước-5-xóa-rds-snapshots-optional">Bước 5: Xóa RDS Snapshots (Optional)</h2>
+<p>CloudFormation tạo snapshot trước khi xóa RDS. Nếu không cần, xóa để tránh phí lưu trữ:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List snapshots</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-snapshots <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;DBSnapshots[?contains(DBSnapshotIdentifier,`workshop-aws-dev`)].DBSnapshotIdentifier&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xóa snapshot</span>
+</span></span><span style="display:flex;"><span>aws rds delete-db-snapshot <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --db-snapshot-identifier &lt;snapshot-id&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="bước-6-xóa-cloudwatch-logs-optional">Bước 6: Xóa CloudWatch Logs (Optional)</h2>
+<p>Log groups không tự động bị xóa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List log groups</span>
+</span></span><span style="display:flex;"><span>aws logs describe-log-groups <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name-prefix <span style="color:#e6db74">&#34;/aws/workshop-aws&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xóa log groups</span>
+</span></span><span style="display:flex;"><span>aws logs delete-log-group <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name <span style="color:#e6db74">&#34;/aws/workshop-aws/dev/application&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="bước-7-xóa-ec2-key-pair-optional">Bước 7: Xóa EC2 Key Pair (Optional)</h2>
+<p>Nếu không cần key pair nữa:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws ec2 delete-key-pair <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --key-name workshop-aws-key <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Xóa file .pem local</span>
+</span></span><span style="display:flex;"><span>rm workshop-aws-key.pem
+</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="stack-deletion-failed">Stack Deletion Failed</h3>
+<p>Nếu stack deletion bị lỗi:</p>
+<ol>
+<li><strong>Xem lỗi:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation describe-stack-events <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;StackEvents[?ResourceStatus==`DELETE_FAILED`].[LogicalResourceId,ResourceStatusReason]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span></code></pre></div><ol start="2">
+<li><strong>Các lỗi thường gặp:</strong></li>
+</ol>
+<p><strong>Lỗi: &ldquo;S3 bucket is not empty&rdquo;</strong></p>
 <ul>
-<li>Thực hành triển khai VPC, EC2, RDS và các cấu hình bảo mật.</li>
-<li>Triển khai ứng dụng và thực hiện backup/restore.</li>
-<li>Quản lý kết nối EC2 qua RDP và Fleet Manager.</li>
-<li>Thực hiện cấu hình SQL Server và Oracle database.</li>
-<li>Thực hiện chuyển đổi schema từ MSSQL/Oracle sang Aurora MySQL.</li>
-<li>Thực hành Serverless Migration, kiểm tra logs và troubleshoot các kịch bản test.</li>
+<li>Xóa tất cả objects trong bucket</li>
+<li>Thử delete stack lại</li>
 </ul>
-<h3 id="các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Thứ</th>
-          <th>Công việc</th>
-          <th>Ngày bắt đầu</th>
-          <th>Ngày hoàn thành</th>
-          <th>Nguồn tài liệu</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>2</td>
-          <td>- Tạo VPC (Module 06-Lab05-2.1) <br> - Tạo EC2 Security Group (Module 06-Lab05-2.2) <br> - Tạo RDS Security Group (Module 06-Lab05-2.3) <br> - Tạo DB Subnet Group (Module 06-Lab05-2.4) <br> - Triển khai EC2 instance (Module 06-Lab05-3) <br> - Triển khai RDS database instance (Module 06-Lab05-4) <br> - Deploy ứng dụng (Module 06-Lab05-5) <br> - Backup &amp; Restore (Module 06-Lab05-6) <br> - Dọn dẹp tài nguyên (Module 06-Lab05-7)</td>
-          <td>13/10/2025</td>
-          <td>13/10/2025</td>
-          <td><a href="https://000006.awsstudygroup.com/">https://000006.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td>- Kết nối EC2 bằng RDP Client (Module 06-Lab43-01) <br> - Kết nối EC2 bằng Fleet Manager (Module 06-Lab43-02) <br> - Cấu hình SQL Server Source DB (Module 06-Lab43-03)</td>
-          <td>14/10/2025</td>
-          <td>14/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>- Kết nối và cấu hình Oracle Source DB (Module 06-Lab43-04 &amp; 05) <br> - Drop Constraint (Module 06-Lab43-06) <br> - MSSQL → Aurora MySQL target config (Module 06-Lab43-07) <br> - Tạo project migration (Module 06-Lab43-08)</td>
-          <td>15/10/2025</td>
-          <td>15/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td>- Chuyển đổi schema MSSQL/Oracle sang Aurora MySQL (Module 06-Lab43-09 &amp; 10) <br> - Tạo Migration Task và Endpoints (Module 06-Lab43-11) <br> - Kiểm tra dữ liệu trên S3 (Module 06-Lab43-12)</td>
-          <td>16/10/2025</td>
-          <td>16/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>- Tạo Serverless Migration (Module 06-Lab43-13) <br> - Tạo Event Notification (Module 06-Lab43-14) <br> - Kiểm tra logs (Module 06-Lab43-15) <br> - Troubleshoot Mem Pressure &amp; Table Errors (Module 06-Lab43-16 &amp; 17)</td>
-          <td>17/10/2025</td>
-          <td>17/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>- Tổng hợp kết quả, kiểm tra và dọn dẹp toàn bộ tài nguyên thực hành</td>
-          <td>18/10/2025</td>
-          <td>18/10/2025</td>
-          <td>N/A</td>
-      </tr>
-      <tr>
-          <td>CN</td>
-          <td>- Tự đánh giá tuần, chuẩn bị kiến thức cho tuần tiếp theo</td>
-          <td>19/10/2025</td>
-          <td>19/10/2025</td>
-          <td>N/A</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="kết-quả-đạt-được-tuần-6">Kết quả đạt được tuần 6:</h3>
+<p><strong>Lỗi: &ldquo;Network interface is in use&rdquo;</strong></p>
 <ul>
-<li>
-<p>Triển khai mạng &amp; cơ sở dữ liệu:</p>
+<li>Đợi vài phút để ENIs được release</li>
+<li>Thử delete stack lại</li>
+</ul>
+<p><strong>Lỗi: &ldquo;Resource being used by another resource&rdquo;</strong></p>
 <ul>
-<li>Tạo và cấu hình VPC, EC2 Security Group, RDS Security Group, DB Subnet Group.</li>
-<li>Triển khai EC2 &amp; RDS instance thành công, deploy ứng dụng và thực hiện backup/restore.</li>
+<li>Xác định resource dependencies</li>
+<li>Xóa dependent resources trước</li>
 </ul>
-</li>
-<li>
-<p>Quản lý kết nối EC2:</p>
+<ol start="3">
+<li><strong>Force delete:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Retain problematic resources và xóa stack</span>
+</span></span><span style="display:flex;"><span>aws cloudformation delete-stack <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --retain-resources &lt;ResourceLogicalId&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sau đó xóa resources thủ công</span>
+</span></span></code></pre></div><h2 id="checklist-cleanup">Checklist Cleanup</h2>
+<p>Đảm bảo tất cả tài nguyên đã bị xóa:</p>
 <ul>
-<li>Kết nối EC2 bằng RDP Client và Fleet Manager, quản lý Source DB SQL Server &amp; Oracle.</li>
+<li><input disabled="" type="checkbox"> CloudFormation stack đã bị xóa</li>
+<li><input disabled="" type="checkbox"> S3 buckets đã bị xóa</li>
+<li><input disabled="" type="checkbox"> EC2 instances đã terminated</li>
+<li><input disabled="" type="checkbox"> RDS database đã bị xóa</li>
+<li><input disabled="" type="checkbox"> Load Balancer đã bị xóa</li>
+<li><input disabled="" type="checkbox"> VPC và subnets đã bị xóa</li>
+<li><input disabled="" type="checkbox"> CloudFront distribution đã bị disabled và xóa</li>
+<li><input disabled="" type="checkbox"> NAT Gateway đã bị xóa</li>
+<li><input disabled="" type="checkbox"> Elastic IPs đã bị released</li>
+<li><input disabled="" type="checkbox"> RDS snapshots đã bị xóa (optional)</li>
+<li><input disabled="" type="checkbox"> CloudWatch log groups đã bị xóa (optional)</li>
+<li><input disabled="" type="checkbox"> EC2 Key Pair đã bị xóa (optional)</li>
 </ul>
-</li>
-<li>
-<p>Chuyển đổi dữ liệu &amp; Migration:</p>
+<h2 id="xác-nhận-không-còn-chi-phí">Xác nhận Không còn Chi phí</h2>
+<p>Sau 24-48 giờ, kiểm tra AWS Cost Explorer để đảm bảo không còn chi phí phát sinh từ workshop.</p>
+<h2 id="kết-luận">Kết luận</h2>
+<p>Bạn đã hoàn thành workshop và dọn dẹp tất cả tài nguyên thành công!</p>
+<p><strong>Những gì bạn đã học:</strong>
+✅ Triển khai full-stack application trên AWS
+✅ Infrastructure as Code với CloudFormation
+✅ AWS networking và security best practices
+✅ Cost optimization strategies
+✅ Monitoring và troubleshooting</p>
+<p><strong>Tài nguyên tiếp theo:</strong></p>
 <ul>
-<li>Thực hiện schema conversion từ MSSQL/Oracle sang Aurora MySQL.</li>
-<li>Tạo Migration Task, Endpoints, kiểm tra dữ liệu trên S3.</li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a></li>
+<li><a href="https://aws.amazon.com/solutions/">AWS Solutions Library</a></li>
+<li><a href="https://workshops.aws/">AWS Workshops</a></li>
 </ul>
-</li>
-<li>
-<p>Serverless Migration &amp; Troubleshooting:</p>
-<ul>
-<li>Tạo Serverless Migration, cấu hình Event Notification, kiểm tra logs.</li>
-<li>Xử lý các kịch bản test Mem Pressure và Table Errors thành công.</li>
-</ul>
-</li>
-<li>
-<p>Quản lý tài nguyên:</p>
-<ul>
-<li>Dọn dẹp toàn bộ tài nguyên đã triển khai để tránh phát sinh chi phí ngoài ý muốn.</li>
-</ul>
-</li>
-<li>
-<p>Tự đánh giá:</p>
-<ul>
-<li>Nắm vững triển khai VPC, EC2, RDS, backup/restore, kết nối database và Serverless Migration.</li>
-<li>Hiểu quy trình chuyển đổi dữ liệu và kiểm soát logs.</li>
-<li>Chuẩn bị tốt cho tuần tiếp theo với các nội dung nâng cao về bảo mật và tối ưu hạ tầng.</li>
-</ul>
-</li>
-</ul>
+<p>Cảm ơn bạn đã tham gia workshop! 🎉</p>
 
 
 
@@ -1131,403 +1205,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1687,6 +1366,404 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1743,10 +1820,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/1-worklog/1.7-week7/" title="Worklog Tuần 7"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/5-workshop/5.7-monitoring/" title="Giám sát và Xử lý sự cố"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../vi/1-worklog/1.5-week5/" title="Worklog Tuần 5" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../vi/5-workshop/5.8-cicd-pipeline/" title="Thiết lập CI/CD Pipeline" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1756,19 +1833,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765268485"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765268485"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765268485"></script>
-    <script src="../../../js/jquery.sticky.js?1765268485"></script>
-    <script src="../../../js/featherlight.min.js?1765268485"></script>
-    <script src="../../../js/highlight.pack.js?1765268485"></script>
+    <script src="../../../js/clipboard.min.js?1765268486"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765268486"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765268486"></script>
+    <script src="../../../js/jquery.sticky.js?1765268486"></script>
+    <script src="../../../js/featherlight.min.js?1765268486"></script>
+    <script src="../../../js/highlight.pack.js?1765268486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765268485"></script>
-    <script src="../../../js/learn.js?1765268485"></script>
-    <script src="../../../js/hugo-learn.js?1765268485"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765268486"></script>
+    <script src="../../../js/learn.js?1765268486"></script>
+    <script src="../../../js/hugo-learn.js?1765268486"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765268485" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765268485"></script>
+    <link href="../../../mermaid/mermaid.css?1765268486" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765268486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

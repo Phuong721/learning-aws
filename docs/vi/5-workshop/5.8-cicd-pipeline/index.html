@@ -12,24 +12,24 @@
 
     <link rel="icon" href="../../../images/favicon.png" type="image/png">
 
-    <title>Worklog Tuần 6 :: Báo cáo thực tập</title>
+    <title>Thiết lập CI/CD Pipeline :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765268485" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765268485" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765268485" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765268485" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765268485" rel="stylesheet">
-    <link href="../../../css/theme.css?1765268485" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765268485" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765268486" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765268486" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765268486" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765268486" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765268486" rel="stylesheet">
+    <link href="../../../css/theme.css?1765268486" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765268486" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765268485" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765268486" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765268485"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765268486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -40,7 +40,7 @@
     
 
   </head>
-  <body class="" data-url="../../../vi/1-worklog/1.6-week6/">
+  <body class="" data-url="../../../vi/5-workshop/5.8-cicd-pipeline/">
     <nav
   id="sidebar"
   class="showVisitedLinks"
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765268485"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765268485"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765268486"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765268486"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765268485"></script>
+<script type="text/javascript" src="../../../js/search.js?1765268486"></script>
  
   </div>
 
@@ -106,7 +106,7 @@
   data-nav-id="/vi/1-worklog/"
   title="Nhật ký công việc"
   class="dd-item 
-        parent
+        
         
         
         "
@@ -179,7 +179,7 @@
   title="Worklog Tuần 6"
   class="dd-item 
         
-        active
+        
         
         "
 >
@@ -546,7 +546,7 @@
   data-nav-id="/vi/5-workshop/"
   title="Workshop"
   class="dd-item 
-        
+        parent
         
         
         "
@@ -727,7 +727,7 @@
   title="Thiết lập CI/CD Pipeline"
   class="dd-item 
         
-        
+        active
         
         "
 >
@@ -807,14 +807,14 @@
                        
                 <option
                   id="en"
-                  value="https://phuong721.github.io/learning-aws/1-worklog/1.6-week6/"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.8-cicd-pipeline/"
                 >
                   English
                 </option>
                             
                 <option
                   id="vi"
-                  value="https://phuong721.github.io/learning-aws/vi/1-worklog/1.6-week6/"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.8-cicd-pipeline/"
                   selected
                 >
                   Tiếng Việt
@@ -929,7 +929,7 @@
             
           
           
-            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/1-worklog/'>Nhật ký công việc</a> > Worklog Tuần 6
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/5-workshop/'>Workshop</a> > Thiết lập CI/CD Pipeline
           
         
           
@@ -943,13 +943,73 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#tổng-quan">Tổng quan</a></li>
+    <li><a href="#kiến-trúc">Kiến trúc</a></li>
+    <li><a href="#các-thành-phần-cicd">Các thành phần CI/CD</a>
       <ul>
-        <li><a href="#mục-tiêu-tuần-6">Mục tiêu tuần 6:</a></li>
-        <li><a href="#các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</a></li>
-        <li><a href="#kết-quả-đạt-được-tuần-6">Kết quả đạt được tuần 6:</a></li>
+        <li><a href="#1-gitlab-cicd">1. GitLab CI/CD</a></li>
+        <li><a href="#2-aws-codepipeline">2. AWS CodePipeline</a></li>
+        <li><a href="#3-aws-codebuild">3. AWS CodeBuild</a></li>
       </ul>
     </li>
+    <li><a href="#bước-1-cấu-hình-gitlab-cicd">Bước 1: Cấu hình GitLab CI/CD</a>
+      <ul>
+        <li><a href="#11-thiết-lập-gitlab-cicd-variables">1.1. Thiết lập GitLab CI/CD Variables</a></li>
+        <li><a href="#12-xem-lại-cấu-hình-gitlab-ci">1.2. Xem lại cấu hình GitLab CI</a></li>
+      </ul>
+    </li>
+    <li><a href="#bước-2-deploy-codepipeline-với-cloudformation">Bước 2: Deploy CodePipeline với CloudFormation</a>
+      <ul>
+        <li><a href="#21-xem-lại-pipeline-template">2.1. Xem lại Pipeline Template</a></li>
+        <li><a href="#22-deploy-pipeline-stack">2.2. Deploy Pipeline Stack</a></li>
+        <li><a href="#23-chờ-stack-tạo-xong">2.3. Chờ Stack tạo xong</a></li>
+      </ul>
+    </li>
+    <li><a href="#bước-3-cấu-hình-codebuild-projects">Bước 3: Cấu hình CodeBuild Projects</a>
+      <ul>
+        <li><a href="#31-backend-buildspec">3.1. Backend BuildSpec</a></li>
+        <li><a href="#32-frontend-buildspec">3.2. Frontend BuildSpec</a></li>
+      </ul>
+    </li>
+    <li><a href="#bước-4-test-cicd-pipeline">Bước 4: Test CI/CD Pipeline</a>
+      <ul>
+        <li><a href="#41-kích-hoạt-pipeline-từ-gitlab">4.1. Kích hoạt Pipeline từ GitLab</a></li>
+        <li><a href="#42-theo-dõi-gitlab-pipeline">4.2. Theo dõi GitLab Pipeline</a></li>
+        <li><a href="#43-theo-dõi-aws-codepipeline">4.3. Theo dõi AWS CodePipeline</a></li>
+        <li><a href="#44-kiểm-tra-build-logs">4.4. Kiểm tra Build Logs</a></li>
+      </ul>
+    </li>
+    <li><a href="#bước-5-xác-nhận-deployment">Bước 5: Xác nhận Deployment</a>
+      <ul>
+        <li><a href="#51-test-backend-api">5.1. Test Backend API</a></li>
+        <li><a href="#52-test-frontend">5.2. Test Frontend</a></li>
+      </ul>
+    </li>
+    <li><a href="#sơ-đồ-luồng-pipeline">Sơ đồ luồng Pipeline</a></li>
+    <li><a href="#xử-lý-sự-cố">Xử lý sự cố</a>
+      <ul>
+        <li><a href="#pipeline-không-kích-hoạt">Pipeline không kích hoạt</a></li>
+        <li><a href="#backend-build-thất-bại">Backend Build thất bại</a></li>
+        <li><a href="#frontend-build-thất-bại">Frontend Build thất bại</a></li>
+        <li><a href="#deployment-thất-bại">Deployment thất bại</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices">Best Practices</a>
+      <ul>
+        <li><a href="#1-environment-variables">1. Environment Variables</a></li>
+        <li><a href="#2-tối-ưu-build">2. Tối ưu Build</a></li>
+        <li><a href="#3-chiến-lược-deployment">3. Chiến lược Deployment</a></li>
+        <li><a href="#4-monitoring">4. Monitoring</a></li>
+      </ul>
+    </li>
+    <li><a href="#tối-ưu-chi-phí">Tối ưu Chi phí</a>
+      <ul>
+        <li><a href="#giá-codebuild">Giá CodeBuild</a></li>
+        <li><a href="#giá-codepipeline">Giá CodePipeline</a></li>
+        <li><a href="#ước-tính-chi-phí-hàng-tháng">Ước tính Chi phí Hàng tháng</a></li>
+      </ul>
+    </li>
+    <li><a href="#tóm-tắt">Tóm tắt</a></li>
   </ul>
 </nav></div>
 </div>
@@ -967,7 +1027,7 @@
           
             <h1>
               
-              Worklog Tuần 6
+              Thiết lập CI/CD Pipeline
             </h1>
           
 
@@ -975,122 +1035,352 @@
 
 
 
-	<h3 id="mục-tiêu-tuần-6">Mục tiêu tuần 6:</h3>
+	<h2 id="tổng-quan">Tổng quan</h2>
+<p>Trong phần này, bạn sẽ thiết lập một CI/CD pipeline hoàn chỉnh sử dụng AWS CodePipeline, CodeBuild và GitLab CI/CD để tự động hóa quá trình build và deploy cho cả backend và frontend.</p>
+<h2 id="kiến-trúc">Kiến trúc</h2>
+<pre tabindex="0"><code>GitLab → S3 (Artifacts) → CodePipeline → CodeBuild (Backend) → EC2
+                                      ↓
+                                      CodeBuild (Frontend) → S3/CloudFront
+</code></pre><h2 id="các-thành-phần-cicd">Các thành phần CI/CD</h2>
+<h3 id="1-gitlab-cicd">1. GitLab CI/CD</h3>
 <ul>
-<li>Thực hành triển khai VPC, EC2, RDS và các cấu hình bảo mật.</li>
-<li>Triển khai ứng dụng và thực hiện backup/restore.</li>
-<li>Quản lý kết nối EC2 qua RDP và Fleet Manager.</li>
-<li>Thực hiện cấu hình SQL Server và Oracle database.</li>
-<li>Thực hiện chuyển đổi schema từ MSSQL/Oracle sang Aurora MySQL.</li>
-<li>Thực hành Serverless Migration, kiểm tra logs và troubleshoot các kịch bản test.</li>
+<li>Tự động build và đóng gói source code</li>
+<li>Upload artifacts lên S3</li>
+<li>Kích hoạt AWS CodePipeline</li>
 </ul>
-<h3 id="các-công-việc-cần-triển-khai-trong-tuần-này">Các công việc cần triển khai trong tuần này:</h3>
+<h3 id="2-aws-codepipeline">2. AWS CodePipeline</h3>
+<ul>
+<li>Điều phối toàn bộ quy trình deployment</li>
+<li>Giám sát S3 để phát hiện artifacts mới</li>
+<li>Kích hoạt các CodeBuild projects</li>
+</ul>
+<h3 id="3-aws-codebuild">3. AWS CodeBuild</h3>
+<ul>
+<li><strong>Backend Build</strong>: Biên dịch ứng dụng Spring Boot thành JAR</li>
+<li><strong>Frontend Build</strong>: Build ứng dụng React với Vite</li>
+<li>Deploy lên các dịch vụ AWS tương ứng</li>
+</ul>
+<h2 id="bước-1-cấu-hình-gitlab-cicd">Bước 1: Cấu hình GitLab CI/CD</h2>
+<h3 id="11-thiết-lập-gitlab-cicd-variables">1.1. Thiết lập GitLab CI/CD Variables</h3>
+<p>Trong GitLab project, vào <strong>Settings → CI/CD → Variables</strong> và thêm:</p>
 <table>
   <thead>
       <tr>
-          <th>Thứ</th>
-          <th>Công việc</th>
-          <th>Ngày bắt đầu</th>
-          <th>Ngày hoàn thành</th>
-          <th>Nguồn tài liệu</th>
+          <th>Variable</th>
+          <th>Value</th>
+          <th>Protected</th>
+          <th>Masked</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>2</td>
-          <td>- Tạo VPC (Module 06-Lab05-2.1) <br> - Tạo EC2 Security Group (Module 06-Lab05-2.2) <br> - Tạo RDS Security Group (Module 06-Lab05-2.3) <br> - Tạo DB Subnet Group (Module 06-Lab05-2.4) <br> - Triển khai EC2 instance (Module 06-Lab05-3) <br> - Triển khai RDS database instance (Module 06-Lab05-4) <br> - Deploy ứng dụng (Module 06-Lab05-5) <br> - Backup &amp; Restore (Module 06-Lab05-6) <br> - Dọn dẹp tài nguyên (Module 06-Lab05-7)</td>
-          <td>13/10/2025</td>
-          <td>13/10/2025</td>
-          <td><a href="https://000006.awsstudygroup.com/">https://000006.awsstudygroup.com/</a></td>
+          <td><code>AWS_ACCESS_KEY_ID</code></td>
+          <td>AWS Access Key của bạn</td>
+          <td>✅</td>
+          <td>✅</td>
       </tr>
       <tr>
-          <td>3</td>
-          <td>- Kết nối EC2 bằng RDP Client (Module 06-Lab43-01) <br> - Kết nối EC2 bằng Fleet Manager (Module 06-Lab43-02) <br> - Cấu hình SQL Server Source DB (Module 06-Lab43-03)</td>
-          <td>14/10/2025</td>
-          <td>14/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>- Kết nối và cấu hình Oracle Source DB (Module 06-Lab43-04 &amp; 05) <br> - Drop Constraint (Module 06-Lab43-06) <br> - MSSQL → Aurora MySQL target config (Module 06-Lab43-07) <br> - Tạo project migration (Module 06-Lab43-08)</td>
-          <td>15/10/2025</td>
-          <td>15/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td>- Chuyển đổi schema MSSQL/Oracle sang Aurora MySQL (Module 06-Lab43-09 &amp; 10) <br> - Tạo Migration Task và Endpoints (Module 06-Lab43-11) <br> - Kiểm tra dữ liệu trên S3 (Module 06-Lab43-12)</td>
-          <td>16/10/2025</td>
-          <td>16/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>- Tạo Serverless Migration (Module 06-Lab43-13) <br> - Tạo Event Notification (Module 06-Lab43-14) <br> - Kiểm tra logs (Module 06-Lab43-15) <br> - Troubleshoot Mem Pressure &amp; Table Errors (Module 06-Lab43-16 &amp; 17)</td>
-          <td>17/10/2025</td>
-          <td>17/10/2025</td>
-          <td><a href="https://000043.awsstudygroup.com/">https://000043.awsstudygroup.com/</a></td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>- Tổng hợp kết quả, kiểm tra và dọn dẹp toàn bộ tài nguyên thực hành</td>
-          <td>18/10/2025</td>
-          <td>18/10/2025</td>
-          <td>N/A</td>
-      </tr>
-      <tr>
-          <td>CN</td>
-          <td>- Tự đánh giá tuần, chuẩn bị kiến thức cho tuần tiếp theo</td>
-          <td>19/10/2025</td>
-          <td>19/10/2025</td>
-          <td>N/A</td>
+          <td><code>AWS_SECRET_ACCESS_KEY</code></td>
+          <td>AWS Secret Key của bạn</td>
+          <td>✅</td>
+          <td>✅</td>
       </tr>
   </tbody>
 </table>
-<h3 id="kết-quả-đạt-được-tuần-6">Kết quả đạt được tuần 6:</h3>
+<h3 id="12-xem-lại-cấu-hình-gitlab-ci">1.2. Xem lại cấu hình GitLab CI</h3>
+<p>File <code>.gitlab-ci.yml</code> trong thư mục gốc project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">deploy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">deploy-to-aws</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">deploy</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#ae81ff">amazon/aws-cli:latest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">before_script</span>:
+</span></span><span style="display:flex;"><span>    - |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      aws configure set region ap-southeast-1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo &#34;📦 Đang tạo source.zip...&#34;</span>
+</span></span><span style="display:flex;"><span>    - |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      apk add zip
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      zip -r source.zip . \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -x &#34;*.git*&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -x &#34;node_modules/*&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -x &#34;.idea/*&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -x &#34;target/*&#34; \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        -x &#34;*.zip&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo &#34;📤 Đang upload lên S3...&#34;</span>
+</span></span><span style="display:flex;"><span>    - |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      aws s3 cp source.zip \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        s3://workshop-aws-dev-artifacts-502310717700-ap-southeast-1/source.zip</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo &#34;✅ Upload hoàn tất! CodePipeline sẽ tự động kích hoạt.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">only</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">when</span>: <span style="color:#ae81ff">on_success</span>
+</span></span></code></pre></div><p><strong>Chức năng:</strong></p>
 <ul>
-<li>
-<p>Triển khai mạng &amp; cơ sở dữ liệu:</p>
+<li>Đóng gói toàn bộ project thành <code>source.zip</code></li>
+<li>Upload lên S3 artifacts bucket</li>
+<li>Tự động kích hoạt CodePipeline</li>
+</ul>
+<h2 id="bước-2-deploy-codepipeline-với-cloudformation">Bước 2: Deploy CodePipeline với CloudFormation</h2>
+<h3 id="21-xem-lại-pipeline-template">2.1. Xem lại Pipeline Template</h3>
+<p>Template CloudFormation <code>cicd-pipeline.yaml</code> tạo:</p>
 <ul>
-<li>Tạo và cấu hình VPC, EC2 Security Group, RDS Security Group, DB Subnet Group.</li>
-<li>Triển khai EC2 &amp; RDS instance thành công, deploy ứng dụng và thực hiện backup/restore.</li>
+<li>CodePipeline với S3 source</li>
+<li>CodeBuild project cho backend</li>
+<li>CodeBuild project cho frontend</li>
+<li>IAM roles và permissions</li>
+</ul>
+<h3 id="22-deploy-pipeline-stack">2.2. Deploy Pipeline Stack</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation create-stack <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev-cicd <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --template-body file://aws/cicd-pipeline.yaml <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --parameters <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ParameterKey<span style="color:#f92672">=</span>ProjectName,ParameterValue<span style="color:#f92672">=</span>workshop-aws <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ParameterKey<span style="color:#f92672">=</span>Environment,ParameterValue<span style="color:#f92672">=</span>dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ParameterKey<span style="color:#f92672">=</span>SourceProvider,ParameterValue<span style="color:#f92672">=</span>S3 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ParameterKey<span style="color:#f92672">=</span>ArtifactBucketName,ParameterValue<span style="color:#f92672">=</span>workshop-aws-dev-artifacts-502310717700-ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --capabilities CAPABILITY_NAMED_IAM <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="23-chờ-stack-tạo-xong">2.3. Chờ Stack tạo xong</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation wait stack-create-complete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev-cicd <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><p><strong>Thời gian dự kiến:</strong> 3-5 phút</p>
+<h2 id="bước-3-cấu-hình-codebuild-projects">Bước 3: Cấu hình CodeBuild Projects</h2>
+<h3 id="31-backend-buildspec">3.1. Backend BuildSpec</h3>
+<p>CodeBuild sử dụng <code>buildspec-backend.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">0.2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">phases</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pre_build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang cài đặt Maven...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">yum install -y maven</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang build Backend JAR...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cd BE/workshop_BE</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">mvn clean package -DskipTests</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">post_build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang upload JAR lên S3...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">aws s3 cp target/workshop-0.0.1-SNAPSHOT.jar \</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">s3://workshop-aws-dev-backend-502310717700-ap-southeast-1/jars/</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang deploy lên EC2...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">aws ssm send-command \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">instance-ids i-09fdbf7739ee37b32 \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">document-name &#34;AWS-RunShellScript&#34; \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">parameters commands=[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;cd /opt/workshop&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;aws s3 cp s3://workshop-aws-dev-backend-502310717700-ap-southeast-1/jars/workshop-0.0.1-SNAPSHOT.jar .&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;sudo systemctl restart workshop.service&#34;</span>
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">artifacts</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">files</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#39;**/*&#39;</span>
+</span></span></code></pre></div><h3 id="32-frontend-buildspec">3.2. Frontend BuildSpec</h3>
+<p>CodeBuild sử dụng <code>buildspec-frontend.yml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">0.2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">phases</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pre_build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang cài đặt Node.js...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">curl -sL https://rpm.nodesource.com/setup_18.x | bash -</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">yum install -y nodejs</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang build Frontend...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">cd FE</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">npm install</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">npm run build</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">post_build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang deploy lên S3...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">aws s3 sync dist/ \</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">s3://workshop-aws-dev-frontend-502310717700-ap-southeast-1/ \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">delete</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">echo &#34;Đang invalidate CloudFront...&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">aws cloudfront create-invalidation \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">distribution-id E3K48K7CPOOLHZ \</span>
+</span></span><span style="display:flex;"><span>          --<span style="color:#ae81ff">paths &#34;/*&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">artifacts</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">files</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#39;FE/dist/**/*&#39;</span>
+</span></span></code></pre></div><h2 id="bước-4-test-cicd-pipeline">Bước 4: Test CI/CD Pipeline</h2>
+<h3 id="41-kích-hoạt-pipeline-từ-gitlab">4.1. Kích hoạt Pipeline từ GitLab</h3>
+<p>Thực hiện thay đổi code và push lên branch <code>main</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Test CI/CD pipeline&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><h3 id="42-theo-dõi-gitlab-pipeline">4.2. Theo dõi GitLab Pipeline</h3>
+<ol>
+<li>Vào GitLab → <strong>CI/CD → Pipelines</strong></li>
+<li>Xem job <code>deploy-to-aws</code></li>
+<li>Xác nhận upload lên S3 thành công</li>
+</ol>
+<h3 id="43-theo-dõi-aws-codepipeline">4.3. Theo dõi AWS CodePipeline</h3>
+<ol>
+<li>Vào AWS Console → <strong>CodePipeline</strong></li>
+<li>Chọn <code>workshop-aws-dev-pipeline</code></li>
+<li>Xem các giai đoạn pipeline:
+<ul>
+<li><strong>Source</strong>: Phát hiện <code>source.zip</code> mới trong S3</li>
+<li><strong>Build-Backend</strong>: Build JAR và deploy lên EC2</li>
+<li><strong>Build-Frontend</strong>: Build React app và deploy lên S3/CloudFront</li>
 </ul>
 </li>
-<li>
-<p>Quản lý kết nối EC2:</p>
+</ol>
+<h3 id="44-kiểm-tra-build-logs">4.4. Kiểm tra Build Logs</h3>
+<p>Để xem logs chi tiết:</p>
+<ol>
+<li>Click vào <strong>Details</strong> ở bất kỳ stage nào</li>
+<li>Xem <strong>Build logs</strong> trong CodeBuild</li>
+<li>Kiểm tra lỗi hoặc cảnh báo</li>
+</ol>
+<h2 id="bước-5-xác-nhận-deployment">Bước 5: Xác nhận Deployment</h2>
+<h3 id="51-test-backend-api">5.1. Test Backend API</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://98385v3jef.execute-api.ap-southeast-1.amazonaws.com/dev/dna_service/actuator/health
+</span></span></code></pre></div><p><strong>Kết quả mong đợi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;status&#34;</span>:<span style="color:#e6db74">&#34;UP&#34;</span>}
+</span></span></code></pre></div><h3 id="52-test-frontend">5.2. Test Frontend</h3>
+<p>Mở trình duyệt và truy cập:</p>
+<pre tabindex="0"><code>https://d3gmmg22uirq0t.cloudfront.net
+</code></pre><p>Xác nhận ứng dụng load với các thay đổi mới nhất.</p>
+<h2 id="sơ-đồ-luồng-pipeline">Sơ đồ luồng Pipeline</h2>
+<pre tabindex="0"><code>┌─────────────┐
+│   GitLab    │
+│   Commit    │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ GitLab CI   │
+│ Build &amp; Zip │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│  S3 Bucket  │
+│ source.zip  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────┐
+│   CodePipeline      │
+│   Phát hiện thay đổi│
+└──────┬──────────────┘
+       │
+       ├─────────────────┬─────────────────┐
+       ▼                 ▼                 ▼
+┌─────────────┐   ┌─────────────┐   ┌─────────────┐
+│ CodeBuild   │   │ CodeBuild   │   │ CloudWatch  │
+│  Backend    │   │  Frontend   │   │  Logs       │
+└──────┬──────┘   └──────┬──────┘   └─────────────┘
+       │                 │
+       ▼                 ▼
+┌─────────────┐   ┌─────────────┐
+│     EC2     │   │ S3 + CDN    │
+│   Backend   │   │  Frontend   │
+└─────────────┘   └─────────────┘
+</code></pre><h2 id="xử-lý-sự-cố">Xử lý sự cố</h2>
+<h3 id="pipeline-không-kích-hoạt">Pipeline không kích hoạt</h3>
+<p><strong>Vấn đề</strong>: CodePipeline không chạy sau khi push GitLab</p>
+<p><strong>Giải pháp</strong>:</p>
+<ol>
+<li>Kiểm tra S3 bucket có file <code>source.zip</code></li>
+<li>Xác minh cấu hình source của CodePipeline</li>
+<li>Kiểm tra IAM permissions cho CodePipeline</li>
+</ol>
+<h3 id="backend-build-thất-bại">Backend Build thất bại</h3>
+<p><strong>Vấn đề</strong>: CodeBuild backend lỗi Maven</p>
+<p><strong>Giải pháp</strong>:</p>
+<ol>
+<li>Kiểm tra cú pháp <code>buildspec-backend.yml</code></li>
+<li>Xác minh Maven dependencies trong <code>pom.xml</code></li>
+<li>Xem CodeBuild logs để tìm lỗi cụ thể</li>
+<li>Đảm bảo EC2 instance có SSM Agent đang chạy</li>
+</ol>
+<h3 id="frontend-build-thất-bại">Frontend Build thất bại</h3>
+<p><strong>Vấn đề</strong>: CodeBuild frontend lỗi npm</p>
+<p><strong>Giải pháp</strong>:</p>
+<ol>
+<li>Kiểm tra cú pháp <code>buildspec-frontend.yml</code></li>
+<li>Xác minh dependencies trong <code>package.json</code></li>
+<li>Kiểm tra tương thích phiên bản Node.js</li>
+<li>Đảm bảo S3 bucket permissions đúng</li>
+</ol>
+<h3 id="deployment-thất-bại">Deployment thất bại</h3>
+<p><strong>Vấn đề</strong>: Build thành công nhưng deployment lỗi</p>
+<p><strong>Giải pháp</strong>:</p>
+<ol>
+<li>Kiểm tra EC2 Security Groups cho phép SSM</li>
+<li>Xác minh tên S3 bucket đúng</li>
+<li>Kiểm tra CloudFront distribution ID</li>
+<li>Xem lại IAM role permissions</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-environment-variables">1. Environment Variables</h3>
 <ul>
-<li>Kết nối EC2 bằng RDP Client và Fleet Manager, quản lý Source DB SQL Server &amp; Oracle.</li>
+<li>Lưu dữ liệu nhạy cảm trong GitLab CI/CD variables</li>
+<li>Dùng AWS Systems Manager Parameter Store cho application configs</li>
+<li>Không bao giờ commit credentials vào Git</li>
 </ul>
-</li>
-<li>
-<p>Chuyển đổi dữ liệu &amp; Migration:</p>
+<h3 id="2-tối-ưu-build">2. Tối ưu Build</h3>
 <ul>
-<li>Thực hiện schema conversion từ MSSQL/Oracle sang Aurora MySQL.</li>
-<li>Tạo Migration Task, Endpoints, kiểm tra dữ liệu trên S3.</li>
+<li>Cache dependencies (Maven <code>.m2</code>, npm <code>node_modules</code>)</li>
+<li>Dùng Docker images nhỏ hơn để build nhanh hơn</li>
+<li>Chạy song song các build stages độc lập</li>
 </ul>
-</li>
-<li>
-<p>Serverless Migration &amp; Troubleshooting:</p>
+<h3 id="3-chiến-lược-deployment">3. Chiến lược Deployment</h3>
 <ul>
-<li>Tạo Serverless Migration, cấu hình Event Notification, kiểm tra logs.</li>
-<li>Xử lý các kịch bản test Mem Pressure và Table Errors thành công.</li>
+<li>Dùng blue-green deployment cho zero downtime</li>
+<li>Implement health checks trước khi route traffic</li>
+<li>Giữ khả năng rollback sẵn sàng</li>
 </ul>
-</li>
-<li>
-<p>Quản lý tài nguyên:</p>
+<h3 id="4-monitoring">4. Monitoring</h3>
 <ul>
-<li>Dọn dẹp toàn bộ tài nguyên đã triển khai để tránh phát sinh chi phí ngoài ý muốn.</li>
+<li>Bật CloudWatch Logs cho tất cả CodeBuild projects</li>
+<li>Thiết lập SNS notifications cho pipeline failures</li>
+<li>Theo dõi build times và tối ưu bottlenecks</li>
 </ul>
-</li>
-<li>
-<p>Tự đánh giá:</p>
+<h2 id="tối-ưu-chi-phí">Tối ưu Chi phí</h2>
+<h3 id="giá-codebuild">Giá CodeBuild</h3>
 <ul>
-<li>Nắm vững triển khai VPC, EC2, RDS, backup/restore, kết nối database và Serverless Migration.</li>
-<li>Hiểu quy trình chuyển đổi dữ liệu và kiểm soát logs.</li>
-<li>Chuẩn bị tốt cho tuần tiếp theo với các nội dung nâng cao về bảo mật và tối ưu hạ tầng.</li>
+<li><strong>Build minutes</strong>: $0.005 mỗi phút (general1.small)</li>
+<li><strong>Build thông thường</strong>: 5-10 phút</li>
+<li><strong>Chi phí mỗi build</strong>: ~$0.025-0.05</li>
 </ul>
-</li>
+<h3 id="giá-codepipeline">Giá CodePipeline</h3>
+<ul>
+<li><strong>Active pipeline</strong>: $1.00 mỗi tháng</li>
+<li><strong>Free tier</strong>: 1 active pipeline mỗi tháng</li>
 </ul>
+<h3 id="ước-tính-chi-phí-hàng-tháng">Ước tính Chi phí Hàng tháng</h3>
+<ul>
+<li><strong>10 deployments/ngày</strong>: ~$15-20/tháng</li>
+<li><strong>Bao gồm</strong>: CodePipeline + CodeBuild + S3 storage</li>
+</ul>
+<h2 id="tóm-tắt">Tóm tắt</h2>
+<p>Bạn đã thiết lập thành công một CI/CD pipeline hoàn chỉnh:</p>
+<p>✅ Tự động build và đóng gói code từ GitLab<br>
+✅ Upload artifacts lên S3<br>
+✅ Kích hoạt AWS CodePipeline khi có thay đổi<br>
+✅ Build backend JAR với Maven<br>
+✅ Build frontend với Vite<br>
+✅ Deploy backend lên EC2<br>
+✅ Deploy frontend lên S3/CloudFront<br>
+✅ Cung cấp monitoring và logging</p>
+<p><strong>Tiếp theo</strong>: <a href="../../../vi/5-workshop/5.9-cleanup/">Dọn dẹp Tài nguyên</a></p>
 
 
 
@@ -1131,403 +1421,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1699,6 +1594,19 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1706,6 +1614,391 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1743,10 +2036,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/1-worklog/1.7-week7/" title="Worklog Tuần 7"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/5-workshop/5.9-cleanup/" title="Dọn dẹp tài nguyên"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../vi/1-worklog/1.5-week5/" title="Worklog Tuần 5" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../vi/6-self-evaluation/" title="Tự đánh giá" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1756,19 +2049,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765268485"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765268485"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765268485"></script>
-    <script src="../../../js/jquery.sticky.js?1765268485"></script>
-    <script src="../../../js/featherlight.min.js?1765268485"></script>
-    <script src="../../../js/highlight.pack.js?1765268485"></script>
+    <script src="../../../js/clipboard.min.js?1765268486"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765268486"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765268486"></script>
+    <script src="../../../js/jquery.sticky.js?1765268486"></script>
+    <script src="../../../js/featherlight.min.js?1765268486"></script>
+    <script src="../../../js/highlight.pack.js?1765268486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765268485"></script>
-    <script src="../../../js/learn.js?1765268485"></script>
-    <script src="../../../js/hugo-learn.js?1765268485"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765268486"></script>
+    <script src="../../../js/learn.js?1765268486"></script>
+    <script src="../../../js/hugo-learn.js?1765268486"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765268485" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765268485"></script>
+    <link href="../../../mermaid/mermaid.css?1765268486" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765268486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

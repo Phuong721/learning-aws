@@ -12,7 +12,7 @@
 
     <link rel="icon" href="../../images/favicon.png" type="image/png">
 
-    <title>Worklog Week 8 :: Internship Report</title>
+    <title>Clean Up Resources :: Internship Report</title>
 
     
     <link href="../../css/nucleus.css?1765268485" rel="stylesheet">
@@ -40,7 +40,7 @@
     
 
   </head>
-  <body class="" data-url="../../1-worklog/1.8-week8/">
+  <body class="" data-url="../../5-workshop/5.9-cleanup/">
     <nav
   id="sidebar"
   class="showVisitedLinks"
@@ -106,7 +106,7 @@
   data-nav-id="/1-worklog/"
   title="Worklog Summary"
   class="dd-item 
-        parent
+        
         
         
         "
@@ -143,7 +143,7 @@
   title="Worklog Week 8"
   class="dd-item 
         
-        active
+        
         
         "
 >
@@ -546,7 +546,7 @@
   data-nav-id="/5-workshop/"
   title="Workshop"
   class="dd-item 
-        
+        parent
         
         
         "
@@ -727,7 +727,7 @@
   title="Clean Up Resources"
   class="dd-item 
         
-        
+        active
         
         "
 >
@@ -807,7 +807,7 @@
                        
                 <option
                   id="en"
-                  value="https://phuong721.github.io/learning-aws/1-worklog/1.8-week8/"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.9-cleanup/"
                   selected
                 >
                   English
@@ -815,7 +815,7 @@
                             
                 <option
                   id="vi"
-                  value="https://phuong721.github.io/learning-aws/vi/1-worklog/1.8-week8/"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.9-cleanup/"
                 >
                   Tiếng Việt
                 </option>
@@ -929,7 +929,7 @@
             
           
           
-            <a href='../../'>Internship Report</a> > <a href='../../1-worklog/'>Worklog Summary</a> > Worklog Week 8
+            <a href='../../'>Internship Report</a> > <a href='../../5-workshop/'>Workshop</a> > Clean Up Resources
           
         
           
@@ -943,13 +943,34 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#step-1-delete-s3-bucket-contents">Step 1: Delete S3 Bucket Contents</a></li>
+    <li><a href="#step-2-delete-cloudformation-stack">Step 2: Delete CloudFormation Stack</a>
       <ul>
-        <li><a href="#week-8-objectives">Week 8 Objectives:</a></li>
-        <li><a href="#tasks-for-this-week">Tasks for this week:</a></li>
-        <li><a href="#week-8-achievements">Week 8 Achievements:</a></li>
+        <li><a href="#method-1-using-deploy-script">Method 1: Using Deploy Script</a></li>
+        <li><a href="#method-2-using-aws-cli">Method 2: Using AWS CLI</a></li>
       </ul>
     </li>
+    <li><a href="#step-3-monitor-deletion-progress">Step 3: Monitor Deletion Progress</a></li>
+    <li><a href="#step-4-verify-resources-deleted">Step 4: Verify Resources Deleted</a>
+      <ul>
+        <li><a href="#check-vpc">Check VPC</a></li>
+        <li><a href="#check-ec2-instances">Check EC2 Instances</a></li>
+        <li><a href="#check-rds">Check RDS</a></li>
+        <li><a href="#check-s3-buckets">Check S3 Buckets</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-5-delete-rds-snapshots-optional">Step 5: Delete RDS Snapshots (Optional)</a></li>
+    <li><a href="#step-6-delete-cloudwatch-logs-optional">Step 6: Delete CloudWatch Logs (Optional)</a></li>
+    <li><a href="#step-7-delete-ec2-key-pair-optional">Step 7: Delete EC2 Key Pair (Optional)</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#stack-deletion-failed">Stack Deletion Failed</a></li>
+      </ul>
+    </li>
+    <li><a href="#cleanup-checklist">Cleanup Checklist</a></li>
+    <li><a href="#confirm-no-ongoing-charges">Confirm No Ongoing Charges</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav></div>
 </div>
@@ -967,7 +988,7 @@
           
             <h1>
               
-              Worklog Week 8
+              Clean Up Resources
             </h1>
           
 
@@ -975,109 +996,175 @@
 
 
 
-	<h3 id="week-8-objectives">Week 8 Objectives:</h3>
+	<h2 id="overview">Overview</h2>
+<p>After completing the workshop, you need to delete all resources to avoid unexpected charges. CloudFormation will automatically delete most resources, but some require manual deletion.</p>
+<h2 id="step-1-delete-s3-bucket-contents">Step 1: Delete S3 Bucket Contents</h2>
+<p>CloudFormation cannot delete S3 buckets containing objects. Delete contents first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Get bucket names from outputs</span>
+</span></span><span style="display:flex;"><span>FRONTEND_BUCKET<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`FrontendBucketName`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete all objects in frontend bucket</span>
+</span></span><span style="display:flex;"><span>aws s3 rm s3://$FRONTEND_BUCKET --recursive --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If backend bucket exists</span>
+</span></span><span style="display:flex;"><span>BACKEND_BUCKET<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;workshop-aws-dev-backend-</span><span style="color:#66d9ef">$(</span>aws sts get-caller-identity --query Account --output text<span style="color:#66d9ef">)</span><span style="color:#e6db74">-ap-southeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>aws s3 rm s3://$BACKEND_BUCKET --recursive --region ap-southeast-1 2&gt;/dev/null <span style="color:#f92672">||</span> true
+</span></span></code></pre></div><h2 id="step-2-delete-cloudformation-stack">Step 2: Delete CloudFormation Stack</h2>
+<h3 id="method-1-using-deploy-script">Method 1: Using Deploy Script</h3>
+<p><strong>Windows:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> aws
+</span></span><span style="display:flex;"><span>deploy.bat delete
+</span></span></code></pre></div><p><strong>Linux/Mac:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd aws
+</span></span><span style="display:flex;"><span>./deploy.sh delete
+</span></span></code></pre></div><h3 id="method-2-using-aws-cli">Method 2: Using AWS CLI</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation delete-stack <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="step-3-monitor-deletion-progress">Step 3: Monitor Deletion Progress</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check status</span>
+</span></span><span style="display:flex;"><span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].StackStatus&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Wait for stack deletion (may take 10-15 minutes)</span>
+</span></span><span style="display:flex;"><span>aws cloudformation wait stack-delete-complete <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><p><strong>Via AWS Console:</strong></p>
+<ol>
+<li>Open <a href="https://console.aws.amazon.com/cloudformation/">CloudFormation Console</a></li>
+<li>Select stack <code>workshop-aws-dev</code></li>
+<li><strong>Events</strong> tab: View resources being deleted</li>
+<li>Stack will disappear from list when deletion completes</li>
+</ol>
+<h2 id="step-4-verify-resources-deleted">Step 4: Verify Resources Deleted</h2>
+<h3 id="check-vpc">Check VPC</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Should not see workshop VPC</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-vpcs <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="check-ec2-instances">Check EC2 Instances</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Should not see workshop instances</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Reservations[*].Instances[*].[InstanceId,State.Name]&#39;</span>
+</span></span></code></pre></div><h3 id="check-rds">Check RDS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Should not see RDS instance (may have snapshot)</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;DBInstances[?DBInstanceIdentifier==`workshop-aws-dev-db`]&#39;</span>
+</span></span></code></pre></div><h3 id="check-s3-buckets">Check S3 Buckets</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Buckets should be deleted</span>
+</span></span><span style="display:flex;"><span>aws s3 ls | grep workshop-aws-dev
+</span></span></code></pre></div><h2 id="step-5-delete-rds-snapshots-optional">Step 5: Delete RDS Snapshots (Optional)</h2>
+<p>CloudFormation creates snapshot before deleting RDS. Delete if not needed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List snapshots</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-snapshots <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;DBSnapshots[?contains(DBSnapshotIdentifier,`workshop-aws-dev`)].DBSnapshotIdentifier&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete snapshot</span>
+</span></span><span style="display:flex;"><span>aws rds delete-db-snapshot <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --db-snapshot-identifier &lt;snapshot-id&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="step-6-delete-cloudwatch-logs-optional">Step 6: Delete CloudWatch Logs (Optional)</h2>
+<p>Log groups are not automatically deleted:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List log groups</span>
+</span></span><span style="display:flex;"><span>aws logs describe-log-groups <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name-prefix <span style="color:#e6db74">&#34;/aws/workshop-aws&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete log groups</span>
+</span></span><span style="display:flex;"><span>aws logs delete-log-group <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name <span style="color:#e6db74">&#34;/aws/workshop-aws/dev/application&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="step-7-delete-ec2-key-pair-optional">Step 7: Delete EC2 Key Pair (Optional)</h2>
+<p>If key pair is no longer needed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws ec2 delete-key-pair <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --key-name workshop-aws-key <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete local .pem file</span>
+</span></span><span style="display:flex;"><span>rm workshop-aws-key.pem
+</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="stack-deletion-failed">Stack Deletion Failed</h3>
+<p>If stack deletion fails:</p>
+<ol>
+<li><strong>View error:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation describe-stack-events <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;StackEvents[?ResourceStatus==`DELETE_FAILED`].[LogicalResourceId,ResourceStatusReason]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span></code></pre></div><ol start="2">
+<li><strong>Common errors:</strong></li>
+</ol>
+<p><strong>Error: &ldquo;S3 bucket is not empty&rdquo;</strong></p>
 <ul>
-<li>Understand the architectural requirements for the project.</li>
-<li>Become proficient with draw.io to design system diagrams.</li>
-<li>Understand the relationships between AWS services in the architecture: Networking, Compute, Database, CI/CD, Monitoring.</li>
-<li>Complete the <strong>Network Architecture Diagram</strong> and submit it for mentor review.</li>
+<li>Delete all objects in bucket</li>
+<li>Retry stack deletion</li>
 </ul>
-<h3 id="tasks-for-this-week">Tasks for this week:</h3>
-<table>
-  <thead>
-      <tr>
-          <th>Day</th>
-          <th>Task</th>
-          <th>Start Date</th>
-          <th>Completion Date</th>
-          <th>Reference</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>2</td>
-          <td>- Gather architectural requirements from mentors <br> - Define the scope of the diagram (VPC, subnets, routing, frontend, backend, database, CI/CD…)</td>
-          <td>2025-10-27</td>
-          <td>2025-10-27</td>
-          <td>FCJ Internal</td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td>- Start designing the network architecture diagram in draw.io <br> - Create VPC, public/private subnets, Internet Gateway <br> - Add Route 53, CloudFront, S3 FE bucket</td>
-          <td>2025-10-28</td>
-          <td>2025-10-28</td>
-          <td>AWS Docs</td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td>- Add API Gateway, EC2, Security Groups <br> - Design RDS in private subnet <br> - Draw the data flow: FE → CloudFront → API → EC2 → RDS</td>
-          <td>2025-10-29</td>
-          <td>2025-10-29</td>
-          <td>AWS Architecture Icons</td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td>- Integrate CI/CD pipeline (CodePipeline, CodeBuild, CloudFormation) <br> - Add Cognito/Auth and complete the Security Layer</td>
-          <td>2025-10-30</td>
-          <td>2025-10-30</td>
-          <td>aws.amazon.com</td>
-      </tr>
-      <tr>
-          <td>6</td>
-          <td>- Optimize diagram layout, adjust colors and borders <br> - Add numbering for request flows <br> - Export the diagram and send it to mentors for review</td>
-          <td>2025-10-31</td>
-          <td>2025-10-31</td>
-          <td>FCJ Internal</td>
-      </tr>
-      <tr>
-          <td>7</td>
-          <td>- Receive mentor feedback: update subnets, API flow, security layers <br> - Revise the diagram according to suggestions</td>
-          <td>2025-11-01</td>
-          <td>2025-11-01</td>
-          <td>Direct discussion</td>
-      </tr>
-      <tr>
-          <td>Sun</td>
-          <td>- Summarize lessons learned during the architecture design process <br> - Finalize weekly Worklog</td>
-          <td>2025-11-02</td>
-          <td>2025-11-02</td>
-          <td></td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="week-8-achievements">Week 8 Achievements:</h3>
+<p><strong>Error: &ldquo;Network interface is in use&rdquo;</strong></p>
 <ul>
-<li>
-<p>Completed a full <strong>AWS Network Architecture Diagram</strong> including:</p>
+<li>Wait a few minutes for ENIs to be released</li>
+<li>Retry stack deletion</li>
+</ul>
+<p><strong>Error: &ldquo;Resource being used by another resource&rdquo;</strong></p>
 <ul>
-<li>Route 53, CloudFront, S3 frontend bucket.</li>
-<li>API Gateway → EC2 backend.</li>
-<li>NAT Gateway + Internet Gateway.</li>
-<li>RDS in private subnet.</li>
-<li>CI/CD: CodePipeline, CodeBuild, CloudFormation.</li>
-<li>Monitoring &amp; Security: CloudWatch, CloudTrail, IAM, Secrets Manager, SNS.</li>
+<li>Identify resource dependencies</li>
+<li>Delete dependent resources first</li>
 </ul>
-</li>
-<li>
-<p>Clearly understood how the components interact:</p>
+<ol start="3">
+<li><strong>Force delete:</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Retain problematic resources and delete stack</span>
+</span></span><span style="display:flex;"><span>aws cloudformation delete-stack <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --retain-resources &lt;ResourceLogicalId&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then delete resources manually</span>
+</span></span></code></pre></div><h2 id="cleanup-checklist">Cleanup Checklist</h2>
+<p>Ensure all resources are deleted:</p>
 <ul>
-<li>User request flow for FE/BE.</li>
-<li>Separation of public and private subnets.</li>
-<li>NAT mechanism for EC2 to access the internet securely.</li>
-<li>API Gateway → EC2 → RDS data flow.</li>
+<li><input disabled="" type="checkbox"> CloudFormation stack deleted</li>
+<li><input disabled="" type="checkbox"> S3 buckets deleted</li>
+<li><input disabled="" type="checkbox"> EC2 instances terminated</li>
+<li><input disabled="" type="checkbox"> RDS database deleted</li>
+<li><input disabled="" type="checkbox"> Load Balancer deleted</li>
+<li><input disabled="" type="checkbox"> VPC and subnets deleted</li>
+<li><input disabled="" type="checkbox"> CloudFront distribution disabled and deleted</li>
+<li><input disabled="" type="checkbox"> NAT Gateway deleted</li>
+<li><input disabled="" type="checkbox"> Elastic IPs released</li>
+<li><input disabled="" type="checkbox"> RDS snapshots deleted (optional)</li>
+<li><input disabled="" type="checkbox"> CloudWatch log groups deleted (optional)</li>
+<li><input disabled="" type="checkbox"> EC2 Key Pair deleted (optional)</li>
 </ul>
-</li>
-<li>
-<p>Learned how to standardize technical diagrams following AWS best practices:</p>
+<h2 id="confirm-no-ongoing-charges">Confirm No Ongoing Charges</h2>
+<p>After 24-48 hours, check AWS Cost Explorer to ensure no charges from workshop.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You have successfully completed the workshop and cleaned up all resources!</p>
+<p><strong>What you learned:</strong>
+✅ Deploy full-stack application on AWS
+✅ Infrastructure as Code with CloudFormation
+✅ AWS networking and security best practices
+✅ Cost optimization strategies
+✅ Monitoring and troubleshooting</p>
+<p><strong>Next resources:</strong></p>
 <ul>
-<li>Use of correct AWS icons and proper service grouping.</li>
-<li>Layered architecture and numbered processing flows.</li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/">AWS Well-Architected Framework</a></li>
+<li><a href="https://aws.amazon.com/solutions/">AWS Solutions Library</a></li>
+<li><a href="https://workshops.aws/">AWS Workshops</a></li>
 </ul>
-</li>
-<li>
-<p>Finalized the architecture diagram for reporting and mentor evaluation.</p>
-</li>
-</ul>
+<p>Thank you for participating in this workshop! 🎉</p>
 
 
 
@@ -1118,403 +1205,8 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1686,6 +1378,19 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1693,6 +1398,391 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1730,10 +1820,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../1-worklog/1.9-week9/" title="Worklog Week 9"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../5-workshop/5.8-cicd-pipeline/" title="CI/CD Pipeline Setup"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../1-worklog/1.7-week7/" title="Worklog Week 7" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../6-self-evaluation/" title="Self-Assessment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
