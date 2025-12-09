@@ -1,7 +1,7 @@
 ﻿---
 title: "Worklog Week 10"
 date: 2025-11-10
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
