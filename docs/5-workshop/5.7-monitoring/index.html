@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="dodoanduyphuong@gmail.com" />
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Monitoring and Troubleshooting :: Internship Report</title>
+
+    
+    <link href="../../css/nucleus.css?1765263389" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/hybrid.css?1765263389" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1765263389" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1765263389" rel="stylesheet">
+    <link href="../../css/theme.css?1765263389" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1765263389" rel="stylesheet">
+    
+    <link href="../../css/theme-workshop.css?1765263389" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1765263389"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../5-workshop/5.7-monitoring/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1765263389"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1765263389"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1765263389"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/1-worklog/"
+  title="Worklog Summary"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/">
+     <b> 1. </b> Worklog Summary 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/1-worklog/1.9-week9/"
+  title="Worklog Week 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Week 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.8-week8/"
+  title="Worklog Week 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.8-week8/">
+     <b> 1.9. </b> Worklog Week 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.7-week7/"
+  title="Worklog Week 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Week 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.6-week6/"
+  title="Worklog Week 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Week 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.5-week5/"
+  title="Worklog Week 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Week 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.4-week4/"
+  title="Worklog Week 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Week 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.3-week3/"
+  title="Worklog Week 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Week 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.2-week2/"
+  title="Worklog Week 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Week 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.1-week1/"
+  title="Worklog Week 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Week 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.12-week12/"
+  title="Worklog Week 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.12-week12/">
+     <b> 1.12. </b> Worklog Week 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.11-week11/"
+  title="Worklog Week 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Week 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.10-week10/"
+  title="Worklog Week 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Week 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/2-proposal/"
+  title="Proposal"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../2-proposal/">
+     <b> 2. </b> Proposal 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/4-eventparticipated/"
+  title="Events Participated"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/">
+     <b> 4. </b> Events Participated 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.2-event2/"
+  title="Event 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Event 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/3-blogstranslated/"
+  title="Translated Blogs"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/">
+     <b> 3. </b> Translated Blogs 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/3-blogstranslated/3.4-blog4/"
+  title="Blog 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.4-blog4/">
+     <b> 3.4. </b> Blog 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.5-blog5/"
+  title="Blog 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.5-blog5/">
+     <b> 3.5. </b> Blog 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.6-blog6/"
+  title="Blog 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.6-blog6/">
+     <b> 3.6. </b> Blog 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.1-blog1/">
+    <b>Article by:</b> Mokshith Kumar and Miranda LiBlog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.2-blog2/"
+  title="Blog 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.2-blog2/">
+    <b>Written by:</b> Itay Meller, Ran Isenberg, and Yossi LagsteinBlog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.3-blog3/">
+     Artificial Intelligence, Customer Solutions, Generative AI, Open Source Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/5-workshop/5.1-workshop-overview/"
+  title="Workshop Overview"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.1-workshop-overview/">
+     <b> 5.1 </b> Workshop Overview 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.2-prerequisite/"
+  title="Prerequisites &amp; Preparation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.2-prerequisite/">
+     <b> 5.2 </b> Prerequisites &amp; Preparation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.2-prerequiste/"
+  title="Prerequiste"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Prerequiste 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.3-deploy-infrastructure/"
+  title="Deploy Infrastructure with CloudFormation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.3-deploy-infrastructure/">
+     <b> 5.3 </b> Deploy Infrastructure with CloudFormation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-deploy-backend/"
+  title="Deploy Backend Application"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-deploy-backend/">
+     <b> 5.4 </b> Deploy Backend Application 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.5-deploy-frontend/"
+  title="Deploy Frontend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.5-deploy-frontend/">
+     <b> 5.5 </b> Deploy Frontend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.6-testing/"
+  title="Testing and Validation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.6-testing/">
+     <b> 5.6 </b> Testing and Validation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.7-monitoring/"
+  title="Monitoring and Troubleshooting"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../5-workshop/5.7-monitoring/">
+     <b> 5.7 </b> Monitoring and Troubleshooting 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.8-cleanup/"
+  title="Clean Up Resources"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.8-cleanup/">
+     <b> 5.8 </b> Clean Up Resources 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/6-self-evaluation/"
+  title="Self-Assessment"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../6-self-evaluation/">
+     <b> 6. </b> Self-Assessment 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/7-feedback/"
+  title="Feedback &amp; Suggestions"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../7-feedback/">
+     <b> 7. </b> Feedback &amp; Suggestions 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.7-monitoring/"
+                  selected
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.7-monitoring/"
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Internship Report</a> > <a href='../../5-workshop/'>Workshop</a> > Monitoring and Troubleshooting
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#cloudwatch-metrics">CloudWatch Metrics</a>
+      <ul>
+        <li><a href="#ec2-metrics">EC2 Metrics</a></li>
+        <li><a href="#rds-metrics">RDS Metrics</a></li>
+        <li><a href="#application-load-balancer-metrics">Application Load Balancer Metrics</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloudwatch-logs">CloudWatch Logs</a>
+      <ul>
+        <li><a href="#view-application-logs">View Application Logs</a></li>
+        <li><a href="#view-ec2-system-logs">View EC2 System Logs</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloudwatch-alarms">CloudWatch Alarms</a>
+      <ul>
+        <li><a href="#view-existing-alarms">View Existing Alarms</a></li>
+        <li><a href="#create-custom-alarms">Create Custom Alarms</a></li>
+      </ul>
+    </li>
+    <li><a href="#cloudwatch-dashboards">CloudWatch Dashboards</a>
+      <ul>
+        <li><a href="#create-dashboard">Create Dashboard</a></li>
+        <li><a href="#view-dashboard">View Dashboard</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting-common-issues">Troubleshooting Common Issues</a>
+      <ul>
+        <li><a href="#issue-1-high-cpu-usage">Issue 1: High CPU Usage</a></li>
+        <li><a href="#issue-2-database-connection-pool-exhausted">Issue 2: Database Connection Pool Exhausted</a></li>
+        <li><a href="#issue-3-502-bad-gateway">Issue 3: 502 Bad Gateway</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices">Best Practices</a>
+      <ul>
+        <li><a href="#1-set-up-alerts">1. Set Up Alerts</a></li>
+        <li><a href="#2-regular-health-checks">2. Regular Health Checks</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitoring-checklist">Monitoring Checklist</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Monitoring and Troubleshooting
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="overview">Overview</h2>
+<p>In this step, you will learn how to monitor the application, view logs, and troubleshoot common issues using CloudWatch, CloudWatch Logs, and other AWS tools.</p>
+<h2 id="cloudwatch-metrics">CloudWatch Metrics</h2>
+<h3 id="ec2-metrics">EC2 Metrics</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># CPU Utilization</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/EC2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name CPUUtilization <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>AutoScalingGroupName,Value<span style="color:#f92672">=</span>workshop-aws-dev-asg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average,Maximum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Memory Utilization (if CloudWatch Agent installed)</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace CWAgent <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name mem_used_percent <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>AutoScalingGroupName,Value<span style="color:#f92672">=</span>workshop-aws-dev-asg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="rds-metrics">RDS Metrics</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Database Connections</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/RDS <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name DatabaseConnections <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>DBInstanceIdentifier,Value<span style="color:#f92672">=</span>workshop-aws-dev-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average,Maximum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CPU Utilization</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/RDS <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name CPUUtilization <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>DBInstanceIdentifier,Value<span style="color:#f92672">=</span>workshop-aws-dev-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="application-load-balancer-metrics">Application Load Balancer Metrics</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Request Count</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/ApplicationELB <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name RequestCount <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>LoadBalancer,Value<span style="color:#f92672">=</span>app/workshop-aws-dev-alb/xxxxx <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Sum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Target Response Time</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/ApplicationELB <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name TargetResponseTime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>LoadBalancer,Value<span style="color:#f92672">=</span>app/workshop-aws-dev-alb/xxxxx <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="cloudwatch-logs">CloudWatch Logs</h2>
+<h3 id="view-application-logs">View Application Logs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List log streams</span>
+</span></span><span style="display:flex;"><span>aws logs describe-log-streams <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name /aws/workshop-aws/dev/application <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --order-by LastEventTime <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --descending <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --max-items <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tail logs (real-time)</span>
+</span></span><span style="display:flex;"><span>aws logs tail /aws/workshop-aws/dev/application <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --follow <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Filter logs by pattern</span>
+</span></span><span style="display:flex;"><span>aws logs filter-log-events <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name /aws/workshop-aws/dev/application <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filter-pattern <span style="color:#e6db74">&#34;ERROR&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%s<span style="color:#66d9ef">)</span><span style="color:#ae81ff">000</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Search for specific errors</span>
+</span></span><span style="display:flex;"><span>aws logs filter-log-events <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --log-group-name /aws/workshop-aws/dev/application <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filter-pattern <span style="color:#e6db74">&#34;NullPointerException&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%s<span style="color:#66d9ef">)</span><span style="color:#ae81ff">000</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="view-ec2-system-logs">View EC2 System Logs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Get instance ID</span>
+</span></span><span style="display:flex;"><span>INSTANCE_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws ec2 describe-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            <span style="color:#e6db74">&#34;Name=instance-state-name,Values=running&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Reservations[0].Instances[0].InstanceId&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get console output</span>
+</span></span><span style="display:flex;"><span>aws ec2 get-console-output <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --instance-id $INSTANCE_ID <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text
+</span></span></code></pre></div><h2 id="cloudwatch-alarms">CloudWatch Alarms</h2>
+<h3 id="view-existing-alarms">View Existing Alarms</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># List all alarms</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch describe-alarms <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-name-prefix workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get alarm history</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch describe-alarm-history <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-name workshop-aws-dev-cpu-high <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --max-records <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="create-custom-alarms">Create Custom Alarms</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Alarm for High Error Rate</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch put-metric-alarm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-name workshop-aws-dev-high-error-rate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-description <span style="color:#e6db74">&#34;Alert when error rate exceeds 5%&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name 5XXError <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/ApplicationELB <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistic Sum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --evaluation-periods <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --threshold <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --comparison-operator GreaterThanThreshold <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>LoadBalancer,Value<span style="color:#f92672">=</span>app/workshop-aws-dev-alb/xxxxx <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-actions arn:aws:sns:ap-southeast-1:123456789012:workshop-aws-dev-alarms <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Alarm for Database Connections</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch put-metric-alarm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-name workshop-aws-dev-high-db-connections <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-description <span style="color:#e6db74">&#34;Alert when DB connections exceed 80&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name DatabaseConnections <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/RDS <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistic Average <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --evaluation-periods <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --threshold <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --comparison-operator GreaterThanThreshold <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>DBInstanceIdentifier,Value<span style="color:#f92672">=</span>workshop-aws-dev-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --alarm-actions arn:aws:sns:ap-southeast-1:123456789012:workshop-aws-dev-alarms <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="cloudwatch-dashboards">CloudWatch Dashboards</h2>
+<h3 id="create-dashboard">Create Dashboard</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create dashboard JSON</span>
+</span></span><span style="display:flex;"><span>cat &gt; dashboard.json <span style="color:#e6db74">&lt;&lt;&#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;widgets&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;type&#34;: &#34;metric&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;properties&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;metrics&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          [&#34;AWS/EC2&#34;, &#34;CPUUtilization&#34;, {&#34;stat&#34;: &#34;Average&#34;}]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;period&#34;: 300,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;stat&#34;: &#34;Average&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;region&#34;: &#34;ap-southeast-1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34;: &#34;EC2 CPU Utilization&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    },
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;type&#34;: &#34;metric&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;properties&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;metrics&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          [&#34;AWS/RDS&#34;, &#34;DatabaseConnections&#34;, {&#34;stat&#34;: &#34;Average&#34;}]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;period&#34;: 300,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;stat&#34;: &#34;Average&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;region&#34;: &#34;ap-southeast-1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34;: &#34;RDS Connections&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    },
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;type&#34;: &#34;metric&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;properties&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;metrics&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          [&#34;AWS/ApplicationELB&#34;, &#34;RequestCount&#34;, {&#34;stat&#34;: &#34;Sum&#34;}]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;period&#34;: 300,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;stat&#34;: &#34;Sum&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;region&#34;: &#34;ap-southeast-1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;title&#34;: &#34;ALB Request Count&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create dashboard</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch put-dashboard <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dashboard-name workshop-aws-dev-dashboard <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dashboard-body file://dashboard.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h3 id="view-dashboard">View Dashboard</h3>
+<p>Open <a href="https://console.aws.amazon.com/cloudwatch/">CloudWatch Console</a> → Dashboards → workshop-aws-dev-dashboard</p>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="issue-1-high-cpu-usage">Issue 1: High CPU Usage</h3>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>EC2 CPU &gt; 80%</li>
+<li>Slow response times</li>
+<li>CloudWatch alarm triggered</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check CPU metrics</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/EC2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name CPUUtilization <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>AutoScalingGroupName,Value<span style="color:#f92672">=</span>workshop-aws-dev-asg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average,Maximum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SSH to EC2 and check processes</span>
+</span></span><span style="display:flex;"><span>aws ssm start-session --target $INSTANCE_ID
+</span></span><span style="display:flex;"><span>top -bn1 | head -20
+</span></span></code></pre></div><p><strong>Solutions:</strong></p>
+<ol>
+<li>Scale up: Increase instance type</li>
+<li>Scale out: Increase number of instances</li>
+<li>Optimize code: Profile and optimize application</li>
+<li>Add caching: Implement Redis/ElastiCache</li>
+</ol>
+<h3 id="issue-2-database-connection-pool-exhausted">Issue 2: Database Connection Pool Exhausted</h3>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>&ldquo;Too many connections&rdquo; errors</li>
+<li>Slow database queries</li>
+<li>Application timeouts</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check DB connections</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/RDS <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name DatabaseConnections <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>DBInstanceIdentifier,Value<span style="color:#f92672">=</span>workshop-aws-dev-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;1 hour ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average,Maximum <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Connect to DB and check</span>
+</span></span><span style="display:flex;"><span>mysql -h $RDS_ENDPOINT -u admin -p
+</span></span><span style="display:flex;"><span>SHOW PROCESSLIST;
+</span></span><span style="display:flex;"><span>SHOW STATUS LIKE <span style="color:#e6db74">&#39;Threads_connected&#39;</span>;
+</span></span></code></pre></div><p><strong>Solutions:</strong></p>
+<ol>
+<li>Increase connection pool size in application.properties</li>
+<li>Fix connection leaks in code</li>
+<li>Scale up RDS instance</li>
+<li>Implement connection pooling best practices</li>
+</ol>
+<h3 id="issue-3-502-bad-gateway">Issue 3: 502 Bad Gateway</h3>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>Users receive 502 errors</li>
+<li>ALB cannot reach backend</li>
+<li>Health checks failing</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check target health</span>
+</span></span><span style="display:flex;"><span>aws elbv2 describe-target-health <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --target-group-arn &lt;arn&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check backend logs</span>
+</span></span><span style="display:flex;"><span>aws logs tail /aws/workshop-aws/dev/application --follow
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check Security Groups</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-security-groups <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --group-ids &lt;ec2-sg-id&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><p><strong>Solutions:</strong></p>
+<ol>
+<li>Verify backend is running: <code>systemctl status workshop</code></li>
+<li>Check Security Group allows ALB traffic</li>
+<li>Verify health check path is correct</li>
+<li>Check application logs for errors</li>
+</ol>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="1-set-up-alerts">1. Set Up Alerts</h3>
+<ul>
+<li>CPU &gt; 80% for 5 minutes</li>
+<li>Memory &gt; 85% for 5 minutes</li>
+<li>Disk &gt; 90%</li>
+<li>5XX errors &gt; 10 in 5 minutes</li>
+<li>Database connections &gt; 80% of max</li>
+</ul>
+<h3 id="2-regular-health-checks">2. Regular Health Checks</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Daily health check script</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;=== Daily Health Check ===&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Date: </span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check stack status</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;CloudFormation Stack:&#34;</span>
+</span></span><span style="display:flex;"><span>aws cloudformation describe-stacks --stack-name workshop-aws-dev --query <span style="color:#e6db74">&#39;Stacks[0].StackStatus&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check EC2</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;EC2 Instances:&#34;</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-instances --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> --query <span style="color:#e6db74">&#39;Reservations[*].Instances[*].[InstanceId,State.Name]&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check RDS</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;RDS Database:&#34;</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-instances --db-instance-identifier workshop-aws-dev-db --query <span style="color:#e6db74">&#39;DBInstances[0].DBInstanceStatus&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check API</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;API Health:&#34;</span>
+</span></span><span style="display:flex;"><span>curl -s $API_URL/dna_service/actuator/health | jq .
+</span></span></code></pre></div><h2 id="monitoring-checklist">Monitoring Checklist</h2>
+<ul>
+<li><input disabled="" type="checkbox"> CloudWatch metrics being collected</li>
+<li><input disabled="" type="checkbox"> CloudWatch Logs configured</li>
+<li><input disabled="" type="checkbox"> Alarms set up</li>
+<li><input disabled="" type="checkbox"> SNS notifications working</li>
+<li><input disabled="" type="checkbox"> Dashboard created</li>
+<li><input disabled="" type="checkbox"> Log retention configured</li>
+<li><input disabled="" type="checkbox"> Custom metrics published</li>
+<li><input disabled="" type="checkbox"> Health checks working</li>
+<li><input disabled="" type="checkbox"> Performance baseline established</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>After setting up monitoring:</p>
+<p>➡️ <a href="../../5-workshop/5.8-cleanup/">Clean Up Resources</a></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../5-workshop/5.6-testing/" title="Testing and Validation"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../5-workshop/5.8-cleanup/" title="Clean Up Resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1765263389"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1765263389"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1765263389"></script>
+    <script src="../../js/jquery.sticky.js?1765263389"></script>
+    <script src="../../js/featherlight.min.js?1765263389"></script>
+    <script src="../../js/highlight.pack.js?1765263389"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1765263389"></script>
+    <script src="../../js/learn.js?1765263389"></script>
+    <script src="../../js/hugo-learn.js?1765263389"></script>
+
+    <link href="../../mermaid/mermaid.css?1765263389" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1765263389"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>
+

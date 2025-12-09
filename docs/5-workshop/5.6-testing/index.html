@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.150.0">
+    <meta
+  name="description"
+  content=""
+/>
+<meta name="author" content="dodoanduyphuong@gmail.com" />
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Testing and Validation :: Internship Report</title>
+
+    
+    <link href="../../css/nucleus.css?1765263389" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/hybrid.css?1765263389" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1765263389" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1765263389" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1765263389" rel="stylesheet">
+    <link href="../../css/theme.css?1765263389" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1765263389" rel="stylesheet">
+    
+    <link href="../../css/theme-workshop.css?1765263389" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1765263389"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+  </head>
+  <body class="" data-url="../../5-workshop/5.6-testing/">
+    <nav
+  id="sidebar"
+  class="showVisitedLinks"
+>
+   
+  <div id="header-wrapper">
+    <div id="header"><a id="logo" href="../../">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 60 30"
+    width="30%"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #fff;
+        }
+        .cls-2 {
+          fill: #f90;
+          fill-rule: evenodd;
+        }
+      </style>
+    </defs>
+    <title>AWS-Logo_White-Color</title>
+    <path
+      class="cls-1"
+      d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"
+    ></path>
+    <path
+      class="cls-2"
+      d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"
+    ></path>
+  </svg>
+</a>
+</div>
+     <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1765263389"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1765263389"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1765263389"></script>
+ 
+  </div>
+
+  <div class="highlightable">
+    <ul class="topics">
+               
+<li
+  data-nav-id="/1-worklog/"
+  title="Worklog Summary"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/">
+     <b> 1. </b> Worklog Summary 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/1-worklog/1.9-week9/"
+  title="Worklog Week 9"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.9-week9/">
+     <b> 1.9. </b> Worklog Week 9 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.8-week8/"
+  title="Worklog Week 8"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.8-week8/">
+     <b> 1.9. </b> Worklog Week 8 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.7-week7/"
+  title="Worklog Week 7"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.7-week7/">
+     <b> 1.7. </b> Worklog Week 7 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.6-week6/"
+  title="Worklog Week 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.6-week6/">
+     <b> 1.6. </b> Worklog Week 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.5-week5/"
+  title="Worklog Week 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.5-week5/">
+     <b> 1.5. </b> Worklog Week 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.4-week4/"
+  title="Worklog Week 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.4-week4/">
+     <b> 1.4. </b> Worklog Week 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.3-week3/"
+  title="Worklog Week 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.3-week3/">
+     <b> 1.3. </b> Worklog Week 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.2-week2/"
+  title="Worklog Week 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.2-week2/">
+     <b> 1.2. </b> Worklog Week 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.1-week1/"
+  title="Worklog Week 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.1-week1/">
+     <b> 1.1. </b> Worklog Week 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.12-week12/"
+  title="Worklog Week 12"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.12-week12/">
+     <b> 1.12. </b> Worklog Week 12 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.11-week11/"
+  title="Worklog Week 11"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.11-week11/">
+     <b> 1.11. </b> Worklog Week 11 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/1-worklog/1.10-week10/"
+  title="Worklog Week 10"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../1-worklog/1.10-week10/">
+     <b> 1.10. </b> Worklog Week 10 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/2-proposal/"
+  title="Proposal"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../2-proposal/">
+     <b> 2. </b> Proposal 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/4-eventparticipated/"
+  title="Events Participated"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/">
+     <b> 4. </b> Events Participated 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/4-eventparticipated/4.1-event1/"
+  title="Event 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.1-event1/">
+     <b> 4.1. </b> Event 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/4-eventparticipated/4.2-event2/"
+  title="Event 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../4-eventparticipated/4.2-event2/">
+     <b> 4.2. </b> Event 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/3-blogstranslated/"
+  title="Translated Blogs"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/">
+     <b> 3. </b> Translated Blogs 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/3-blogstranslated/3.4-blog4/"
+  title="Blog 4"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.4-blog4/">
+     <b> 3.4. </b> Blog 4 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.5-blog5/"
+  title="Blog 5"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.5-blog5/">
+     <b> 3.5. </b> Blog 5 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.6-blog6/"
+  title="Blog 6"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.6-blog6/">
+     <b> 3.6. </b> Blog 6 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.1-blog1/"
+  title="Blog 1"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.1-blog1/">
+    <b>Article by:</b> Mokshith Kumar and Miranda LiBlog 1 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.2-blog2/"
+  title="Blog 2"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.2-blog2/">
+    <b>Written by:</b> Itay Meller, Ran Isenberg, and Yossi LagsteinBlog 2 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/3-blogstranslated/3.3-blog3/"
+  title="Blog 3"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../3-blogstranslated/3.3-blog3/">
+     Artificial Intelligence, Customer Solutions, Generative AI, Open Source Blog 3 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/5-workshop/"
+  title="Workshop"
+  class="dd-item 
+        parent
+        
+        
+        "
+>
+  <a href="../../5-workshop/">
+     <b> 5. </b> Workshop 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+  <ul>
+          
+            
+<li
+  data-nav-id="/5-workshop/5.1-workshop-overview/"
+  title="Workshop Overview"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.1-workshop-overview/">
+     <b> 5.1 </b> Workshop Overview 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.2-prerequisite/"
+  title="Prerequisites &amp; Preparation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.2-prerequisite/">
+     <b> 5.2 </b> Prerequisites &amp; Preparation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.2-prerequiste/"
+  title="Prerequiste"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.2-prerequiste/">
+     <b> 5.2. </b> Prerequiste 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.3-deploy-infrastructure/"
+  title="Deploy Infrastructure with CloudFormation"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.3-deploy-infrastructure/">
+     <b> 5.3 </b> Deploy Infrastructure with CloudFormation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.4-deploy-backend/"
+  title="Deploy Backend Application"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.4-deploy-backend/">
+     <b> 5.4 </b> Deploy Backend Application 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.5-deploy-frontend/"
+  title="Deploy Frontend"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.5-deploy-frontend/">
+     <b> 5.5 </b> Deploy Frontend 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.6-testing/"
+  title="Testing and Validation"
+  class="dd-item 
+        
+        active
+        
+        "
+>
+  <a href="../../5-workshop/5.6-testing/">
+     <b> 5.6 </b> Testing and Validation 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.7-monitoring/"
+  title="Monitoring and Troubleshooting"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.7-monitoring/">
+     <b> 5.7 </b> Monitoring and Troubleshooting 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+            
+<li
+  data-nav-id="/5-workshop/5.8-cleanup/"
+  title="Clean Up Resources"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../5-workshop/5.8-cleanup/">
+     <b> 5.8 </b> Clean Up Resources 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+     
+  </ul>
+  
+</li>
+           
+<li
+  data-nav-id="/6-self-evaluation/"
+  title="Self-Assessment"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../6-self-evaluation/">
+     <b> 6. </b> Self-Assessment 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+           
+<li
+  data-nav-id="/7-feedback/"
+  title="Feedback &amp; Suggestions"
+  class="dd-item 
+        
+        
+        
+        "
+>
+  <a href="../../7-feedback/">
+     <b> 7. </b> Feedback &amp; Suggestions 
+    <i class="fas fa-check read-icon"></i>
+    
+  </a>
+   
+</li>
+    
+    </ul>
+
+     
+    <section id="shortcuts">
+      <h3>
+        More
+      </h3>
+      <ul>
+        
+        <li>
+          <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"
+            ><i class='fab fa-facebook'></i> AWS Study Group</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+     
+    <section id="prefooter">
+      <hr />
+      <ul>
+        
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+            <div class="select-style">
+              <select id="select-language" onchange="location = this.value;">
+                       
+                <option
+                  id="en"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.6-testing/"
+                  selected
+                >
+                  English
+                </option>
+                            
+                <option
+                  id="vi"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.6-testing/"
+                >
+                  Tiếng Việt
+                </option>
+                   
+              </select>
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="255px"
+                height="255px"
+                viewBox="0 0 255 255"
+                style="enable-background: new 0 0 255 255"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="arrow-drop-down">
+                    <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+        </li>
+         
+        <li>
+          <a class="padding" href="#" data-clear-history-toggle=""
+            ><i class="fas fa-history fa-fw"></i> Clear History</a
+          >
+        </li>
+        
+      </ul>
+    </section>
+    
+    <section id="footer"><left>
+    
+    <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Migrate" Alt="web counter" border="0" /></a> <br>
+    <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0"
+        title="Total CLoud Journey" Alt="web counter" border="0" />
+
+</left>
+<left>
+    <br>
+    <br>
+    <b>Last Updated</b><br>
+    <i>
+        <span id="lastUpdated" style="color:orange;"></span>
+    </i>
+
+    <script>
+        
+        const today = new Date();
+        
+        const formattedDate = today.toLocaleDateString('en-GB');
+        
+        document.getElementById('lastUpdated').textContent = formattedDate;
+    </script>
+</left>
+<left>
+    <br>
+    <br>
+    <b> Team </b> <br>
+
+    <i> <a href="https://www.facebook.com/groups/660548818043427" style="color:orange">First Cloud Journey </a> <br>
+
+    </i>
+</left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>Internship Report</a> > <a href='../../5-workshop/'>Workshop</a> > Testing and Validation
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+  <div class="wrapper"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#step-1-verify-infrastructure">Step 1: Verify Infrastructure</a>
+      <ul>
+        <li><a href="#verify-all-services-running">Verify All Services Running</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-test-backend-api">Step 2: Test Backend API</a>
+      <ul>
+        <li><a href="#get-api-urls">Get API URLs</a></li>
+        <li><a href="#test-health-endpoint">Test Health Endpoint</a></li>
+        <li><a href="#test-user-registration">Test User Registration</a></li>
+        <li><a href="#test-user-login">Test User Login</a></li>
+        <li><a href="#test-protected-endpoints">Test Protected Endpoints</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-test-frontend">Step 3: Test Frontend</a>
+      <ul>
+        <li><a href="#access-frontend">Access Frontend</a></li>
+        <li><a href="#manual-testing-checklist">Manual Testing Checklist</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-4-test-database-connection">Step 4: Test Database Connection</a>
+      <ul>
+        <li><a href="#connect-to-rds">Connect to RDS</a></li>
+        <li><a href="#verify-tables-created">Verify Tables Created</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-5-load-testing-optional">Step 5: Load Testing (Optional)</a>
+      <ul>
+        <li><a href="#install-apache-bench">Install Apache Bench</a></li>
+        <li><a href="#run-load-test">Run Load Test</a></li>
+        <li><a href="#monitor-during-load-test">Monitor During Load Test</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-6-security-testing">Step 6: Security Testing</a>
+      <ul>
+        <li><a href="#test-https-enforcement">Test HTTPS Enforcement</a></li>
+        <li><a href="#test-cors">Test CORS</a></li>
+        <li><a href="#test-sql-injection-protection">Test SQL Injection Protection</a></li>
+        <li><a href="#test-xss-protection">Test XSS Protection</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-7-performance-testing">Step 7: Performance Testing</a>
+      <ul>
+        <li><a href="#measure-page-load-time">Measure Page Load Time</a></li>
+        <li><a href="#test-api-response-time">Test API Response Time</a></li>
+        <li><a href="#test-cloudfront-caching">Test CloudFront Caching</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting-common-issues">Troubleshooting Common Issues</a>
+      <ul>
+        <li><a href="#api-returns-502-bad-gateway">API Returns 502 Bad Gateway</a></li>
+        <li><a href="#frontend-shows-cors-error">Frontend Shows CORS Error</a></li>
+        <li><a href="#database-connection-timeout">Database Connection Timeout</a></li>
+        <li><a href="#slow-page-load">Slow Page Load</a></li>
+      </ul>
+    </li>
+    <li><a href="#test-results-documentation">Test Results Documentation</a></li>
+    <li><a href="#confirm-testing-complete">Confirm Testing Complete</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+</nav></div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Testing and Validation
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="overview">Overview</h2>
+<p>In this step, you will perform test cases to verify the application works correctly end-to-end, from frontend through API Gateway, Load Balancer, to backend and database.</p>
+<h2 id="step-1-verify-infrastructure">Step 1: Verify Infrastructure</h2>
+<h3 id="verify-all-services-running">Verify All Services Running</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check CloudFormation stack status</span>
+</span></span><span style="display:flex;"><span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].StackStatus&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: CREATE_COMPLETE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check EC2 instances</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=tag:aws:cloudformation:stack-name,Values=workshop-aws-dev&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>            <span style="color:#e6db74">&#34;Name=instance-state-name,Values=running&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Reservations[*].Instances[*].[InstanceId,State.Name,PrivateIpAddress]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check RDS status</span>
+</span></span><span style="display:flex;"><span>aws rds describe-db-instances <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --db-instance-identifier workshop-aws-dev-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;DBInstances[0].[DBInstanceIdentifier,DBInstanceStatus]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: available</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check Load Balancer</span>
+</span></span><span style="display:flex;"><span>aws elbv2 describe-load-balancers <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --names workshop-aws-dev-alb <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;LoadBalancers[0].[LoadBalancerName,State.Code]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: active</span>
+</span></span></code></pre></div><h2 id="step-2-test-backend-api">Step 2: Test Backend API</h2>
+<h3 id="get-api-urls">Get API URLs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ALB_DNS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`ALBDNSName`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>API_URL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`APIGatewayURL`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;ALB DNS: </span>$ALB_DNS<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;API Gateway URL: </span>$API_URL<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h3 id="test-health-endpoint">Test Health Endpoint</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Test via ALB</span>
+</span></span><span style="display:flex;"><span>curl -v http://<span style="color:#e6db74">${</span>ALB_DNS<span style="color:#e6db74">}</span>/dna_service/actuator/health
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test via API Gateway</span>
+</span></span><span style="display:flex;"><span>curl -v <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/actuator/health
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected response:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {&#34;status&#34;:&#34;UP&#34;}</span>
+</span></span></code></pre></div><h3 id="test-user-registration">Test User Registration</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Register new user</span>
+</span></span><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/auth/register <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;username&#34;: &#34;testuser&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;email&#34;: &#34;test@example.com&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;password&#34;: &#34;Test123!@#&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;fullName&#34;: &#34;Test User&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: 200 OK with user data</span>
+</span></span></code></pre></div><h3 id="test-user-login">Test User Login</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Login</span>
+</span></span><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/auth/login <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;username&#34;: &#34;testuser&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;password&#34;: &#34;Test123!@#&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: 200 OK with JWT token</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save token for next requests</span>
+</span></span><span style="display:flex;"><span>TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;jwt-token-from-response&gt;&#34;</span>
+</span></span></code></pre></div><h3 id="test-protected-endpoints">Test Protected Endpoints</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Get user profile</span>
+</span></span><span style="display:flex;"><span>curl -X GET <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/user/profile <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Authorization: Bearer </span><span style="color:#e6db74">${</span>TOKEN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: 200 OK with user profile data</span>
+</span></span></code></pre></div><h2 id="step-3-test-frontend">Step 3: Test Frontend</h2>
+<h3 id="access-frontend">Access Frontend</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>CLOUDFRONT_URL<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`CloudFrontDomainName`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Frontend URL: https://</span><span style="color:#e6db74">${</span>CLOUDFRONT_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Open browser and access the URL above.</p>
+<h3 id="manual-testing-checklist">Manual Testing Checklist</h3>
+<p><strong>1. Home Page</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Page loads successfully</li>
+<li><input disabled="" type="checkbox"> Logo and branding display correctly</li>
+<li><input disabled="" type="checkbox"> Navigation menu works</li>
+<li><input disabled="" type="checkbox"> No errors in Console</li>
+</ul>
+<p><strong>2. User Registration</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Form validation works</li>
+<li><input disabled="" type="checkbox"> Can register new user</li>
+<li><input disabled="" type="checkbox"> Success message displays</li>
+<li><input disabled="" type="checkbox"> Redirects to login page</li>
+</ul>
+<p><strong>3. User Login</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Can login with created credentials</li>
+<li><input disabled="" type="checkbox"> JWT token saved in localStorage</li>
+<li><input disabled="" type="checkbox"> Redirects to dashboard after login</li>
+<li><input disabled="" type="checkbox"> User menu displays username</li>
+</ul>
+<p><strong>4. DNA Analysis</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Can upload DNA sequence file</li>
+<li><input disabled="" type="checkbox"> File validation works</li>
+<li><input disabled="" type="checkbox"> Analysis progress displays</li>
+<li><input disabled="" type="checkbox"> Analysis results display correctly</li>
+<li><input disabled="" type="checkbox"> Can view history</li>
+</ul>
+<p><strong>5. User Profile</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Displays user information</li>
+<li><input disabled="" type="checkbox"> Can update profile</li>
+<li><input disabled="" type="checkbox"> Avatar upload works (if available)</li>
+<li><input disabled="" type="checkbox"> Logout works correctly</li>
+</ul>
+<p><strong>6. Responsive Design</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Mobile view works well</li>
+<li><input disabled="" type="checkbox"> Tablet view works well</li>
+<li><input disabled="" type="checkbox"> Desktop view works well</li>
+</ul>
+<h2 id="step-4-test-database-connection">Step 4: Test Database Connection</h2>
+<h3 id="connect-to-rds">Connect to RDS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Get RDS endpoint</span>
+</span></span><span style="display:flex;"><span>RDS_ENDPOINT<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>aws cloudformation describe-stacks <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --stack-name workshop-aws-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Stacks[0].Outputs[?OutputKey==`RDSEndpoint`].OutputValue&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Connect via MySQL client (from EC2 or local if public access)</span>
+</span></span><span style="display:flex;"><span>mysql -h <span style="color:#e6db74">${</span>RDS_ENDPOINT<span style="color:#e6db74">}</span> -u admin -p workshop_aws
+</span></span></code></pre></div><h3 id="verify-tables-created">Verify Tables Created</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Show all tables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> TABLES;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Expected tables:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- users, dna_sequences, analysis_results, etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Check user data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> id, username, email, created_at <span style="color:#66d9ef">FROM</span> users;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Check DNA analysis data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> id, user_id, sequence_name, status, created_at <span style="color:#66d9ef">FROM</span> dna_sequences;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Exit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>EXIT;
+</span></span></code></pre></div><h2 id="step-5-load-testing-optional">Step 5: Load Testing (Optional)</h2>
+<h3 id="install-apache-bench">Install Apache Bench</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ubuntu/Debian</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install apache2-utils
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>brew install httpd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Download from Apache website</span>
+</span></span></code></pre></div><h3 id="run-load-test">Run Load Test</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Test health endpoint</span>
+</span></span><span style="display:flex;"><span>ab -n <span style="color:#ae81ff">1000</span> -c <span style="color:#ae81ff">10</span> http://<span style="color:#e6db74">${</span>ALB_DNS<span style="color:#e6db74">}</span>/dna_service/actuator/health
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test login endpoint</span>
+</span></span><span style="display:flex;"><span>ab -n <span style="color:#ae81ff">100</span> -c <span style="color:#ae81ff">5</span> -p login-data.json -T application/json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/auth/login
+</span></span></code></pre></div><h3 id="monitor-during-load-test">Monitor During Load Test</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Watch CloudWatch metrics</span>
+</span></span><span style="display:flex;"><span>aws cloudwatch get-metric-statistics <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --namespace AWS/EC2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --metric-name CPUUtilization <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --dimensions Name<span style="color:#f92672">=</span>AutoScalingGroupName,Value<span style="color:#f92672">=</span>workshop-aws-dev-asg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --start-time <span style="color:#66d9ef">$(</span>date -u -d <span style="color:#e6db74">&#39;5 minutes ago&#39;</span> +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --end-time <span style="color:#66d9ef">$(</span>date -u +%Y-%m-%dT%H:%M:%S<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --period <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --statistics Average <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><h2 id="step-6-security-testing">Step 6: Security Testing</h2>
+<h3 id="test-https-enforcement">Test HTTPS Enforcement</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># CloudFront should redirect HTTP to HTTPS</span>
+</span></span><span style="display:flex;"><span>curl -I http://<span style="color:#e6db74">${</span>CLOUDFRONT_URL<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: 301 redirect to https://</span>
+</span></span></code></pre></div><h3 id="test-cors">Test CORS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Test preflight request</span>
+</span></span><span style="display:flex;"><span>curl -X OPTIONS <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/auth/login <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Origin: https://</span><span style="color:#e6db74">${</span>CLOUDFRONT_URL<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Access-Control-Request-Method: POST&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Access-Control-Request-Headers: Content-Type&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: CORS headers in response</span>
+</span></span></code></pre></div><h3 id="test-sql-injection-protection">Test SQL Injection Protection</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Try SQL injection in login</span>
+</span></span><span style="display:flex;"><span>curl -X POST <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/auth/login <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -d <span style="color:#e6db74">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;username&#34;: &#34;admin&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39; OR &#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;1&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;1&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;password&#34;: &#34;anything&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: 401 Unauthorized (not SQL error)</span>
+</span></span></code></pre></div><h3 id="test-xss-protection">Test XSS Protection</h3>
+<p>In browser console:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Try XSS in input fields
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;input[name=&#34;username&#34;]&#39;</span>).<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;script&gt;alert(&#34;XSS&#34;)&lt;/script&gt;&#39;</span>;
+</span></span></code></pre></div><p>Expected: Script not executed, escaped or sanitized.</p>
+<h2 id="step-7-performance-testing">Step 7: Performance Testing</h2>
+<h3 id="measure-page-load-time">Measure Page Load Time</h3>
+<p>Open Chrome DevTools → Network tab:</p>
+<ul>
+<li><strong>First Contentful Paint (FCP):</strong> &lt; 1.5s</li>
+<li><strong>Largest Contentful Paint (LCP):</strong> &lt; 2.5s</li>
+<li><strong>Time to Interactive (TTI):</strong> &lt; 3.5s</li>
+<li><strong>Total Page Size:</strong> &lt; 2MB</li>
+</ul>
+<h3 id="test-api-response-time">Test API Response Time</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Measure API response time</span>
+</span></span><span style="display:flex;"><span>time curl -s <span style="color:#e6db74">${</span>API_URL<span style="color:#e6db74">}</span>/dna_service/actuator/health &gt; /dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected: &lt; 200ms</span>
+</span></span></code></pre></div><h3 id="test-cloudfront-caching">Test CloudFront Caching</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># First request (MISS)</span>
+</span></span><span style="display:flex;"><span>curl -I https://<span style="color:#e6db74">${</span>CLOUDFRONT_URL<span style="color:#e6db74">}</span>/assets/index.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Second request (HIT)</span>
+</span></span><span style="display:flex;"><span>curl -I https://<span style="color:#e6db74">${</span>CLOUDFRONT_URL<span style="color:#e6db74">}</span>/assets/index.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check X-Cache header: Hit from cloudfront</span>
+</span></span></code></pre></div><h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="api-returns-502-bad-gateway">API Returns 502 Bad Gateway</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Check backend health</span>
+</span></span><span style="display:flex;"><span>curl http://<span style="color:#e6db74">${</span>ALB_DNS<span style="color:#e6db74">}</span>/dna_service/actuator/health
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check target group health</span>
+</span></span><span style="display:flex;"><span>aws elbv2 describe-target-health <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --target-group-arn &lt;arn&gt; <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check EC2 logs</span>
+</span></span><span style="display:flex;"><span>aws ssm start-session --target &lt;instance-id&gt;
+</span></span><span style="display:flex;"><span>tail -f /opt/workshop/application.log
+</span></span></code></pre></div><h3 id="frontend-shows-cors-error">Frontend Shows CORS Error</h3>
+<ul>
+<li>Verify API Gateway CORS configuration</li>
+<li>Check backend CORS settings in application.properties</li>
+<li>Ensure CloudFront origin is whitelisted</li>
+</ul>
+<h3 id="database-connection-timeout">Database Connection Timeout</h3>
+<ul>
+<li>Check RDS Security Group allows EC2 traffic</li>
+<li>Verify RDS endpoint in application.properties</li>
+<li>Test connection from EC2:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>telnet <span style="color:#e6db74">${</span>RDS_ENDPOINT<span style="color:#e6db74">}</span> <span style="color:#ae81ff">3306</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="slow-page-load">Slow Page Load</h3>
+<ul>
+<li>Check CloudFront cache hit ratio</li>
+<li>Optimize images and assets</li>
+<li>Enable gzip compression</li>
+<li>Review CloudWatch metrics</li>
+</ul>
+<h2 id="test-results-documentation">Test Results Documentation</h2>
+<p>Create test-results.md file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Workshop Test Results
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Date: 2025-12-08
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">## Tester: [Your Name]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Infrastructure Tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">- [x]</span> CloudFormation stack: CREATE_COMPLETE
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> EC2 instances: Running
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> RDS database: Available
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> Load Balancer: Active
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Backend API Tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">- [x]</span> Health endpoint: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> User registration: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> User login: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> Protected endpoints: OK
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Frontend Tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">- [x]</span> Page load: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> User registration: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> User login: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> DNA analysis: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> Responsive design: OK
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Performance Tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">- [x]</span> Page load time: 1.2s
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> API response time: 150ms
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> CloudFront cache: Working
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Security Tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">- [x]</span> HTTPS enforcement: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> CORS: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> SQL injection protection: OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> XSS protection: OK
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Issues Found
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>None
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Recommendations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Enable CloudFront compression
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Add more CloudWatch alarms
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Implement rate limiting
+</span></span></code></pre></div><h2 id="confirm-testing-complete">Confirm Testing Complete</h2>
+<p>Checklist:</p>
+<ul>
+<li><input disabled="" type="checkbox"> All infrastructure services running</li>
+<li><input disabled="" type="checkbox"> Backend API endpoints working</li>
+<li><input disabled="" type="checkbox"> Frontend loads and works correctly</li>
+<li><input disabled="" type="checkbox"> Database connection working</li>
+<li><input disabled="" type="checkbox"> User authentication flow working</li>
+<li><input disabled="" type="checkbox"> DNA analysis features working</li>
+<li><input disabled="" type="checkbox"> Performance meets requirements</li>
+<li><input disabled="" type="checkbox"> Security tests pass</li>
+<li><input disabled="" type="checkbox"> Test results documented</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>After testing is complete:</p>
+<p>➡️ <a href="../../5-workshop/5.7-monitoring/">Monitoring and Troubleshooting</a></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../5-workshop/5.5-deploy-frontend/" title="Deploy Frontend"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../5-workshop/5.7-monitoring/" title="Monitoring and Troubleshooting" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1765263389"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1765263389"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1765263389"></script>
+    <script src="../../js/jquery.sticky.js?1765263389"></script>
+    <script src="../../js/featherlight.min.js?1765263389"></script>
+    <script src="../../js/highlight.pack.js?1765263389"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1765263389"></script>
+    <script src="../../js/learn.js?1765263389"></script>
+    <script src="../../js/hugo-learn.js?1765263389"></script>
+
+    <link href="../../mermaid/mermaid.css?1765263389" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1765263389"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+  </body>
+</html>
+
