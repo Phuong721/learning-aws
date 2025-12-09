@@ -6,11 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Đây là ví dụ tham khảo, vui lòng **không sao chép nguyên văn**.
-{{% /notice %}}
-
-Trong thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội tham gia vào **[mô tả dự án hoặc công việc chính]**.  
+Trong thời gian thực tập tại **[First Cloud AI Journey Office]** từ **[08/09/2025]** đến **[30/12/2025]**, tôi đã có cơ hội tham gia vào **[mô tả dự án hoặc công việc chính]**.  
 Quá trình này giúp tôi nâng cao khả năng **[liệt kê kỹ năng: phân tích dữ liệu, lập trình, lập kế hoạch, thuyết trình, hợp tác nhóm…]**.
 
 Tôi luôn duy trì tinh thần học hỏi, chủ động trong công việc và phối hợp hiệu quả với đồng nghiệp nhằm đạt được mục tiêu chung của nhóm.

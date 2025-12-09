@@ -6,11 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** This is a sample for reference. Please **do not copy it verbatim**.
-{{% /notice %}}
-
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to participate in **[description of main project or tasks]**. This experience helped me improve my abilities in **[list of skills: data analysis, programming, planning, presenting, teamwork, etc.]**.
+During my internship at **[First Cloud AI Journey Office]** from **[08/09/2025]** to **[30/12/2025]**, I had the opportunity to participate in **[description of main project or tasks]**. This experience helped me improve my abilities in **[list of skills: data analysis, programming, planning, presenting, teamwork, etc.]**.
 
 I consistently maintained a learning mindset, stayed proactive in my work, and collaborated effectively with colleagues to achieve the team’s shared goals. Below is my detailed self-evaluation based on the given criteria:
 
