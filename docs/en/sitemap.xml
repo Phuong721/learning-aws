@@ -418,6 +418,19 @@
                 href="https://phuong721.github.io/learning-aws/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
                 />
   </url><url>
+    <loc>https://phuong721.github.io/learning-aws/3-blogstranslated/3.3-blog3/</loc>
+    <lastmod>2025-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="https://phuong721.github.io/learning-aws/vi/3-blogstranslated/3.3-blog3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://phuong721.github.io/learning-aws/3-blogstranslated/3.3-blog3/"
+                />
+  </url><url>
     <loc>https://phuong721.github.io/learning-aws/5-workshop/5.4-s3-onprem/</loc>
     <lastmod>2025-09-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -507,18 +520,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://phuong721.github.io/learning-aws/7-feedback/"
-                />
-  </url><url>
-    <loc>https://phuong721.github.io/learning-aws/3-blogstranslated/3.3-blog3/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://phuong721.github.io/learning-aws/vi/3-blogstranslated/3.3-blog3/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://phuong721.github.io/learning-aws/3-blogstranslated/3.3-blog3/"
                 />
   </url><url>
     <loc>https://phuong721.github.io/learning-aws/categories/</loc>
