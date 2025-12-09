@@ -5,9 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính tham khảo, vui lòng **không sao chép nguyên văn** khi nộp báo cáo.
-{{% /notice %}}
 
 ### Mục tiêu tuần 9:
 

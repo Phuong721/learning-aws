@@ -5,12 +5,8 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** for your official internship report.
-{{% /notice %}}
 
-
-### Week 9 Objectives:
+### Week 8 Objectives:
 
 * Understand the architectural requirements for the project.
 * Become proficient with draw.io to design system diagrams.
@@ -30,7 +26,7 @@ pre: " <b> 1.9. </b> "
 | Sun | - Summarize lessons learned during the architecture design process <br> - Finalize weekly Worklog | 2025-11-02 | 2025-11-02 |  |
 
 
-### Week 9 Achievements:
+### Week 8 Achievements:
 
 * Completed a full **AWS Network Architecture Diagram** including:
   * Route 53, CloudFront, S3 frontend bucket.

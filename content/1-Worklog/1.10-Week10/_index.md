@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1.10. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your official report, including this warning.
-{{% /notice %}}
-
 ### Week 10 Objectives:
 
 * Build the workshop based on the content from the Proposal and Proposal Template.  

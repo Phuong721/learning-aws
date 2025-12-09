@@ -5,12 +5,8 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-
-### Mục tiêu tuần 9:
+### Mục tiêu tuần 8:
 
 * Nắm được yêu cầu kiến trúc cần xây dựng cho dự án.
 * Thành thạo cách sử dụng draw.io để dựng sơ đồ hệ thống.
@@ -30,7 +26,7 @@ pre: " <b> 1.9. </b> "
 | CN | - Tổng hợp bài học rút ra trong khi xây dựng kiến trúc <br> - Hoàn thiện Worklog tuần | 02/11/2025 | 02/11/2025 |  |
 
 
-### Kết quả đạt được tuần 9:
+### Kết quả đạt được tuần 8:
 
 * Hoàn thành sơ đồ **AWS Network Architecture Diagram** đầy đủ thành phần:
   * Route 53, CloudFront, S3 bucket frontend.

@@ -5,9 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference only. Please **do not copy verbatim** for your report.
-{{% /notice %}}
 
 ### Objectives for Week 4:
 

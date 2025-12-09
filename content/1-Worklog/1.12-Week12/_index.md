@@ -5,9 +5,6 @@ weight: 2
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your official report, including this warning.
-{{% /notice %}}
 
 ### Week 12 Objectives:
 

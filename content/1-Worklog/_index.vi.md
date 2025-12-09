@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho báo cáo của bạn, bao gồm cả cảnh báo này.
-{{% /notice %}}
-
 **Tổng quan:** Phần này giới thiệu worklog, tóm tắt các tuần hoàn thành, các công việc đã thực hiện và kết quả đạt được.  
 
 Tôi đã hoàn thành chương trình thực tập trong vòng **12 tuần**, tập trung vào việc học và thực hành các dịch vụ AWS cơ bản, quản lý dữ liệu, bảo mật, ứng dụng serverless, phân tích và trực quan hóa dữ liệu. Dưới đây là tóm tắt công việc từng tuần:

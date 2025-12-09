@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 **Overview:** This section introduces your worklog. It summarizes the tasks completed, the number of weeks, and the activities performed.  
 
 I completed the internship program over **12 weeks**, focusing on learning and practicing core AWS services, data management, security, serverless applications, data analysis, and visualization. Below is a summary of weekly tasks:

@@ -5,9 +5,6 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The content below is for reference only. Please **do not copy verbatim** when submitting reports.
-{{% /notice %}}
 
 ### Week 9 Objectives:
 
