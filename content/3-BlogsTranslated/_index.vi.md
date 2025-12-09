@@ -6,12 +6,6 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch. Ví dụ:
-
 ###  [Blog 1 - Accelerate your Cloud Strategy with Megaport's 25 Gbps Hosted AWS Direct Connect](3.1-Blog1/)
 Blog này giới thiệu cách tăng tốc chiến lược đám mây bằng AWS Hosted Direct Connect 25 Gbps từ Megaport. Bạn sẽ tìm hiểu lợi ích về hiệu suất, khả năng mở rộng và kết nối mạng an toàn giữa on-premises và cloud, cách triển khai và quản lý kết nối này để tối ưu hóa chi phí và hiệu quả vận hành.
 ###  [Blog 2 - Simplify multi-subscriber encryption with cost-effective AWS KMS key strategies](3.2-Blog2/)

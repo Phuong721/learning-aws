@@ -1,11 +1,12 @@
 ﻿---
-title: "Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A"
+title: "Blog 3"
 date: 2025-08-21
 weight: 3
 chapter: false
 pre: " Artificial Intelligence, Customer Solutions, Generative AI, Open Source "
 ---
 
+### Giao thức mở cho khả năng tương tác của tác nhân Phần 4: Giao tiếp giữa các tác nhân trên A2A
 
 ## Giới thiệu:
 Chào mừng đến với Phần 4 của loạt bài viết trên blog của chúng tôi về Open Protocols for Agent Interoperability nơi chúng tôi sẽ đề cập đến giao thức Agent-to-Agent (A2A), sự tham gia của AWS với Linux Foundation-based open standard, và sự hỗ trợ của chúng tôi dành cho A2A trong Strands Agents SDK. Dưới đây là những gì chúng tôi đã đề cập cho đến nay:

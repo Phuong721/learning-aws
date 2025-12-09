@@ -1,14 +1,12 @@
 ﻿---
-title: "Simplifying Multi-Tenant Encryption with a Cost-Efficient AWS KMS Key Strategy"
+title: "Blog 2"
 date: 2025-08-21
 weight: 2
 chapter: false
 pre: "<b>Written by:</b> Itay Meller, Ran Isenberg, and Yossi Lagstein"
 ---
 
-{{% notice info %}}
-This article provides guidance on optimizing AWS KMS encryption-key management in multi-tenant SaaS environments, reducing both cost and system complexity.
-{{% /notice %}}
+### Simplifying Multi-Tenant Encryption with a Cost-Efficient AWS KMS Key Strategy
 
 ## Introduction
 Organizations face diverse challenges when it comes to managing encryption keys. While some scenarios require strict separation, there are practical use cases where a centralized approach can streamline operations and reduce complexity. In this post, we focus on Software-as-a-Service (SaaS) providers, but the principles can apply to large enterprises facing similar key-management challenges.

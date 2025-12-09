@@ -1,14 +1,12 @@
 ﻿---
-title: "Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí"
+title: "Blog 2"
 date: 2025-08-21
 weight: 2
 chapter: false
 pre: "<b>Bài viết bởi:</b> Itay Meller, Ran Isenberg, và Yossi Lagstein"
 ---
 
-{{% notice info %}}
-Bài viết này hướng dẫn cách tối ưu hoá quản lý khóa mã hóa AWS KMS trong môi trường SaaS đa thuê bao, giảm chi phí và độ phức tạp hệ thống.
-{{% /notice %}}
+### Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí
 
 ## Giới thiệu
 Các tổ chức phải đối mặt diverse challenges when it comes to managing encryption keys. Mặc dù một số kịch bản yêu cầu sự tách biệt nghiêm ngặt, nhưng có những trường hợp sử dụng thiết thực mà phương pháp tập trung có thể hợp lý hóa hoạt động và giảm độ phức tạp. Trong bài viết này, chúng tôi tập trung vào kịch bản nhà cung cấp phần mềm dưới dạng dịch vụ (SaaS), nhưng các nguyên tắc chúng tôi thảo luận có thể được áp dụng bởi các tổ chức lớn đang đối mặt với những thách thức quản lý quan trọng tương tự.

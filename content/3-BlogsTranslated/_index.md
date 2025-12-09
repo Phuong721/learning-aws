@@ -6,12 +6,6 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-This section will list and introduce the blogs you have translated. For example:
-
 ### [Blog 1 - Accelerate your Cloud Strategy with Megaport's 25 Gbps Hosted AWS Direct Connect](3.1-Blog1/)
 This blog introduces how to accelerate your cloud strategy with Megaport's 25 Gbps Hosted AWS Direct Connect. You will learn the benefits of performance, scalability, and secure network connectivity between on-premises and the cloud, and how to deploy and manage this connectivity to optimize costs and operational efficiency.
 ### [Blog 2 - Simplify multi-subscriber encryption with cost-effective AWS KMS key strategies](3.2-Blog2/)

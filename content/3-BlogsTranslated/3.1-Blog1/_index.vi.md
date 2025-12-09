@@ -1,14 +1,12 @@
 ﻿---
-title: "Tăng tốc Chiến lược Đám mây của bạn với Kết nối Trực tiếp AWS được Lưu trữ 25 Gbps của Megaport"
+title: "Blog 1"
 date: 2025-08-21
 weight: 1
 chapter: false
 pre: "<b>Bài viết bởi:</b> Mokshith Kumar và Miranda Li"
 ---
 
-{{% notice info %}}
-Bài viết này được xuất bản với sự hợp tác của Chris Cabel, Giám đốc cấp cao, Giải pháp đám mây toàn cầu tại Megaport.
-{{% /notice %}}
+### Tăng tốc Chiến lược Đám mây của bạn với Kết nối Trực tiếp AWS được Lưu trữ 25 Gbps của Megaport
 
 Khi các doanh nghiệp di chuyển khối lượng công việc quan trọng lên đám mây, hiệu suất mạng đã trở thành yêu cầu kinh doanh cơ bản. Dịch vụ web của Amazon (AWS) Direct Connect cung cấp kết nối mạng chuyên dụng giữa các trung tâm dữ liệu tại chỗ và AWS. Điều này bỏ qua internet công cộng để mang lại hiệu suất mạng ổn định và đáng tin cậy hơn với độ trễ thấp hơn. Sự giới thiệu của 25 Gbps hosted connections lấp đầy khoảng cách giữa các tùy chọn 10 Gbps (thường không đủ) và 100 Gbps (thường là quá mức), cho phép các tổ chức điều chỉnh kích thước kết nối phù hợp mà không ảnh hưởng đến hiệu suất. Megaport, một nhà cung cấp Mạng lưới dưới dạng Dịch vụ (NaaS) hàng đầu và AWS Marketplace Đối tác của chúng tôi là một trong những đơn vị đầu tiên cung cấp kết nối 25 Gbps này trên nhiều Địa điểm Kết nối Trực tiếp Edge thông qua Mạng lưới Định nghĩa Phần mềm Toàn cầu, trải dài hàng trăm trung tâm dữ liệu trên toàn thế giới. Để biết thông tin mới nhất, vui lòng tham khảo Magaport public network footprint page.
 

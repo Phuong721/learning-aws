@@ -1,14 +1,12 @@
 ﻿---
-title: "Accelerate Your Cloud Strategy with Megaport’s 25 Gbps Hosted AWS Direct Connect"
+title: "Blog 1"
 date: 2025-08-21
 weight: 1
 chapter: false
 pre: "<b>Article by:</b> Mokshith Kumar and Miranda Li"
 ---
 
-{{% notice info %}}
-This article is published in collaboration with Chris Cabel, Senior Director, Global Cloud Solutions at Megaport.
-{{% /notice %}}
+### Accelerate Your Cloud Strategy with Megaport’s 25 Gbps Hosted AWS Direct Connect
 
 As businesses move critical workloads to the cloud, network performance has become a fundamental business requirement. Amazon Web Services (AWS) Direct Connect provides a dedicated network connection between on-premises data centers and AWS. This bypasses the public internet to deliver more stable and reliable network performance with lower latency. The introduction of **25 Gbps hosted connections** fills the gap between 10 Gbps options (often insufficient) and 100 Gbps options (often excessive), allowing organizations to right-size their connections without sacrificing performance. Megaport, a leading Network-as-a-Service (NaaS) provider and AWS Marketplace Partner, is among the first to offer this 25 Gbps connection across multiple Direct Connect Edge Locations through its Global Software-Defined Network, spanning hundreds of data centers worldwide. For the latest information, please refer to the Megaport public network footprint page.
 

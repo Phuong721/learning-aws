@@ -1,9 +1,12 @@
-﻿title: "Open Protocol for Agent Interoperability Part 4: A2A Agent Communication"
+﻿---
+title: "Blog 3"
 date: 2025-08-21
 weight: 3
 chapter: false
 pre: " Artificial Intelligence, Customer Solutions, Generative AI, Open Source "
 ---
+
+ ### Open Protocol for Agent Interoperability Part 4: A2A Agent Communication
 
 ## Introduction:
 Welcome to Part 4 of our Open Protocols for Agent Interoperability blog series where we will cover the Agent-to-Agent (A2A) protocol, AWS's involvement with the Linux Foundation-based open standard, and our support for A2A in the Strands Agents SDK. Here's what we've covered so far:
