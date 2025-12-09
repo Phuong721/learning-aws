@@ -12,7 +12,7 @@
 
     <link rel="icon" href="../../../images/favicon.png" type="image/png">
 
-    <title>Blog 6 :: Báo cáo thực tập</title>
+    <title>Chuẩn bị &amp; Yêu cầu :: Báo cáo thực tập</title>
 
     
     <link href="../../../css/nucleus.css?1765263028" rel="stylesheet">
@@ -40,7 +40,7 @@
     
 
   </head>
-  <body class="" data-url="../../../vi/3-blogstranslated/3.6-blog6/">
+  <body class="" data-url="../../../vi/5-workshop/5.2-prerequisite/">
     <nav
   id="sidebar"
   class="showVisitedLinks"
@@ -417,7 +417,7 @@
   data-nav-id="/vi/3-blogstranslated/"
   title="Các bài blogs đã dịch"
   class="dd-item 
-        parent
+        
         
         
         "
@@ -472,7 +472,7 @@
   title="Blog 6"
   class="dd-item 
         
-        active
+        
         
         "
 >
@@ -546,7 +546,7 @@
   data-nav-id="/vi/5-workshop/"
   title="Workshop"
   class="dd-item 
-        
+        parent
         
         
         "
@@ -583,7 +583,7 @@
   title="Chuẩn bị &amp; Yêu cầu"
   class="dd-item 
         
-        
+        active
         
         "
 >
@@ -869,14 +869,14 @@
                        
                 <option
                   id="en"
-                  value="https://phuong721.github.io/learning-aws/3-blogstranslated/3.6-blog6/"
+                  value="https://phuong721.github.io/learning-aws/5-workshop/5.2-prerequisite/"
                 >
                   English
                 </option>
                             
                 <option
                   id="vi"
-                  value="https://phuong721.github.io/learning-aws/vi/3-blogstranslated/3.6-blog6/"
+                  value="https://phuong721.github.io/learning-aws/vi/5-workshop/5.2-prerequisite/"
                   selected
                 >
                   Tiếng Việt
@@ -991,7 +991,7 @@
             
           
           
-            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Blog 6
+            <a href='../../../vi/'>Báo cáo thực tập</a> > <a href='../../../vi/5-workshop/'>Workshop</a> > Chuẩn bị & Yêu cầu
           
         
           
@@ -1005,17 +1005,31 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
+    <li><a href="#yêu-cầu-hệ-thống">Yêu cầu Hệ thống</a>
       <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
+        <li><a href="#1-tài-khoản-aws">1. Tài khoản AWS</a></li>
+        <li><a href="#2-aws-cli">2. AWS CLI</a></li>
+        <li><a href="#3-ec2-key-pair">3. EC2 Key Pair</a></li>
+        <li><a href="#4-development-tools">4. Development Tools</a></li>
       </ul>
     </li>
+    <li><a href="#chuẩn-bị-project-files">Chuẩn bị Project Files</a>
+      <ul>
+        <li><a href="#1-clone-hoặc-download-project">1. Clone hoặc Download Project</a></li>
+        <li><a href="#2-cấu-trúc-project">2. Cấu trúc Project</a></li>
+        <li><a href="#3-cấu-hình-parameters">3. Cấu hình Parameters</a></li>
+        <li><a href="#4-cập-nhật-ami-id">4. Cập nhật AMI ID</a></li>
+      </ul>
+    </li>
+    <li><a href="#kiểm-tra-chuẩn-bị">Kiểm tra Chuẩn bị</a>
+      <ul>
+        <li><a href="#checklist">Checklist</a></li>
+        <li><a href="#validate-aws-credentials">Validate AWS Credentials</a></li>
+        <li><a href="#validate-cloudformation-template">Validate CloudFormation Template</a></li>
+      </ul>
+    </li>
+    <li><a href="#ước-tính-chi-phí">Ước tính Chi phí</a></li>
+    <li><a href="#tiếp-theo">Tiếp theo</a></li>
   </ul>
 </nav></div>
 </div>
@@ -1033,7 +1047,7 @@
           
             <h1>
               
-              Blog 6
+              Chuẩn bị &amp; Yêu cầu
             </h1>
           
 
@@ -1041,136 +1055,288 @@
 
 
 
-	
-<div
-  class="notices warning"
-  
->
-  <p>⚠️ <strong>Lưu ý:</strong> Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng <strong>không sao chép nguyên văn</strong> cho bài báo cáo của bạn kể cả warning này.</p>
-
-</div>
-
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
-<hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p></blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
+	<h2 id="yêu-cầu-hệ-thống">Yêu cầu Hệ thống</h2>
+<h3 id="1-tài-khoản-aws">1. Tài khoản AWS</h3>
 <ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
-</ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
+<li>Tài khoản AWS đang hoạt động</li>
+<li>Quyền Administrator hoặc các quyền sau:
 <ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
+<li>CloudFormation: Full access</li>
+<li>EC2: Full access</li>
+<li>VPC: Full access</li>
+<li>RDS: Full access</li>
+<li>S3: Full access</li>
+<li>CloudFront: Full access</li>
+<li>IAM: Create roles and policies</li>
+<li>CloudWatch: Full access</li>
 </ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
+</li>
+</ul>
+<h3 id="2-aws-cli">2. AWS CLI</h3>
+<p>Cài đặt và cấu hình AWS CLI:</p>
+<p><strong>Windows:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Download và cài đặt từ: https://aws.amazon.com/cli/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hoặc sử dụng chocolatey:</span>
+</span></span><span style="display:flex;"><span>choco install awscli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra cài đặt</span>
+</span></span><span style="display:flex;"><span>aws --version
+</span></span></code></pre></div><p><strong>Linux/Mac:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Sử dụng pip</span>
+</span></span><span style="display:flex;"><span>pip install awscli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hoặc sử dụng package manager</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ubuntu/Debian</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install awscli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>brew install awscli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra cài đặt</span>
+</span></span><span style="display:flex;"><span>aws --version
+</span></span></code></pre></div><p><strong>Cấu hình AWS CLI:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws configure
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AWS Access Key ID: &lt;your-access-key&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AWS Secret Access Key: &lt;your-secret-key&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default region name: ap-southeast-1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default output format: json</span>
+</span></span></code></pre></div><h3 id="3-ec2-key-pair">3. EC2 Key Pair</h3>
+<p>Tạo EC2 Key Pair để SSH vào instances:</p>
+<p><strong>Qua AWS Console:</strong></p>
+<ol>
+<li>Mở <a href="https://console.aws.amazon.com/ec2/">EC2 Console</a></li>
+<li>Chọn region <strong>ap-southeast-1</strong> (Singapore)</li>
+<li>Vào <strong>Network &amp; Security</strong> → <strong>Key Pairs</strong></li>
+<li>Click <strong>Create key pair</strong></li>
+<li>Nhập tên: <code>workshop-aws-key</code></li>
+<li>Key pair type: <strong>RSA</strong></li>
+<li>Private key file format: <strong>.pem</strong> (Linux/Mac) hoặc <strong>.ppk</strong> (Windows/PuTTY)</li>
+<li>Click <strong>Create key pair</strong></li>
+<li>Lưu file <code>.pem</code> vào thư mục an toàn</li>
+</ol>
+<p><strong>Qua AWS CLI:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Tạo key pair</span>
+</span></span><span style="display:flex;"><span>aws ec2 create-key-pair <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --key-name workshop-aws-key <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;KeyMaterial&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output text <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 &gt; workshop-aws-key.pem
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set permissions (Linux/Mac only)</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">400</span> workshop-aws-key.pem
+</span></span></code></pre></div><h3 id="4-development-tools">4. Development Tools</h3>
+<p><strong>Java Development Kit (JDK) 17:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Windows (chocolatey)</span>
+</span></span><span style="display:flex;"><span>choco install openjdk17
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Linux (Ubuntu/Debian)</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install openjdk-17-jdk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>brew install openjdk@17
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra</span>
+</span></span><span style="display:flex;"><span>java -version
+</span></span></code></pre></div><p><strong>Maven:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>choco install maven
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install maven
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>brew install maven
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra</span>
+</span></span><span style="display:flex;"><span>mvn -version
+</span></span></code></pre></div><p><strong>Node.js và npm:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>choco install nodejs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+</span></span><span style="display:flex;"><span>sudo apt-get install -y nodejs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MacOS</span>
+</span></span><span style="display:flex;"><span>brew install node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra</span>
+</span></span><span style="display:flex;"><span>node --version
+</span></span><span style="display:flex;"><span>npm --version
+</span></span></code></pre></div><h2 id="chuẩn-bị-project-files">Chuẩn bị Project Files</h2>
+<h3 id="1-clone-hoặc-download-project">1. Clone hoặc Download Project</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Nếu có Git repository</span>
+</span></span><span style="display:flex;"><span>git clone &lt;your-repo-url&gt;
+</span></span><span style="display:flex;"><span>cd aws_project
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hoặc download và extract ZIP file</span>
+</span></span></code></pre></div><h3 id="2-cấu-trúc-project">2. Cấu trúc Project</h3>
+<pre tabindex="0"><code>aws_project/
+├── aws/
+│   ├── infrastructure.yaml      # CloudFormation template chính
+│   ├── cicd-pipeline.yaml       # CI/CD pipeline (optional)
+│   ├── parameters.json          # Parameters cho stack
+│   ├── deploy.bat              # Deploy script (Windows)
+│   ├── deploy.sh               # Deploy script (Linux/Mac)
+│   └── README.md               # Hướng dẫn chi tiết
+├── BE/
+│   └── workshop_BE/
+│       ├── src/                # Backend source code
+│       ├── pom.xml             # Maven configuration
+│       └── README.md
+└── FE/
+    ├── src/                    # Frontend source code
+    ├── package.json            # npm dependencies
+    └── README.md
+</code></pre><h3 id="3-cấu-hình-parameters">3. Cấu hình Parameters</h3>
+<p>Mở file <code>aws/parameters.json</code> và cập nhật các giá trị:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;ProjectName&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;workshop-aws&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;Environment&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;dev&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;KeyPairName&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;workshop-aws-key&#34;</span>  <span style="color:#75715e">// ⚠️ Thay bằng tên key pair của bạn
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;DBPassword&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;YourStrongPassword123!&#34;</span>  <span style="color:#75715e">// ⚠️ Đổi mật khẩu mạnh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;InstanceType&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;t3.micro&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterKey&#34;</span>: <span style="color:#e6db74">&#34;DBInstanceClass&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ParameterValue&#34;</span>: <span style="color:#e6db74">&#34;db.t3.micro&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p><strong>Lưu ý quan trọng:</strong></p>
+<ul>
+<li><code>KeyPairName</code>: Phải khớp với tên key pair đã tạo</li>
+<li><code>DBPassword</code>: Tối thiểu 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt</li>
+<li>Không commit file này với mật khẩu thật vào Git</li>
+</ul>
+<h3 id="4-cập-nhật-ami-id">4. Cập nhật AMI ID</h3>
+<p>CloudFormation template sử dụng AMI ID mặc định. Bạn cần cập nhật cho region của mình:</p>
+<p><strong>Tìm AMI ID:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Tìm Amazon Linux 2023 AMI cho region ap-southeast-1</span>
+</span></span><span style="display:flex;"><span>aws ec2 describe-images <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --owners amazon <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --filters <span style="color:#e6db74">&#34;Name=name,Values=al2023-ami-*-x86_64&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --query <span style="color:#e6db74">&#39;Images | sort_by(@, &amp;CreationDate) | [-1].[ImageId,Name,CreationDate]&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --output table
+</span></span></code></pre></div><p><strong>Cập nhật trong <code>infrastructure.yaml</code>:</strong></p>
+<p>Tìm dòng ~530:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">LaunchTemplate</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">LaunchTemplateData</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ImageId</span>: <span style="color:#ae81ff">ami-0c55b159cbfafe1f0 </span> <span style="color:#75715e"># ⚠️ Thay bằng AMI ID của bạn</span>
+</span></span></code></pre></div><h2 id="kiểm-tra-chuẩn-bị">Kiểm tra Chuẩn bị</h2>
+<h3 id="checklist">Checklist</h3>
+<p>Đảm bảo bạn đã hoàn thành tất cả các bước sau:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Tài khoản AWS đã được cấu hình</li>
+<li><input disabled="" type="checkbox"> AWS CLI đã cài đặt và cấu hình (<code>aws configure</code>)</li>
+<li><input disabled="" type="checkbox"> EC2 Key Pair đã được tạo</li>
+<li><input disabled="" type="checkbox"> Java 17 đã cài đặt</li>
+<li><input disabled="" type="checkbox"> Maven đã cài đặt</li>
+<li><input disabled="" type="checkbox"> Node.js và npm đã cài đặt</li>
+<li><input disabled="" type="checkbox"> Project files đã được download</li>
+<li><input disabled="" type="checkbox"> File <code>parameters.json</code> đã được cập nhật</li>
+<li><input disabled="" type="checkbox"> AMI ID đã được cập nhật trong <code>infrastructure.yaml</code></li>
+</ul>
+<h3 id="validate-aws-credentials">Validate AWS Credentials</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Kiểm tra AWS credentials</span>
+</span></span><span style="display:flex;"><span>aws sts get-caller-identity
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kết quả mong đợi:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># {</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     &#34;UserId&#34;: &#34;AIDAXXXXXXXXXXXXXXXXX&#34;,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     &#34;Account&#34;: &#34;123456789012&#34;,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     &#34;Arn&#34;: &#34;arn:aws:iam::123456789012:user/your-username&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># }</span>
+</span></span></code></pre></div><h3 id="validate-cloudformation-template">Validate CloudFormation Template</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd aws
+</span></span><span style="display:flex;"><span>aws cloudformation validate-template <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --template-body file://infrastructure.yaml <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --region ap-southeast-1
+</span></span></code></pre></div><p>Nếu thành công, bạn sẽ thấy output với thông tin về template parameters và outputs.</p>
+<h2 id="ước-tính-chi-phí">Ước tính Chi phí</h2>
+<p>Trước khi triển khai, hãy hiểu rõ chi phí:</p>
 <table>
   <thead>
       <tr>
-          <th>Phạm vi giao tiếp</th>
-          <th>Các công nghệ / mô hình cần xem xét</th>
+          <th>Dịch vụ</th>
+          <th>Instance Type</th>
+          <th>Chi phí/tháng (USD)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Trong một microservice</td>
-          <td>Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
+          <td>EC2</td>
+          <td>t3.nano</td>
+          <td>$3.50</td>
       </tr>
       <tr>
-          <td>Giữa các microservices trong một dịch vụ</td>
-          <td>AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
+          <td>RDS MySQL</td>
+          <td>db.t3.micro</td>
+          <td>$2.80</td>
       </tr>
       <tr>
-          <td>Giữa các dịch vụ</td>
-          <td>Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
+          <td>API Gateway</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>S3 + CloudFront</td>
+          <td>-</td>
+          <td>$0.80</td>
+      </tr>
+      <tr>
+          <td>Route 53</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>Cognito</td>
+          <td>-</td>
+          <td>$0.10</td>
+      </tr>
+      <tr>
+          <td>CloudWatch</td>
+          <td>-</td>
+          <td>$0.30</td>
+      </tr>
+      <tr>
+          <td>CI/CD (CodePipeline)</td>
+          <td>-</td>
+          <td>$0.40</td>
+      </tr>
+      <tr>
+          <td><strong>Tổng</strong></td>
+          <td></td>
+          <td><strong>$8.90</strong></td>
       </tr>
   </tbody>
 </table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
+<p><strong>Cho workshop (2-3 giờ):</strong> ~$0.50-1.00</p>
+<p><strong>Lưu ý:</strong></p>
 <ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
+<li>Chi phí trên áp dụng cho region ap-southeast-1</li>
+<li>Sử dụng AWS Free Tier nếu tài khoản đủ điều kiện</li>
+<li>NAT Gateway (~$32/tháng) có thể tắt để tiết kiệm chi phí</li>
 </ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p></blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-<ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
-<ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
-<ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
-</ol>
-</li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
-</ul>
-<hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+<h2 id="tiếp-theo">Tiếp theo</h2>
+<p>Sau khi hoàn thành tất cả các bước chuẩn bị, bạn đã sẵn sàng để:</p>
+<p>➡️ <a href="../5.3-deploy-infrastructure/">Triển khai Infrastructure với CloudFormation</a></p>
+
 
 
 
@@ -1489,7 +1655,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1504,9 +1669,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1540,7 +1702,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1556,9 +1717,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1611,6 +1769,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1625,6 +1784,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1642,6 +1804,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1657,6 +1820,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1877,10 +2043,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/3-blogstranslated/3.5-blog5/" title="Blog 5"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/5-workshop/5.1-workshop-overview/" title="Tổng quan Workshop"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../vi/3-blogstranslated/3.1-blog1/" title="Blog 1" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../vi/5-workshop/5.2-prerequiste/" title="Các bước chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1890,19 +2056,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765263028"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765263028"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765263028"></script>
-    <script src="../../../js/jquery.sticky.js?1765263028"></script>
-    <script src="../../../js/featherlight.min.js?1765263028"></script>
-    <script src="../../../js/highlight.pack.js?1765263028"></script>
+    <script src="../../../js/clipboard.min.js?1765263029"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765263029"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765263029"></script>
+    <script src="../../../js/jquery.sticky.js?1765263029"></script>
+    <script src="../../../js/featherlight.min.js?1765263029"></script>
+    <script src="../../../js/highlight.pack.js?1765263029"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765263028"></script>
-    <script src="../../../js/learn.js?1765263028"></script>
-    <script src="../../../js/hugo-learn.js?1765263028"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765263029"></script>
+    <script src="../../../js/learn.js?1765263029"></script>
+    <script src="../../../js/hugo-learn.js?1765263029"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765263028" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765263028"></script>
+    <link href="../../../mermaid/mermaid.css?1765263029" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765263029"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
