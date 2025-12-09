@@ -15,21 +15,21 @@
     <title>Đơn giản hóa mã hóa đa thuê bao với chiến lược khóa AWS KMS tiết kiệm chi phí :: Báo cáo thực tập</title>
 
     
-    <link href="../../../css/nucleus.css?1765201817" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1765201817" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1765201817" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1765201817" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1765201817" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1765201817" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1765201817" rel="stylesheet">
-    <link href="../../../css/theme.css?1765201817" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1765201817" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1765247309" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1765247309" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1765247309" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1765247309" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1765247309" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1765247309" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1765247309" rel="stylesheet">
+    <link href="../../../css/theme.css?1765247309" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1765247309" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1765201817" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1765247309" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1765201817"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1765247309"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1765201817"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1765201817"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1765247309"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1765247309"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1765201817"></script>
+<script type="text/javascript" src="../../../js/search.js?1765247309"></script>
  
   </div>
 
@@ -1032,16 +1032,7 @@
 
 
 
-	
-<div
-  class="notices info"
-  
->
-  <p>Bài viết này hướng dẫn cách tối ưu hoá quản lý khóa mã hóa AWS KMS trong môi trường SaaS đa thuê bao, giảm chi phí và độ phức tạp hệ thống.</p>
-
-</div>
-
-<h2 id="giới-thiệu">Giới thiệu</h2>
+	<h2 id="giới-thiệu">Giới thiệu</h2>
 <p>Các tổ chức phải đối mặt diverse challenges when it comes to managing encryption keys. Mặc dù một số kịch bản yêu cầu sự tách biệt nghiêm ngặt, nhưng có những trường hợp sử dụng thiết thực mà phương pháp tập trung có thể hợp lý hóa hoạt động và giảm độ phức tạp. Trong bài viết này, chúng tôi tập trung vào kịch bản nhà cung cấp phần mềm dưới dạng dịch vụ (SaaS), nhưng các nguyên tắc chúng tôi thảo luận có thể được áp dụng bởi các tổ chức lớn đang đối mặt với những thách thức quản lý quan trọng tương tự.</p>
 <p>Việc quản lý mã hóa trên một kiến ​​trúc đa thuê bao, đa dịch vụ đặt ra một thách thức đáng kể. Nhiều tổ chức đang phải vật lộn với sự phức tạp và chi phí liên quan đến việc cung cấp các dịch vụ riêng biệt AWS Key Management Service (AWS KMS) customer managed keys cho từng đối tượng thuê bao và dịch vụ. Cách tiếp cận này, mặc dù an toàn, nhưng thường dẫn đến chi phí vận hành tăng cao và chi phí sử dụng AWS KMS tăng theo thời gian.</p>
 <p>Nhưng nếu có cách hiệu quả hơn thì sao?</p>
@@ -1963,19 +1954,19 @@ response = kms.encrypt(
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1765201817"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1765201817"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765201817"></script>
-    <script src="../../../js/jquery.sticky.js?1765201817"></script>
-    <script src="../../../js/featherlight.min.js?1765201817"></script>
-    <script src="../../../js/highlight.pack.js?1765201817"></script>
+    <script src="../../../js/clipboard.min.js?1765247309"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1765247309"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1765247309"></script>
+    <script src="../../../js/jquery.sticky.js?1765247309"></script>
+    <script src="../../../js/featherlight.min.js?1765247309"></script>
+    <script src="../../../js/highlight.pack.js?1765247309"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1765201817"></script>
-    <script src="../../../js/learn.js?1765201817"></script>
-    <script src="../../../js/hugo-learn.js?1765201817"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1765247309"></script>
+    <script src="../../../js/learn.js?1765247309"></script>
+    <script src="../../../js/hugo-learn.js?1765247309"></script>
 
-    <link href="../../../mermaid/mermaid.css?1765201817" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1765201817"></script>
+    <link href="../../../mermaid/mermaid.css?1765247309" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1765247309"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
