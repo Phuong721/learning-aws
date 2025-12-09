@@ -6,12 +6,6 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
->Here, you can freely share your personal thoughts and feedback about your experience during the First Cloud Journey program, helping the FCJ team improve any areas that may need enhancement.
-
 ### General Feedback
 
 **1. Working Environment**  
