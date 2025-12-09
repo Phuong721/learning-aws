@@ -15,21 +15,21 @@
     <title>Workshop :: Báo cáo thực tập</title>
 
     
-    <link href="../../css/nucleus.css?1765263389" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1765263389" rel="stylesheet">
-    <link href="../../css/hybrid.css?1765263389" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1765263389" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1765263389" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1765263389" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1765263389" rel="stylesheet">
-    <link href="../../css/theme.css?1765263389" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1765263389" rel="stylesheet">
+    <link href="../../css/nucleus.css?1765263469" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1765263469" rel="stylesheet">
+    <link href="../../css/hybrid.css?1765263469" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1765263469" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1765263469" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1765263469" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1765263469" rel="stylesheet">
+    <link href="../../css/theme.css?1765263469" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1765263469" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1765263389" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1765263469" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1765263389"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1765263469"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1765263389"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1765263389"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1765263469"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1765263469"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1765263389"></script>
+<script type="text/javascript" src="../../js/search.js?1765263469"></script>
  
   </div>
 
@@ -949,32 +949,131 @@
 
 
 
-	
-<div
-  class="notices warning"
-  
->
-  <p>⚠️ <strong>Lưu ý:</strong> Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng <strong>không sao chép nguyên văn</strong> cho bài báo cáo của bạn kể cả warning này.</p>
-
-</div>
-
-<h1 id="đảm-bảo-truy-cập-hybrid-an-toàn-đến-s3-bằng-cách-sử-dụng-vpc-endpoint">Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint</h1>
+	<h1 id="triển-khai-ứng-dụng-phân-tích-dna-trên-aws">Triển khai Ứng dụng Phân tích DNA trên AWS</h1>
 <h4 id="tổng-quan">Tổng quan</h4>
-<p><strong>AWS PrivateLink</strong> cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.</p>
-<p>Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.</p>
-<p>Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).</p>
+<p>Trong workshop này, bạn sẽ học cách triển khai một ứng dụng phân tích DNA full-stack sẵn sàng cho production trên AWS sử dụng Infrastructure as Code (IaC) với CloudFormation. Ứng dụng bao gồm frontend React, backend Spring Boot, và cơ sở dữ liệu MySQL, tất cả được triển khai theo các best practices của AWS về bảo mật, khả năng mở rộng và tối ưu chi phí.</p>
+<p><strong>Các dịch vụ AWS được sử dụng:</strong></p>
 <ul>
-<li><strong>Gateway</strong> - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)</li>
-<li><strong>Interface</strong> - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.</li>
+<li><strong>VPC &amp; Networking</strong>: VPC, Subnets, Internet Gateway, NAT Gateway, VPC Endpoints</li>
+<li><strong>Compute</strong>: EC2 Auto Scaling Group, Application Load Balancer</li>
+<li><strong>Storage &amp; CDN</strong>: S3 để lưu trữ frontend, CloudFront để phân phối nội dung toàn cầu</li>
+<li><strong>Database</strong>: RDS MySQL để lưu trữ dữ liệu với sao lưu tự động</li>
+<li><strong>Security</strong>: Security Groups, IAM Roles, AWS Cognito cho xác thực người dùng</li>
+<li><strong>Monitoring</strong>: CloudWatch Logs, Alarms, và thông báo SNS</li>
+<li><strong>API Management</strong>: API Gateway để expose backend API một cách an toàn</li>
+</ul>
+<h4 id="bạn-sẽ-học-được-gì">Bạn sẽ học được gì</h4>
+<ol>
+<li><strong>Infrastructure as Code</strong>: Triển khai toàn bộ hạ tầng AWS bằng CloudFormation templates</li>
+<li><strong>Thiết kế VPC</strong>: Tạo VPC an toàn với public và private subnets trên nhiều availability zones</li>
+<li><strong>Tối ưu chi phí</strong>: Sử dụng VPC Endpoints để giảm chi phí NAT Gateway (~$20-25/tháng)</li>
+<li><strong>Auto Scaling</strong>: Cấu hình EC2 Auto Scaling dựa trên CPU metrics để đảm bảo high availability</li>
+<li><strong>Quản lý Database</strong>: Triển khai và cấu hình RDS MySQL với các best practices về bảo mật</li>
+<li><strong>Triển khai Frontend</strong>: Host static React website trên S3 với CloudFront CDN</li>
+<li><strong>Triển khai Backend</strong>: Deploy ứng dụng Spring Boot trên EC2 với systemd service</li>
+<li><strong>Best Practices về Security</strong>: Triển khai security groups, IAM roles, và Cognito authentication</li>
+<li><strong>Monitoring &amp; Logging</strong>: Thiết lập CloudWatch để giám sát và cảnh báo ứng dụng</li>
+</ol>
+<h4 id="sơ-đồ-kiến-trúc">Sơ đồ Kiến trúc</h4>
+<pre tabindex="0"><code>Internet
+    │
+    ├─── CloudFront (CDN) ──&gt; S3 (Frontend)
+    │
+    └─── API Gateway ──&gt; ALB ──&gt; EC2 (Backend) ──&gt; RDS MySQL
+                                  │
+                                  └─── VPC Endpoints (S3, CloudWatch, SSM)
+</code></pre><h4 id="yêu-cầu-trước-khi-bắt-đầu">Yêu cầu trước khi bắt đầu</h4>
+<ul>
+<li>Tài khoản AWS với quyền phù hợp (Administrator hoặc tương đương)</li>
+<li>AWS CLI đã cài đặt và cấu hình (<code>aws configure</code>)</li>
+<li>EC2 Key Pair đã được tạo trong AWS region của bạn (ap-southeast-1)</li>
+<li>Hiểu biết cơ bản về các dịch vụ AWS và command line interface</li>
+<li>Quen thuộc với các khái niệm CloudFormation</li>
+</ul>
+<h4 id="chi-phí-ước-tính">Chi phí ước tính</h4>
+<p>Chạy hạ tầng workshop này sẽ tốn khoảng <strong>$8.90/tháng</strong> (nếu chạy 24/7):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Dịch vụ</th>
+          <th>Instance Type</th>
+          <th>Chi phí/tháng (USD)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EC2</td>
+          <td>t3.nano</td>
+          <td>$3.50</td>
+      </tr>
+      <tr>
+          <td>RDS MySQL</td>
+          <td>db.t3.micro</td>
+          <td>$2.80</td>
+      </tr>
+      <tr>
+          <td>API Gateway</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>S3 + CloudFront</td>
+          <td>-</td>
+          <td>$0.80</td>
+      </tr>
+      <tr>
+          <td>Route 53</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>Cognito</td>
+          <td>-</td>
+          <td>$0.10</td>
+      </tr>
+      <tr>
+          <td>CloudWatch</td>
+          <td>-</td>
+          <td>$0.30</td>
+      </tr>
+      <tr>
+          <td>CI/CD (CodePipeline)</td>
+          <td>-</td>
+          <td>$0.40</td>
+      </tr>
+      <tr>
+          <td><strong>Tổng</strong></td>
+          <td></td>
+          <td><strong>$8.90</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Cho workshop (2-3 giờ):</strong> ~$0.50-1.00</p>
+<p><strong>💡 Mẹo tiết kiệm chi phí:</strong></p>
+<ul>
+<li>Xóa stack ngay sau khi hoàn thành workshop</li>
+<li>Sử dụng Free Tier cho các dịch vụ đủ điều kiện</li>
+<li>Tắt NAT Gateway khi không sử dụng (tiết kiệm ~$32/tháng)</li>
+<li>Sử dụng VPC Endpoints thay vì NAT Gateway cho production</li>
+</ul>
+<h4 id="thời-gian-workshop">Thời gian Workshop</h4>
+<ul>
+<li><strong>Tổng thời gian</strong>: 2-3 giờ</li>
+<li><strong>Triển khai Infrastructure</strong>: 15-20 phút</li>
+<li><strong>Cấu hình Application</strong>: 30-45 phút</li>
+<li><strong>Testing &amp; Validation</strong>: 15-30 phút</li>
+<li><strong>Cleanup</strong>: 5-10 phút</li>
 </ul>
 <h4 id="nội-dung">Nội dung</h4>
 <ol>
-<li><a href="../../vi/5-workshop/5.1-workshop-overview/">Tổng quan về workshop</a></li>
-<li><a href="../../vi/5-workshop/5.2-prerequiste/">Chuẩn bị</a></li>
-<li><a href="5.3-S3-vpc/">Truy cập đến S3 từ VPC</a></li>
-<li><a href="5.4-S3-onprem/">Truy cập đến S3 từ TTDL On-premises</a></li>
-<li><a href="5.5-Policy/">VPC Endpoint Policies (làm thêm)</a></li>
-<li><a href="5.6-Cleanup/">Dọn dẹp tài nguyên</a></li>
+<li><a href="../../vi/5-workshop/5.1-workshop-overview/">Tổng quan Workshop</a></li>
+<li><a href="../../vi/5-workshop/5.2-prerequisite/">Chuẩn bị &amp; Yêu cầu</a></li>
+<li><a href="../../vi/5-workshop/5.3-deploy-infrastructure/">Triển khai Infrastructure với CloudFormation</a></li>
+<li><a href="../../vi/5-workshop/5.4-deploy-backend/">Cấu hình và Triển khai Backend Application</a></li>
+<li><a href="../../vi/5-workshop/5.5-deploy-frontend/">Triển khai Frontend lên S3 và CloudFront</a></li>
+<li><a href="../../vi/5-workshop/5.6-testing/">Kiểm tra và Xác thực</a></li>
+<li><a href="../../vi/5-workshop/5.7-monitoring/">Giám sát và Xử lý sự cố</a></li>
+<li><a href="../../vi/5-workshop/5.8-cleanup/">Dọn dẹp tài nguyên</a></li>
 </ol>
 
 
@@ -1624,19 +1723,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1765263389"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1765263389"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1765263389"></script>
-    <script src="../../js/jquery.sticky.js?1765263389"></script>
-    <script src="../../js/featherlight.min.js?1765263389"></script>
-    <script src="../../js/highlight.pack.js?1765263389"></script>
+    <script src="../../js/clipboard.min.js?1765263469"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1765263469"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1765263469"></script>
+    <script src="../../js/jquery.sticky.js?1765263469"></script>
+    <script src="../../js/featherlight.min.js?1765263469"></script>
+    <script src="../../js/highlight.pack.js?1765263469"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1765263389"></script>
-    <script src="../../js/learn.js?1765263389"></script>
-    <script src="../../js/hugo-learn.js?1765263389"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1765263469"></script>
+    <script src="../../js/learn.js?1765263469"></script>
+    <script src="../../js/hugo-learn.js?1765263469"></script>
 
-    <link href="../../mermaid/mermaid.css?1765263389" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1765263389"></script>
+    <link href="../../mermaid/mermaid.css?1765263469" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1765263469"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

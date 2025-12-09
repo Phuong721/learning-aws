@@ -15,21 +15,21 @@
     <title>Workshop :: Internship Report</title>
 
     
-    <link href="../css/nucleus.css?1765263389" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1765263389" rel="stylesheet">
-    <link href="../css/hybrid.css?1765263389" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1765263389" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1765263389" rel="stylesheet">
-    <link href="../css/auto-complete.css?1765263389" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1765263389" rel="stylesheet">
-    <link href="../css/theme.css?1765263389" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1765263389" rel="stylesheet">
+    <link href="../css/nucleus.css?1765263469" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1765263469" rel="stylesheet">
+    <link href="../css/hybrid.css?1765263469" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1765263469" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1765263469" rel="stylesheet">
+    <link href="../css/auto-complete.css?1765263469" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1765263469" rel="stylesheet">
+    <link href="../css/theme.css?1765263469" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1765263469" rel="stylesheet">
     
-    <link href="../css/theme-workshop.css?1765263389" rel="stylesheet">
+    <link href="../css/theme-workshop.css?1765263469" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1765263389"></script>
+    <script src="../js/jquery-3.3.1.min.js?1765263469"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1765263389"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1765263389"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1765263469"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1765263469"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/phuong721.github.io\/learning-aws\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1765263389"></script>
+<script type="text/javascript" src="../js/search.js?1765263469"></script>
  
   </div>
 
@@ -949,32 +949,131 @@
 
 
 
-	
-<div
-  class="notices warning"
-  
->
-  <p>⚠️ <strong>Note:</strong> The information below is for reference purposes only. Please <strong>do not copy verbatim</strong> for your report, including this warning.</p>
-
-</div>
-
-<h1 id="secure-hybrid-access-to-s3-using-vpc-endpoints">Secure Hybrid Access to S3 using VPC Endpoints</h1>
+	<h1 id="deploy-dna-analysis-application-on-aws">Deploy DNA Analysis Application on AWS</h1>
 <h4 id="overview">Overview</h4>
-<p><strong>AWS PrivateLink</strong> provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.</p>
-<p>In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.</p>
-<p>You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location</p>
+<p>In this workshop, you will learn how to deploy a production-ready full-stack DNA Analysis application on AWS using Infrastructure as Code (IaC) with CloudFormation. The application consists of a React frontend, Spring Boot backend, and MySQL database, all deployed with AWS best practices for security, scalability, and cost optimization.</p>
+<p><strong>AWS Services Used:</strong></p>
 <ul>
-<li><strong>Gateway</strong> - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.</li>
-<li><strong>Interface</strong> - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.</li>
+<li><strong>VPC &amp; Networking</strong>: VPC, Subnets, Internet Gateway, NAT Gateway, VPC Endpoints</li>
+<li><strong>Compute</strong>: EC2 Auto Scaling Group, Application Load Balancer</li>
+<li><strong>Storage &amp; CDN</strong>: S3 for frontend hosting, CloudFront for global content delivery</li>
+<li><strong>Database</strong>: RDS MySQL for data persistence with automated backups</li>
+<li><strong>Security</strong>: Security Groups, IAM Roles, AWS Cognito for user authentication</li>
+<li><strong>Monitoring</strong>: CloudWatch Logs, Alarms, and SNS notifications</li>
+<li><strong>API Management</strong>: API Gateway for secure backend API exposure</li>
+</ul>
+<h4 id="what-you-will-learn">What You Will Learn</h4>
+<ol>
+<li><strong>Infrastructure as Code</strong>: Deploy complete AWS infrastructure using CloudFormation templates</li>
+<li><strong>VPC Design</strong>: Create a secure VPC with public and private subnets across multiple availability zones</li>
+<li><strong>Cost Optimization</strong>: Use VPC Endpoints to reduce NAT Gateway costs (~$20-25/month savings)</li>
+<li><strong>Auto Scaling</strong>: Configure EC2 Auto Scaling based on CPU metrics for high availability</li>
+<li><strong>Database Management</strong>: Deploy and configure RDS MySQL with security best practices</li>
+<li><strong>Frontend Deployment</strong>: Host static React website on S3 with CloudFront CDN</li>
+<li><strong>Backend Deployment</strong>: Deploy Spring Boot application on EC2 with systemd service</li>
+<li><strong>Security Best Practices</strong>: Implement security groups, IAM roles, and Cognito authentication</li>
+<li><strong>Monitoring &amp; Logging</strong>: Set up CloudWatch for application monitoring and alerting</li>
+</ol>
+<h4 id="architecture-diagram">Architecture Diagram</h4>
+<pre tabindex="0"><code>Internet
+    │
+    ├─── CloudFront (CDN) ──&gt; S3 (Frontend)
+    │
+    └─── API Gateway ──&gt; ALB ──&gt; EC2 (Backend) ──&gt; RDS MySQL
+                                  │
+                                  └─── VPC Endpoints (S3, CloudWatch, SSM)
+</code></pre><h4 id="prerequisites">Prerequisites</h4>
+<ul>
+<li>AWS Account with appropriate permissions (Administrator or equivalent)</li>
+<li>AWS CLI installed and configured (<code>aws configure</code>)</li>
+<li>EC2 Key Pair created in your AWS region (ap-southeast-1)</li>
+<li>Basic understanding of AWS services and command line interface</li>
+<li>Familiarity with CloudFormation concepts</li>
+</ul>
+<h4 id="estimated-cost">Estimated Cost</h4>
+<p>Running this workshop infrastructure will cost approximately <strong>$8.90/month</strong> (if running 24/7):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Instance Type</th>
+          <th>Cost/month (USD)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EC2</td>
+          <td>t3.nano</td>
+          <td>$3.50</td>
+      </tr>
+      <tr>
+          <td>RDS MySQL</td>
+          <td>db.t3.micro</td>
+          <td>$2.80</td>
+      </tr>
+      <tr>
+          <td>API Gateway</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>S3 + CloudFront</td>
+          <td>-</td>
+          <td>$0.80</td>
+      </tr>
+      <tr>
+          <td>Route 53</td>
+          <td>-</td>
+          <td>$0.50</td>
+      </tr>
+      <tr>
+          <td>Cognito</td>
+          <td>-</td>
+          <td>$0.10</td>
+      </tr>
+      <tr>
+          <td>CloudWatch</td>
+          <td>-</td>
+          <td>$0.30</td>
+      </tr>
+      <tr>
+          <td>CI/CD (CodePipeline)</td>
+          <td>-</td>
+          <td>$0.40</td>
+      </tr>
+      <tr>
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td><strong>$8.90</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>For workshop (2-3 hours):</strong> ~$0.50-1.00</p>
+<p><strong>💡 Cost Saving Tips:</strong></p>
+<ul>
+<li>Delete the stack immediately after workshop completion</li>
+<li>Use AWS Free Tier for eligible services</li>
+<li>Disable NAT Gateway when not in use (saves ~$32/month)</li>
+<li>Use VPC Endpoints instead of NAT Gateway for production</li>
+</ul>
+<h4 id="workshop-duration">Workshop Duration</h4>
+<ul>
+<li><strong>Total Time</strong>: 2-3 hours</li>
+<li><strong>Infrastructure Deployment</strong>: 15-20 minutes</li>
+<li><strong>Application Configuration</strong>: 30-45 minutes</li>
+<li><strong>Testing &amp; Validation</strong>: 15-30 minutes</li>
+<li><strong>Cleanup</strong>: 5-10 minutes</li>
 </ul>
 <h4 id="content">Content</h4>
 <ol>
-<li><a href="../5-workshop/5.1-workshop-overview/">Workshop overview</a></li>
-<li><a href="../5-workshop/5.2-prerequiste/">Prerequiste</a></li>
-<li><a href="5.3-S3-vpc/">Access S3 from VPC</a></li>
-<li><a href="5.4-S3-onprem/">Access S3 from On-premises</a></li>
-<li><a href="5.5-Policy/">VPC Endpoint Policies (Bonus)</a></li>
-<li><a href="5.6-Cleanup/">Clean up</a></li>
+<li><a href="../5-workshop/5.1-workshop-overview/">Workshop Overview</a></li>
+<li><a href="../5-workshop/5.2-prerequisite/">Prerequisites &amp; Preparation</a></li>
+<li><a href="../5-workshop/5.3-deploy-infrastructure/">Deploy Infrastructure with CloudFormation</a></li>
+<li><a href="../5-workshop/5.4-deploy-backend/">Configure and Deploy Backend Application</a></li>
+<li><a href="../5-workshop/5.5-deploy-frontend/">Deploy Frontend to S3 and CloudFront</a></li>
+<li><a href="../5-workshop/5.6-testing/">Testing and Validation</a></li>
+<li><a href="../5-workshop/5.7-monitoring/">Monitoring and Troubleshooting</a></li>
+<li><a href="../5-workshop/5.8-cleanup/">Clean Up Resources</a></li>
 </ol>
 
 
@@ -1624,19 +1723,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1765263389"></script>
-    <script src="../js/perfect-scrollbar.min.js?1765263389"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1765263389"></script>
-    <script src="../js/jquery.sticky.js?1765263389"></script>
-    <script src="../js/featherlight.min.js?1765263389"></script>
-    <script src="../js/highlight.pack.js?1765263389"></script>
+    <script src="../js/clipboard.min.js?1765263469"></script>
+    <script src="../js/perfect-scrollbar.min.js?1765263469"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1765263469"></script>
+    <script src="../js/jquery.sticky.js?1765263469"></script>
+    <script src="../js/featherlight.min.js?1765263469"></script>
+    <script src="../js/highlight.pack.js?1765263469"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1765263389"></script>
-    <script src="../js/learn.js?1765263389"></script>
-    <script src="../js/hugo-learn.js?1765263389"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1765263469"></script>
+    <script src="../js/learn.js?1765263469"></script>
+    <script src="../js/hugo-learn.js?1765263469"></script>
 
-    <link href="../mermaid/mermaid.css?1765263389" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1765263389"></script>
+    <link href="../mermaid/mermaid.css?1765263469" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1765263469"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
